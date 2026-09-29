@@ -1,18 +1,18 @@
 {
   "expo": {
-    "name": "Umsteiger",
-    "slug": "umsteiger",
-    "scheme": "umsteiger",
+    "name": "Durch Deutschland",
+    "slug": "durch-deutschland",
+    "scheme": "durchdeutschland",
     "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.example.umsteiger"
+      "bundleIdentifier": "com.example.durchdeutschland"
     },
     "android": {
-      "package": "com.example.umsteiger",
+      "package": "com.example.durchdeutschland",
       "adaptiveIcon": {
         "backgroundColor": "#0A5CA8",
         "foregroundImage": "./assets/android-icon-foreground.png",

@@ -229,6 +229,33 @@ describe('reference data (imported operator master list)', () => {
   });
 });
 
+describe('service fee', () => {
+  it('lists the active fee schedule', async () => {
+    const res = await t.http().get('/v1/pricing/service-fees').expect(200);
+    expect(res.body.map((r: { category: string; amountMinor: number }) => [r.category, r.amountMinor])).toEqual([
+      ['LONG_DISTANCE_RAIL', 100],
+      ['INTERCITY_REGIONAL', 50],
+      ['LOCAL_AND_BUS', 10],
+    ]);
+  });
+
+  it('quotes a multi-ticket journey', async () => {
+    const res = await t
+      .http()
+      .post('/v1/pricing/service-fee/quote')
+      .send({
+        tickets: [
+          { modes: ['U_BAHN'], fareMinor: 380 },
+          { modes: ['HIGH_SPEED_RAIL'], fareMinor: 7990 },
+          { modes: ['REGIONAL_RAIL', 'BUS'], fareMinor: 1250 },
+        ],
+      })
+      .expect(200);
+    expect(res.body.total).toEqual({ amountMinor: 160, currency: 'EUR' });
+    await t.http().post('/v1/pricing/service-fee/quote').send({ tickets: [{ modes: ['ROCKET'], fareMinor: 1 }] }).expect(400);
+  });
+});
+
 describe('legal documents', () => {
   it('serves versioned documents per language with German fallback', async () => {
     const ar = await t.http().get('/v1/legal/impressum?locale=ar').expect(200);

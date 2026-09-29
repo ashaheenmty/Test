@@ -1,8 +1,10 @@
-# Umsteiger — multi-operator transport booking (agent model)
+# Durch Deutschland — multi-operator transport booking (agent model)
 
 Consumer app (iOS/Android + web) and back-office for searching, booking and managing public-transport tickets in Germany and Europe. The company acts as a **ticket agent (Vermittler)**: tickets are sold in the name and on behalf of the operators, never resold.
 
-> "Umsteiger" is a **placeholder brand**. Company details in the Impressum and invoices are placeholders too (see [docs/LEGAL_TAX_CHECKLIST.md](docs/LEGAL_TAX_CHECKLIST.md)).
+> Brand: **Durch Deutschland**. The legal entity details (legal form, address, register, VAT ID) in the Impressum and invoices are still placeholders (see [docs/LEGAL_TAX_CHECKLIST.md](docs/LEGAL_TAX_CHECKLIST.md)).
+>
+> This is an **internal development version**: no real operator, timetable or login-provider accounts are connected; everything external is mocked.
 
 **Status: phase 1 (foundation) complete.** See [docs/BRIEF.md](docs/BRIEF.md) for the full brief and phase plan, and [docs/OPEN_DECISIONS.md](docs/OPEN_DECISIONS.md) for the questions waiting on you.
 
@@ -105,6 +107,18 @@ What is covered in phase 1:
   - Web tokens live only in httpOnly cookies; mobile tokens in the Keychain / Keystore.
 - **Personal data:** date of birth and discount-card numbers are encrypted in the application with AES-256-GCM. Each value is bound to its row, and the key ID allows key rotation.
 - **i18n:** strings, emails and legal pages exist per language. Arabic uses right-to-left layout: the web uses CSS logical properties, and React Native uses `I18nManager` plus a reload. Arabic dates use Latin digits (open decision).
+
+## Service fee
+
+Charged once per ticket (contract of carriage), gross incl. VAT, by the highest transport tier on that ticket:
+
+| Tier | Transport modes | Fee |
+|---|---|---|
+| Long-distance trains | ICE/IC/EC, FlixTrain, night and car trains | €1.00 |
+| Between cities | Regional trains (RE/RB/IRE), rack and heritage railways | €0.50 |
+| Buses and city transport | Bus and long-distance coach, S-Bahn, U-Bahn, tram, Stadtbahn, ferry | €0.10 |
+
+The amounts are `ServiceFeeRule` rows (seeded, editable later in the back-office). The mode → tier mapping is in `packages/domain/src/service-fee.ts`. `GET /v1/pricing/service-fees` lists the schedule and `POST /v1/pricing/service-fee/quote` prices a set of tickets.
 
 ## Operator master list
 

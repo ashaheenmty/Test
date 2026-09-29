@@ -8,7 +8,7 @@ import { colors, type ColorTokens } from '@tb/ui';
 import { api, hasSession } from './api';
 import { storage } from './storage';
 
-export const BRAND = process.env.EXPO_PUBLIC_BRAND_NAME ?? 'Umsteiger';
+export const BRAND = process.env.EXPO_PUBLIC_BRAND_NAME ?? 'Durch Deutschland';
 const LOCALE_KEY = 'tb.locale';
 const THEME_KEY = 'tb.theme';
 

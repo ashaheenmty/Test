@@ -257,8 +257,18 @@ enum AdminRole {
 enum ServiceFeeKind {
   ZERO
   FIXED_PER_BOOKING
+  FIXED_PER_TICKET
   FIXED_PER_LEG
   PERCENT
+
+  @@schema("app")
+}
+
+/// Fee tier of a ticket, derived from the transport modes it covers (highest tier wins).
+enum ServiceFeeCategory {
+  LONG_DISTANCE_RAIL
+  INTERCITY_REGIONAL
+  LOCAL_AND_BUS
 
   @@schema("app")
 }
@@ -924,6 +934,8 @@ model ServiceFeeRule {
   id             String         @id @default(cuid())
   name           String
   kind           ServiceFeeKind
+  /// Applies only to tickets of this tier (null = any tier).
+  category       ServiceFeeCategory?
   amountMinor    Int?
   percentBp      Int?
   minMinor       Int?

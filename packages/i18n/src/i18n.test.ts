@@ -62,8 +62,8 @@ describe('runtime', () => {
   });
 
   it('injects default variables (brand name)', () => {
-    const t = createI18n('de', { defaultVariables: { brand: 'Umsteiger' } }).t;
-    expect(t('onboarding.welcome')).toBe('Willkommen bei Umsteiger');
+    const t = createI18n('de', { defaultVariables: { brand: 'Durch Deutschland' } }).t;
+    expect(t('onboarding.welcome')).toBe('Willkommen bei Durch Deutschland');
   });
 
   it('applies overrides from the admin translation editor', () => {

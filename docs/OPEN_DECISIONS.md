@@ -2,19 +2,30 @@
 
 Items marked **before phase 2** block or shape the next phase. The legal/tax items are also in [LEGAL_TAX_CHECKLIST.md](LEGAL_TAX_CHECKLIST.md).
 
-## Product & brand
+## Decided (2026-10)
 
-1. **Brand name and company details.** Everything uses the placeholder "Umsteiger" and a placeholder GmbH. They are configurable via `NEXT_PUBLIC_BRAND_NAME`, `EXPO_PUBLIC_BRAND_NAME` and `SETTINGS_JSON`.
-2. **German form of address.** The UI uses informal "du" and gender-inclusive "Reisende*r". Alternatives are formal "Sie" and neutral wording.
-3. **Service fee.** The seed has an active **zero** fee and an inactive example of €1.99 per booking. Choose the model: fixed, percentage, per leg, or none.
+- **Brand:** "Durch Deutschland".
+- **German form of address:** formal "Sie".
+- **Service fee:** €1.00 long-distance trains, €0.50 between cities, €0.10 buses and city transport (see README → Service fee).
+- **Timetable data and Apple/Google login:** not needed yet. This is an internal development version, so phase 2 uses bundled sample station and timetable data behind the same adapter interfaces.
+
+## Product & brand (still open)
+
+1. **Company legal details.** Legal form, address, commercial register, VAT ID and managing directors are still placeholders in the Impressum and invoices.
+2. **Service fee details I had to assume:**
+   - The fee is charged **per ticket**, not per passenger and not per leg. A journey sold as three separate tickets (U-Bahn + ICE + U-Bahn) costs €0.10 + €1.00 + €0.10 = €1.20.
+   - **Long-distance coaches** (FlixBus) count as "buses" at €0.10, not "between cities" at €0.50.
+   - **S-Bahn** counts as city transport (€0.10); regional trains (RE/RB) count as "between cities" (€0.50).
+   - The amounts include German VAT (19 %), so the net fee is €0.84 / €0.42 / €0.08.
+3. **Gender-inclusive forms** in German ("Reisende*r") — keep, or switch to neutral wording?
 4. **Arabic digits.** Dates and numbers use Latin digits, matching station displays. Switch to Arabic-Indic digits?
 5. **Back-office language.** It is English in phase 1. Is German needed?
 
 ## Technical (before phase 2)
 
-6. **Station and timetable data source for phase 2.** My plan is DELFI's nationwide GTFS feed (via Mobilithek) plus DB's station data for multilingual names. Both are open data, with no cost, but they need a Mobilithek account. Is it OK to register and use them?
+6. **Station and timetable data (later).** For production, DELFI's nationwide GTFS feed (via Mobilithek) plus DB station data. Both are free open data but need a Mobilithek account. Deferred: phase 2 uses bundled sample data.
 7. **Mobile navigation.** Phase 1 uses a minimal tab shell. I plan to introduce `expo-router` in phase 2.
-8. **Sign in with Apple / Google.** The API side is done and tested with mock tokens. Real use needs an Apple Developer account (Services ID + key) and a Google Cloud OAuth client ID. That means a paid Apple Developer membership. Should I proceed when you have them?
+8. **Sign in with Apple / Google (later stage).** The API side is done and tested with mock tokens. Real use needs an Apple Developer account (paid) and a Google Cloud OAuth client ID.
 9. **Hosting (EU).** Not needed yet. Candidates for later are a managed Postgres in Frankfurt (e.g. AWS RDS eu-central-1, Hetzner/IONOS managed DB) and a KMS for the field-encryption keys.
 10. **Versions.** I pinned stable majors I could validate in this environment: Prisma 6.19, NestJS 11, Next.js 15.5, TypeScript 5.9, Vitest 3. Newer majors exist (Prisma 8 RC, NestJS 12, Next 16, TS 7). The mobile app uses Expo SDK 57 as generated. Upgrading is a separate task when you want it.
 

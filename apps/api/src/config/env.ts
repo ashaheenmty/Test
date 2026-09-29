@@ -27,7 +27,7 @@ export const envSchema = z
     APP_WEB_URL: z.string().url().default('http://localhost:3000'),
     CORS_ORIGINS: list,
     SMTP_URL: z.string().optional(),
-    MAIL_FROM: z.string().default('Umsteiger <no-reply@example.com>'),
+    MAIL_FROM: z.string().default('Durch Deutschland <no-reply@example.com>'),
     /** Accept mock Apple/Google ID tokens ("mock.<provider>.<sub>.<email>"). Never in production. */
     AUTH_OAUTH_MOCK: bool,
     APPLE_CLIENT_IDS: list,

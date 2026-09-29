@@ -42,6 +42,18 @@
       ],
       "cache": false,
       "persistent": true
+    },
+    "@tb/web#typecheck": {
+      "dependsOn": [
+        "^build",
+        "@tb/web#build"
+      ]
+    },
+    "@tb/admin#typecheck": {
+      "dependsOn": [
+        "^build",
+        "@tb/admin#build"
+      ]
     }
   }
 }

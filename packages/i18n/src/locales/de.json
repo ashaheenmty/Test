@@ -10,7 +10,7 @@
     "edit": "Bearbeiten",
     "close": "Schließen",
     "comingSoon": "Folgt in Kürze",
-    "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     "language": "Sprache",
     "skipToContent": "Zum Inhalt springen"
   },
@@ -34,11 +34,11 @@
     "welcome": "Willkommen bei {brand}",
     "tagline": "Alle Bahnen, Busse und Nahverkehrstickets in Deutschland und Europa – mit einem Konto.",
     "chooseLanguage": "Sprache wählen",
-    "agentNotice": "Wir vermitteln Fahrkarten im Namen und für Rechnung der jeweiligen Verkehrsunternehmen. Dein Beförderungsvertrag besteht immer mit dem Verkehrsunternehmen.",
+    "agentNotice": "Wir vermitteln Fahrkarten im Namen und für Rechnung der jeweiligen Verkehrsunternehmen. Ihr Beförderungsvertrag besteht immer mit dem Verkehrsunternehmen.",
     "getStarted": "Los geht’s"
   },
   "home": {
-    "title": "Wohin möchtest du?",
+    "title": "Wohin möchten Sie reisen?",
     "from": "Von",
     "to": "Nach",
     "swap": "Start und Ziel tauschen",
@@ -47,8 +47,8 @@
     "passengers": "{count, plural, one {# Reisende*r} other {# Reisende}}",
     "search": "Verbindungen suchen",
     "useMyLocation": "Aktuellen Standort verwenden",
-    "upcomingTitle": "Deine nächste Reise",
-    "upcomingEmpty": "Keine anstehenden Reisen. Suche eine Verbindung, um loszulegen.",
+    "upcomingTitle": "Ihre nächste Reise",
+    "upcomingEmpty": "Keine anstehenden Reisen. Suchen Sie eine Verbindung, um loszulegen.",
     "searchComingSoon": "Die Verbindungssuche wird in Phase 2 freigeschaltet."
   },
   "auth": {
@@ -71,19 +71,19 @@
     "invalidCredentials": "E-Mail-Adresse oder Passwort ist falsch.",
     "emailTaken": "Für diese E-Mail-Adresse gibt es bereits ein Konto.",
     "passwordTooShort": "Das Passwort muss mindestens 10 Zeichen lang sein.",
-    "rateLimited": "Zu viele Versuche. Bitte warte einen Moment.",
-    "mustAcceptTerms": "Bitte bestätige die AGB und die Datenschutzerklärung.",
-    "verifyEmailSent": "Wir haben dir eine E-Mail zur Bestätigung deiner Adresse geschickt.",
-    "emailVerified": "Deine E-Mail-Adresse ist bestätigt.",
+    "rateLimited": "Zu viele Versuche. Bitte warten Sie einen Moment.",
+    "mustAcceptTerms": "Bitte bestätigen Sie die AGB und die Datenschutzerklärung.",
+    "verifyEmailSent": "Wir haben Ihnen eine E-Mail zur Bestätigung Ihrer Adresse geschickt.",
+    "emailVerified": "Ihre E-Mail-Adresse ist bestätigt.",
     "resetTitle": "Passwort zurücksetzen",
-    "resetRequested": "Falls ein Konto existiert, haben wir dir einen Link zum Zurücksetzen geschickt.",
+    "resetRequested": "Falls ein Konto existiert, haben wir Ihnen einen Link zum Zurücksetzen geschickt.",
     "newPassword": "Neues Passwort",
     "sendResetLink": "Link senden",
-    "passwordChanged": "Dein Passwort wurde geändert. Bitte melde dich neu an."
+    "passwordChanged": "Ihr Passwort wurde geändert. Bitte melden Sie sich neu an."
   },
   "profile": {
     "title": "Profil",
-    "greeting": "Hallo {name}",
+    "greeting": "Guten Tag, {name}",
     "personalData": "Persönliche Daten",
     "passengers": "Gespeicherte Reisende",
     "addPassenger": "Reisende*n hinzufügen",
@@ -100,7 +100,7 @@
   },
   "bookings": {
     "title": "Buchungen",
-    "empty": "Du hast noch keine Buchungen."
+    "empty": "Sie haben noch keine Buchungen."
   },
   "legal": {
     "impressum": "Impressum",
@@ -112,9 +112,9 @@
     "placeholderBody": "Platzhaltertext – wird von der Rechtsberatung bereitgestellt."
   },
   "email": {
-    "verifySubject": "Bitte bestätige deine E-Mail-Adresse",
-    "verifyBody": "Hallo {name},\n\nbitte bestätige deine E-Mail-Adresse über diesen Link (gültig für {minutes} Minuten):\n{link}\n\nDein {brand}-Team",
+    "verifySubject": "Bitte bestätigen Sie Ihre E-Mail-Adresse",
+    "verifyBody": "Guten Tag {name},\n\nbitte bestätigen Sie Ihre E-Mail-Adresse über diesen Link (gültig für {minutes} Minuten):\n{link}\n\nMit freundlichen Grüßen\nIhr Team von {brand}",
     "resetSubject": "Passwort zurücksetzen",
-    "resetBody": "Hallo {name},\n\nüber diesen Link kannst du ein neues Passwort festlegen (gültig für {minutes} Minuten):\n{link}\n\nFalls du das nicht angefordert hast, kannst du diese E-Mail ignorieren.\n\nDein {brand}-Team"
+    "resetBody": "Guten Tag {name},\n\nüber diesen Link können Sie ein neues Passwort festlegen (gültig für {minutes} Minuten):\n{link}\n\nFalls Sie das nicht angefordert haben, können Sie diese E-Mail ignorieren.\n\nMit freundlichen Grüßen\nIhr Team von {brand}"
   }
 }

@@ -34,8 +34,8 @@ via `SETTINGS_JSON` (and, from phase 7, in the back-office).
 
 ## Business decisions
 
-- [ ] `brand.name` = `"Umsteiger"`  
-  Placeholder brand name; check trademark availability.
+- [ ] `brand.name` = `"Durch Deutschland"`  
+  Decided: "Durch Deutschland". Check trademark availability before launch.
 
 ## Additional items not yet expressed as settings
 
@@ -44,5 +44,6 @@ via `SETTINGS_JSON` (and, from phase 7, in the back-office).
 - [ ] Recording terms acceptance for Sign in with Apple/Google (the app shows terms before the provider sheet; the API logs the versions current at sign-up).
 - [ ] Whether registration may reveal that an email address already has an account (currently: yes, "email already registered").
 - [ ] Retention periods for `records` schema data after account deletion (bookings, invoices, audit log).
-- [ ] Informal "du" in German UI texts vs. formal "Sie"; gender-inclusive forms ("Reisende*r").
+- [ ] Service fee schedule (€1.00 / €0.50 / €0.10 per ticket, gross incl. 19 % VAT → net €0.84 / €0.42 / €0.08): confirm the VAT treatment, especially for cross-border tickets, and the fee refund policy.
+- [ ] Gender-inclusive forms in German UI texts ("Reisende*r").
 - [ ] Assumed merchant-of-record / hosted-payment flags per sales channel (see operators.json → salesChannels).

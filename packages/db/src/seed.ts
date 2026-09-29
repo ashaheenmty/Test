@@ -258,23 +258,25 @@ async function seedLegalDocuments() {
 }
 
 async function seedConfiguration() {
+  // Service fee schedule (decided 2026-10): per ticket, by transport tier, gross incl. VAT.
   const feeRules = [
-    { id: 'fee-default-zero', name: 'Default: no service fee (OPEN DECISION)', kind: 'ZERO' as const, active: true },
-    {
-      id: 'fee-example-fixed',
-      name: 'Example: €1.99 per booking (inactive)',
-      kind: 'FIXED_PER_BOOKING' as const,
-      amountMinor: 199,
-      active: false,
-    },
+    { id: 'fee-long-distance', name: 'Long-distance trains: €1.00 per ticket', kind: 'FIXED_PER_TICKET' as const, category: 'LONG_DISTANCE_RAIL' as const, amountMinor: 100, active: true },
+    { id: 'fee-intercity', name: 'Between cities (regional rail): €0.50 per ticket', kind: 'FIXED_PER_TICKET' as const, category: 'INTERCITY_REGIONAL' as const, amountMinor: 50, active: true },
+    { id: 'fee-local-bus', name: 'Buses and city transport: €0.10 per ticket', kind: 'FIXED_PER_TICKET' as const, category: 'LOCAL_AND_BUS' as const, amountMinor: 10, active: true },
   ];
   for (const r of feeRules) {
+    const { id, ...data } = r;
     await prisma.serviceFeeRule.upsert({
-      where: { id: r.id },
-      create: { ...r, validFrom: new Date('2026-01-01T00:00:00Z') },
-      update: { name: r.name },
+      where: { id },
+      create: { id, ...data, validFrom: new Date('2026-01-01T00:00:00Z') },
+      update: data,
     });
   }
+  // Retire the phase-1 placeholder rules.
+  await prisma.serviceFeeRule.updateMany({
+    where: { id: { in: ['fee-default-zero', 'fee-example-fixed'] } },
+    data: { active: false, validTo: new Date() },
+  });
   await prisma.taxRule.upsert({
     where: { id: 'tax-service-fee-de' },
     create: {

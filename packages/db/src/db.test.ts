@@ -36,6 +36,8 @@ describe('Prisma enums match @tb/domain enums', () => {
         'OperatorSegment',
         'OrganisationStatus',
         'SalesChannelKind',
+        'ServiceFeeCategory',
+        'ServiceFeeKind',
         'ThemePreference',
         'TicketContractKind',
         'TransportMode',

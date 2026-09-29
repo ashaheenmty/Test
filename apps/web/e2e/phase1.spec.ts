@@ -55,7 +55,7 @@ test('register → profile → add traveller → change language → sign out �
   await page.locator('#profile-lang').selectOption('de');
   await page.locator('#profile-lang').locator('xpath=ancestor::form').getByRole('button').click();
   await expect(page).toHaveURL(/\/de\/profile/);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Hallo Lea');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Guten Tag, Lea');
 
   await page.getByRole('button', { name: 'Abmelden' }).click();
   await expect(page).toHaveURL(/\/de$/);
@@ -69,7 +69,7 @@ test('register → profile → add traveller → change language → sign out �
   await page.getByLabel('Passwort', { exact: true }).fill(password);
   await page.getByRole('button', { name: 'Anmelden' }).click();
   await expect(page).toHaveURL(/\/de$/);
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Hallo Lea');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Guten Tag, Lea');
 });
 
 test('session survives an expired access token via silent refresh', async ({ page, context }) => {

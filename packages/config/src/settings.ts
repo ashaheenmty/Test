@@ -68,7 +68,7 @@ export const settingsSchema = z.object({
 export type Settings = z.infer<typeof settingsSchema>;
 
 export const defaultSettings: Settings = {
-  brand: { name: 'Umsteiger', supportEmail: 'support@example.com' },
+  brand: { name: 'Durch Deutschland', supportEmail: 'support@example.com' },
   agentCompany: {
     legalName: 'PLACEHOLDER Reisevermittlung GmbH',
     street: 'Musterstraße 1',
@@ -104,7 +104,7 @@ export const defaultSettings: Settings = {
 };
 
 export const settingsMeta: Record<string, SettingMeta> = {
-  'brand.name': { review: 'business', note: 'Placeholder brand name; check trademark availability.' },
+  'brand.name': { review: 'business', note: 'Decided: "Durch Deutschland". Check trademark availability before launch.' },
   agentCompany: { review: 'legal', note: 'Impressum data (§ 5 DDG). All values are placeholders.' },
   'serviceFee.vatRateBp': {
     review: 'tax',

@@ -11,6 +11,7 @@ import { CryptoModule } from './crypto/crypto.module';
 import { HealthModule } from './health/health.controller';
 import { LegalModule } from './legal/legal.controller';
 import { MailModule } from './mail/mailer.service';
+import { PricingModule } from './pricing/pricing.controller';
 import { PrismaModule } from './prisma/prisma.service';
 import { ReferenceModule } from './reference/reference.controller';
 import { UsersModule } from './users/users.controller';
@@ -47,6 +48,7 @@ export class AppModule {
         UsersModule,
         ReferenceModule,
         LegalModule,
+        PricingModule,
         AdminModule,
         HealthModule,
       ],
