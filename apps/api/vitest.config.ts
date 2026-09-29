@@ -6,7 +6,6 @@ export default defineConfig({
   plugins: [swc.vite({ module: { type: 'es6' } })],
   test: {
     globalSetup: process.env.INTEGRATION === '1' ? ['test/global-setup.ts'] : [],
-    server: { deps: { inline: ['i18next-icu'] } },
     testTimeout: 30_000,
     hookTimeout: 180_000,
     fileParallelism: false,

@@ -1,5 +1,5 @@
 {
-  "importedAt": "2026-09-29T20:55:11.437Z",
+  "importedAt": "2026-09-29T21:15:47.888Z",
   "sourceTitle": "Germany Transport Providers – Master List",
   "operators": [
     {
@@ -3870,7 +3870,7 @@
       "slug": "oebb",
       "name": "ÖBB",
       "country": "AT",
-      "groupName": "+ MÁV, HŽPP, etc.",
+      "groupName": "Austria",
       "brands": [
         "Railjet",
         "EuroCity",
@@ -3898,6 +3898,7 @@
       "coverage": [],
       "ownSalesChannel": "oebb.at",
       "notes": [
+        "Partners: MÁV, HŽPP, etc.",
         "Salzburg, Kufstein, Lindau area"
       ],
       "status": "ACTIVE",

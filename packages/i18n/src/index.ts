@@ -1,5 +1,4 @@
 import i18next, { type i18n as I18nInstance, type TFunction } from 'i18next';
-import ICU from 'i18next-icu';
 import { SUPPORTED_LOCALES, type SupportedLocale } from '@tb/domain';
 import de from './locales/de.json';
 import en from './locales/en.json';
@@ -8,6 +7,7 @@ import ar from './locales/ar.json';
 import es from './locales/es.json';
 import ru from './locales/ru.json';
 import zhHans from './locales/zh-Hans.json';
+import { IcuFormat } from './icu-format';
 
 export { SUPPORTED_LOCALES, type SupportedLocale };
 export const DEFAULT_LOCALE: SupportedLocale = 'de';
@@ -100,7 +100,7 @@ export function createI18n(
       { translation: opts.overrides?.[l] ? deepMerge(resources[l], opts.overrides[l]) : resources[l] },
     ]),
   );
-  void instance.use(ICU).init({
+  void instance.use(new IcuFormat({ intlLocale: (l) => (isSupportedLocale(l) ? LOCALES[l].intlLocale : l) })).init({
     resources: res,
     lng: locale,
     fallbackLng: DEFAULT_LOCALE,

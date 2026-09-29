@@ -128,6 +128,8 @@ describe('operator master-list import', () => {
     expect(op('Albtal-Verkehrs-Gesellschaft')!.regions.map((r) => r.code)).toEqual(
       expect.arrayContaining(['DE-BW', 'DE-RP', 'Karlsruhe', 'Heilbronn']),
     );
+    expect(op('ÖBB')!.groupName).not.toMatch(/^\+/);
+    expect(op('ÖBB')!.notes).toContain('Partners: MÁV, HŽPP, etc.');
     expect(op('ÖBB')!.segments).toEqual(expect.arrayContaining(['NIGHT', 'CROSS_BORDER', 'REGIONAL']));
     expect(op('SNCF Voyageurs')!.brands).toEqual(expect.arrayContaining(['TGV INOUI', 'TER Grand Est']));
     expect(op('DB Fernverkehr')!.brands).toContain('Sylt Shuttle');

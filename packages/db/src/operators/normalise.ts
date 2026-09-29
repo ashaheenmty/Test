@@ -302,7 +302,13 @@ function countryFrom(text: string): string {
 
 function groupFrom(text: string): string | null {
   const m = /\(([^)]+)\)/.exec(text);
-  return m ? m[1]!.trim() : null;
+  // "(+ MÁV, HŽPP, etc.)" lists partner railways, not the owning group.
+  return m && !m[1]!.trim().startsWith('+') ? m[1]!.trim() : null;
+}
+
+function partnersFrom(text: string): string | undefined {
+  const m = /\(\+\s*([^)]+)\)/.exec(text);
+  return m ? `Partners: ${m[1]!.trim()}` : undefined;
 }
 
 function statesFrom(text: string): string[] {
@@ -418,6 +424,7 @@ export function normaliseWorkbook(wb: Workbook, importedAt = new Date()): Normal
     const op = upsert(provider!, { sheet: 'Cross-border & Intl', row }, {
       country,
       groupName: groupFrom(countryGroup!),
+      note: partnersFrom(countryGroup!),
       segments,
       modes: inferModes(`${serviceType} ${provider}`),
       serviceType,
