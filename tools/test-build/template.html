@@ -1,0 +1,758 @@
+<title>Durch Deutschland Testversion</title>
+<style>
+/* Layout: a dark test-harness strip on top; below it the real phase-1 app (its own tokens
+   from @tb/ui) in a single column, with a side drawer for guide, inbox and feedback. */
+:root {
+  /* App tokens (identical to packages/ui) */
+  --color-background: #F6F7F9; --color-surface: #FFFFFF; --color-surface-alt: #EDF0F4;
+  --color-text: #141820; --color-text-muted: #4A5361; --color-border: #DDE2E9; --color-border-strong: #6B7482;
+  --color-primary: #0A5CA8; --color-primary-hover: #084B8A; --color-on-primary: #FFFFFF;
+  --color-primary-soft: #E3EEFA; --color-on-primary-soft: #073F73;
+  --color-success: #1B7338; --color-warning: #855400; --color-danger: #B3261E;
+  --color-focus-ring: #0A5CA8; --color-notice-bg: #FFF4D6; --color-notice-text: #5C3B00;
+  /* Harness tokens */
+  --h-bg: #1B2230; --h-fg: #E6EAF2; --h-muted: #A9B3C4; --h-accent: #F2C14E; --h-line: #2E394C;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Arabic", "Noto Sans SC", sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-background: #0E1116; --color-surface: #171B22; --color-surface-alt: #212733;
+    --color-text: #E9EDF3; --color-text-muted: #A9B2C0; --color-border: #2C3340; --color-border-strong: #7F8999;
+    --color-primary: #78B8FF; --color-primary-hover: #9CCBFF; --color-on-primary: #06182C;
+    --color-primary-soft: #16304D; --color-on-primary-soft: #CFE5FF;
+    --color-success: #62D08F; --color-warning: #F3BB52; --color-danger: #FF8D84;
+    --color-focus-ring: #9CCBFF; --color-notice-bg: #3A2C0A; --color-notice-text: #FFE3A3;
+    --h-bg: #06080C; --h-line: #1E2533;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --color-background: #0E1116; --color-surface: #171B22; --color-surface-alt: #212733;
+  --color-text: #E9EDF3; --color-text-muted: #A9B2C0; --color-border: #2C3340; --color-border-strong: #7F8999;
+  --color-primary: #78B8FF; --color-primary-hover: #9CCBFF; --color-on-primary: #06182C;
+  --color-primary-soft: #16304D; --color-on-primary-soft: #CFE5FF;
+  --color-success: #62D08F; --color-warning: #F3BB52; --color-danger: #FF8D84;
+  --color-focus-ring: #9CCBFF; --color-notice-bg: #3A2C0A; --color-notice-text: #FFE3A3;
+  --h-bg: #06080C; --h-line: #1E2533;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--color-background); color: var(--color-text); font-family: var(--font); font-size: 1rem; line-height: 1.5; overflow-wrap: break-word; }
+a { color: var(--color-primary); text-underline-offset: .18em; }
+:focus-visible { outline: 3px solid var(--color-focus-ring); outline-offset: 2px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* ── Harness ── */
+.harness { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--h-bg); color: var(--h-fg); border-bottom: 1px solid var(--h-line); }
+.harness-in { max-width: 76rem; margin: 0 auto; padding: .5rem 1rem; display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; }
+.h-id { display: flex; flex-direction: column; line-height: 1.2; margin-inline-end: auto; min-width: 0; }
+.h-id b { font-size: .95rem; letter-spacing: .01em; }
+.h-id span { font-size: .75rem; color: var(--h-muted); text-transform: uppercase; letter-spacing: .08em; }
+.h-tabs, .h-tools { display: flex; flex-wrap: wrap; gap: .25rem; }
+.h-btn { font: inherit; font-size: .875rem; color: var(--h-fg); background: transparent; border: 1px solid var(--h-line); border-radius: 8px; min-height: 36px; padding: 0 .75rem; cursor: pointer; display: inline-flex; align-items: center; gap: .4rem; }
+.h-btn:hover { border-color: var(--h-muted); }
+.h-btn[aria-pressed="true"] { background: var(--h-fg); color: var(--h-bg); border-color: var(--h-fg); font-weight: 600; }
+.h-count { font-size: .75rem; font-variant-numeric: tabular-nums; background: var(--h-accent); color: #1B2230; border-radius: 999px; padding: 0 .4rem; min-width: 1.2rem; text-align: center; font-weight: 700; }
+.h-btn:focus-visible { outline-color: var(--h-accent); }
+
+.layout { max-width: 76rem; margin: 0 auto; padding-inline: 1rem; padding-block: 1.25rem 3rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+.layout.with-drawer { grid-template-columns: minmax(0, 1fr) minmax(0, 23rem); }
+@media (max-width: 60rem) { .layout.with-drawer { grid-template-columns: minmax(0, 1fr); } .layout.with-drawer #drawer { order: -1; } }
+#drawer { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 14px; padding: 1rem; align-self: start; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 4.5rem); max-height: calc(100vh - 6rem); overflow: auto; }
+@media (max-width: 60rem) { #drawer { position: static; max-height: none; } }
+.d-head { display: flex; justify-content: space-between; align-items: center; gap: .5rem; margin-bottom: .75rem; }
+.d-head h2 { font-size: 1.05rem; margin: 0; }
+.d-close { font: inherit; background: none; border: 0; color: var(--color-text-muted); cursor: pointer; min-height: 36px; padding: 0 .5rem; }
+.eyebrow { font-size: .72rem; text-transform: uppercase; letter-spacing: .09em; color: var(--color-text-muted); font-weight: 600; }
+
+/* ── App frame (mirrors apps/web) ── */
+.app { background: var(--color-background); border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; min-width: 0; }
+.site-header { background: var(--color-surface); border-bottom: 1px solid var(--color-border); }
+.header-inner { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; min-height: 64px; padding: 0 1rem; }
+.brand { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; font-size: 1.15rem; color: var(--color-text); text-decoration: none; min-height: 48px; background: none; border: 0; cursor: pointer; font-family: inherit; padding: 0; }
+.brand-mark { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 10px; background: var(--color-primary); color: var(--color-on-primary); }
+.main-nav { display: flex; gap: .25rem; margin-inline-start: auto; align-items: center; flex-wrap: wrap; }
+.nav-link { font: inherit; display: inline-flex; align-items: center; min-height: 48px; padding: 0 .75rem; border-radius: 10px; color: var(--color-text); background: none; border: 0; cursor: pointer; }
+.nav-link[aria-current="page"] { background: var(--color-primary-soft); color: var(--color-on-primary-soft); font-weight: 600; }
+.lang select { min-height: 40px; width: auto; }
+.app-main { padding: 1.5rem 1rem 2.5rem; max-width: 60rem; margin: 0 auto; }
+.site-footer { background: var(--color-surface); border-top: 1px solid var(--color-border); padding: 1.25rem 1rem; color: var(--color-text-muted); font-size: .95rem; }
+.footer-links { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; margin: .75rem 0; }
+.link-btn { font: inherit; background: none; border: 0; color: var(--color-primary); text-decoration: underline; padding: .5rem .1rem; min-height: 44px; cursor: pointer; text-underline-offset: .18em; }
+.footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+
+h1 { font-size: clamp(1.55rem, 1.2rem + 1.4vw, 2rem); line-height: 1.25; margin: 0 0 .5rem; text-wrap: balance; }
+h2 { font-size: 1.15rem; line-height: 1.3; margin: 0 0 .75rem; text-wrap: balance; }
+.stack > * + * { margin-top: 1rem; }
+.stack-lg > * + * { margin-top: 1.5rem; }
+.row { display: flex; flex-wrap: wrap; gap: .75rem; }
+.row > .field { flex: 1 1 10rem; min-width: 0; }
+.narrow { max-width: 30rem; margin-inline: auto; }
+.muted { color: var(--color-text-muted); }
+.small { font-size: .9rem; }
+.lead { font-size: 1.1rem; color: var(--color-text-muted); max-width: 40rem; margin: 0; }
+.card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 16px; padding: 1.25rem; min-width: 0; }
+.card > * + * { margin-top: 1rem; }
+.field { display: flex; flex-direction: column; gap: .35rem; min-width: 0; }
+.field label { font-weight: 600; font-size: .95rem; }
+input, select, textarea { font: inherit; color: var(--color-text); background: var(--color-surface); border: 1.5px solid var(--color-border-strong); border-radius: 10px; min-height: 48px; padding: 0 .85rem; width: 100%; }
+textarea { padding: .6rem .85rem; min-height: 6rem; resize: vertical; }
+input[type="checkbox"] { width: 1.35rem; height: 1.35rem; min-height: 0; accent-color: var(--color-primary); flex: none; margin: .15rem 0 0; }
+.hint { color: var(--color-text-muted); font-size: .9rem; margin: 0; }
+.checkbox { display: flex; gap: .75rem; align-items: flex-start; }
+.button, .chip { font: inherit; cursor: pointer; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: 0 1.2rem; border-radius: 12px; border: 1.5px solid var(--color-border-strong); background: var(--color-surface); color: var(--color-text); font-weight: 600; text-decoration: none; }
+.button:hover { background: var(--color-surface-alt); }
+.button-primary { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-on-primary); }
+.button-primary:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
+.button-quiet { border-color: transparent; background: transparent; }
+.button-small { min-height: 40px; padding: 0 .9rem; font-size: .95rem; }
+.button-block { width: 100%; }
+.button:disabled { cursor: not-allowed; opacity: .55; }
+.chip { min-height: 44px; padding: 0 1rem; border-radius: 999px; border: 1.5px solid var(--color-border-strong); background: var(--color-surface); color: var(--color-text); }
+.chip[aria-pressed="true"] { background: var(--color-primary-soft); border-color: var(--color-primary); color: var(--color-on-primary-soft); font-weight: 600; }
+.alert { border-radius: 12px; padding: .8rem 1rem; margin: 0; border: 1.5px solid; background: var(--color-surface); }
+.alert-error { color: var(--color-danger); border-color: var(--color-danger); }
+.alert-success { color: var(--color-success); border-color: var(--color-success); }
+.badge { display: inline-block; padding: .1rem .6rem; border-radius: 999px; font-size: .82rem; background: var(--color-surface-alt); color: var(--color-text-muted); }
+.badge-notice { background: var(--color-notice-bg); color: var(--color-notice-text); }
+.badge-bad { color: var(--color-danger); }
+.list { list-style: none; margin: 0; padding: 0; }
+.list-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 56px; border-bottom: 1px solid var(--color-border); min-width: 0; overflow-wrap: anywhere; }
+.list-item:last-child { border-bottom: 0; }
+.kv { display: grid; grid-template-columns: minmax(0, max-content) minmax(0, 1fr); gap: .5rem 1rem; margin: 0; }
+.kv dt { font-weight: 600; } .kv dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 30rem) { .kv { grid-template-columns: minmax(0, 1fr); } }
+.od-pair { display: grid; grid-template-columns: 1fr; gap: .5rem; }
+@media (min-width: 40rem) { .od-pair { grid-template-columns: 1fr auto 1fr; align-items: end; } }
+.icon-btn { width: 48px; height: 48px; border-radius: 999px; border: 1.5px solid var(--color-border-strong); background: var(--color-surface); color: var(--color-text); font-size: 1.2rem; }
+details summary { cursor: pointer; min-height: 48px; display: flex; align-items: center; color: var(--color-primary); font-weight: 600; }
+.divider { display: flex; align-items: center; gap: 1rem; color: var(--color-text-muted); }
+.divider::before, .divider::after { content: ""; flex: 1; border-top: 1px solid var(--color-border); }
+blockquote { margin: 0; padding: .75rem 1rem; border-inline-start: 4px solid var(--color-border-strong); background: var(--color-surface-alt); border-radius: 8px; }
+
+/* ── Tools (fee calculator, back-office) — English, internal ── */
+.tool h1 { font-size: 1.5rem; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-surface); }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { text-align: start; vertical-align: top; padding: .55rem .75rem; border-bottom: 1px solid var(--color-border); }
+th { background: var(--color-surface-alt); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--color-text-muted); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+.num { font-variant-numeric: tabular-nums; text-align: end; white-space: nowrap; }
+.mono { font-family: var(--mono); font-size: .82rem; }
+.status { font-size: .78rem; font-weight: 700; padding: .1rem .5rem; border-radius: 999px; background: var(--color-surface-alt); white-space: nowrap; }
+.status-INACTIVE, .status-DISCONTINUED { color: var(--color-danger); }
+.status-NEEDS_REVIEW { background: var(--color-notice-bg); color: var(--color-notice-text); }
+.status-ACTIVE { color: var(--color-success); }
+.ticket { border: 1px solid var(--color-border); border-radius: 12px; padding: .9rem; background: var(--color-surface); }
+.ticket-head { display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.mode-chips { display: flex; flex-wrap: wrap; gap: .35rem; }
+.mode-chips .chip { min-height: 36px; padding: 0 .7rem; font-size: .85rem; }
+.receipt { border: 1.5px dashed var(--color-border-strong); border-radius: 12px; padding: 1rem; background: var(--color-surface); font-variant-numeric: tabular-nums; }
+.receipt-line { display: flex; justify-content: space-between; gap: 1rem; padding: .25rem 0; }
+.receipt-total { border-top: 1.5px solid var(--color-text); margin-top: .4rem; padding-top: .5rem; font-weight: 700; font-size: 1.1rem; }
+.grid-2 { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+@media (min-width: 52rem) { .grid-2 { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); } }
+@media (max-width: 52rem) { .grid-2 > section[aria-label="Result"] { order: -1; } }
+.filters { display: flex; flex-wrap: wrap; gap: .6rem; align-items: flex-end; }
+.filters .field { flex: 1 1 9rem; }
+.filters input, .filters select { min-height: 40px; }
+.pager { display: flex; justify-content: space-between; align-items: center; gap: .5rem; margin-top: .75rem; flex-wrap: wrap; }
+.op-row { cursor: pointer; } .op-row:hover td { background: var(--color-surface-alt); }
+.pill-ok { color: var(--color-success); font-weight: 700; } .pill-bad { color: var(--color-danger); font-weight: 700; }
+
+/* Drawer content */
+.mail { border: 1px solid var(--color-border); border-radius: 10px; padding: .75rem; background: var(--color-background); }
+.mail + .mail { margin-top: .6rem; }
+.mail pre { white-space: pre-wrap; font-family: var(--font); font-size: .88rem; margin: .5rem 0; }
+.guide li { margin: .35rem 0; }
+.guide label { display: flex; gap: .6rem; align-items: flex-start; cursor: pointer; }
+.guide h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); margin: 1rem 0 .25rem; }
+.guide ul { list-style: none; padding: 0; margin: 0; }
+.fb { border-bottom: 1px solid var(--color-border); padding: .65rem 0; }
+.fb:last-child { border-bottom: 0; }
+.fb-meta { display: flex; flex-wrap: wrap; gap: .35rem .6rem; font-size: .8rem; color: var(--color-text-muted); align-items: center; }
+.fb p { margin: .3rem 0 0; white-space: pre-wrap; }
+</style>
+
+<header class="harness" aria-label="Test build controls">
+  <div class="harness-in">
+    <div class="h-id"><b>Durch Deutschland</b><span>Test build · Phase 1 · simulated data</span></div>
+    <nav class="h-tabs" aria-label="Area">
+      <button class="h-btn" data-area="app" type="button">Customer app</button>
+      <button class="h-btn" data-area="fees" type="button">Fee calculator</button>
+      <button class="h-btn" data-area="admin" type="button">Back-office</button>
+    </nav>
+    <div class="h-tools">
+      <button class="h-btn" data-drawer="guide" type="button">Test guide</button>
+      <button class="h-btn" data-drawer="inbox" type="button">Inbox <span class="h-count" id="inbox-count">0</span></button>
+      <button class="h-btn" data-drawer="feedback" type="button">Feedback <span class="h-count" id="fb-count">0</span></button>
+    </div>
+  </div>
+</header>
+
+<div class="layout" id="layout">
+  <div id="stage"></div>
+  <aside id="drawer" hidden aria-live="polite"></aside>
+</div>
+
+<script>/*__TB__*/</script>
+<script>
+const DATA = /*__DATA__*/;
+(function () {
+'use strict';
+const BRAND = 'Durch Deutschland';
+const S = TB.defaultSettings;
+const LEGAL_VERSION = '2026-09-draft';
+const FEE_RULES = [
+  { id: 'fee-long-distance', name: 'Long-distance trains: €1.00 per ticket', kind: 'FIXED_PER_TICKET', category: 'LONG_DISTANCE_RAIL', amountMinor: 100 },
+  { id: 'fee-intercity', name: 'Between cities (regional rail): €0.50 per ticket', kind: 'FIXED_PER_TICKET', category: 'INTERCITY_REGIONAL', amountMinor: 50 },
+  { id: 'fee-local-bus', name: 'Buses and city transport: €0.10 per ticket', kind: 'FIXED_PER_TICKET', category: 'LOCAL_AND_BUS', amountMinor: 10 },
+  { id: 'fee-booking-cap', name: 'Maximum €1.00 per booking', kind: 'BOOKING_CAP', category: null, amountMinor: 100 },
+].map((r) => ({ percentBp: null, minMinor: null, maxMinor: null, priority: 0, active: true, ...r }));
+const OPS = DATA.ops;
+const OP_BY = Object.fromEntries(OPS.map((o) => [o.s, o]));
+
+// ───────────── helpers ─────────────
+const $ = (sel, root = document) => root.querySelector(sel);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+const i18nCache = {};
+function T(locale) {
+  i18nCache[locale] ??= TB.createI18n(locale, { defaultVariables: { brand: BRAND } }).t;
+  return i18nCache[locale];
+}
+const eur = (minor, locale = 'de') => new Intl.NumberFormat(TB.LOCALES[locale]?.intlLocale || locale, { style: 'currency', currency: 'EUR' }).format(minor / 100);
+async function sha256(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* storage unavailable: session-only */ } },
+};
+
+// ───────────── simulated backend state (this browser only) ─────────────
+const KEY = 'dd-testbuild-v1';
+let db = store.get(KEY, null);
+async function freshState() {
+  const s = { users: [], session: null, outbox: [], tokens: {}, opOverrides: {}, audit: [], locale: 'de', theme: 'system' };
+  const anna = { id: uid(), email: 'anna@example.com', pw: await sha256('demo passphrase 2026'), verified: true, locale: 'de', theme: 'SYSTEM', failed: 0, lockedUntil: 0,
+    travellers: [{ id: uid(), first: 'Anna', last: 'Schmidt', holder: true, dob: '1988-04-12' }, { id: uid(), first: 'Jonas', last: 'Schmidt', holder: false, dob: '2016-09-03' }] };
+  s.users.push(anna);
+  s.session = anna.id;
+  return s;
+}
+function save() { store.set(KEY, db); }
+
+let auditChain = Promise.resolve();
+function audit(actorType, actorId, action, entityType, entityId, data = {}) {
+  auditChain = auditChain.then(async () => {
+    const prev = db.audit.length ? db.audit[db.audit.length - 1].hash : '0'.repeat(64);
+    const e = { id: db.audit.length + 1, occurredAt: new Date().toISOString(), actorType, actorId, action, entityType, entityId, data };
+    e.prevHash = prev;
+    e.hash = await sha256(prev + TB.canonicalJson({ ...e, prevHash: undefined, id: undefined }));
+    db.audit.push(e); save();
+    if (ui.area === 'admin') render();
+  });
+  return auditChain;
+}
+async function verifyChain() {
+  let prev = '0'.repeat(64);
+  for (const e of db.audit) {
+    if (e.prevHash !== prev) return { ok: false, at: e.id, why: 'link to previous entry is broken' };
+    const h = await sha256(prev + TB.canonicalJson({ ...e, prevHash: undefined, id: undefined, hash: undefined }));
+    if (h !== e.hash) return { ok: false, at: e.id, why: 'content was changed after it was written' };
+    prev = e.hash;
+  }
+  return { ok: true, checked: db.audit.length };
+}
+
+// ───────────── UI state ─────────────
+const ui = { area: 'app', route: 'home', flash: null, drawer: null, keep: {}, admin: { role: 'SUPER_ADMIN', tab: 'ops', q: '', seg: '', region: '', status: '', page: 1, sel: null, verify: null }, fee: null };
+const me = () => db.users.find((u) => u.id === db.session) || null;
+const loc = () => db.locale;
+const t = (k, v) => T(loc())(k, v);
+function go(route, flash = null, keep = {}) { ui.route = route; ui.flash = flash; ui.keep = keep; ui.area = 'app'; render(); $('#stage').scrollIntoView({ block: 'start' }); }
+function setTheme(v) {
+  db.theme = v; save();
+  if (v === 'system') document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme', v);
+}
+
+// ───────────── simulated API (mirrors apps/api rules) ─────────────
+function sendMail(user, purpose) {
+  const token = uid() + uid();
+  db.tokens[token] = { userId: user.id, purpose, used: false, exp: Date.now() + S.auth.emailTokenTtlMinutes * 60000 };
+  const tt = T(user.locale || 'de');
+  const holder = user.travellers.find((x) => x.holder)?.first || '';
+  const prefix = purpose === 'VERIFY' ? 'email.verify' : 'email.reset';
+  const link = `https://durch-deutschland.example/${user.locale}/${purpose === 'VERIFY' ? 'verify-email' : 'reset-password'}?token=${token.slice(0, 12)}…`;
+  db.outbox.unshift({ id: uid(), to: user.email, subject: tt(prefix + 'Subject'), text: tt(prefix + 'Body', { name: holder, link, minutes: S.auth.emailTokenTtlMinutes }), token, purpose, at: Date.now() });
+  save(); updateCounts();
+}
+const api = {
+  async register(f) {
+    const parsed = TB.registerSchema.safeParse({ ...f, locale: loc(), acceptedAgentTermsVersion: LEGAL_VERSION, acceptedPrivacyPolicyVersion: LEGAL_VERSION });
+    if (!f.accept) return 'auth.mustAcceptTerms';
+    if (!parsed.success) return parsed.error.issues.some((i) => i.message === 'password.tooShort') ? 'auth.passwordTooShort' : 'common.errorGeneric';
+    const v = parsed.data;
+    if (db.users.some((u) => u.email === v.email)) return 'auth.emailTaken';
+    const u = { id: uid(), email: v.email, pw: await sha256(v.password), verified: false, locale: loc(), theme: 'SYSTEM', failed: 0, lockedUntil: 0, travellers: [{ id: uid(), first: v.firstName, last: v.lastName, holder: true, dob: null }] };
+    db.users.push(u); db.session = u.id; save();
+    audit('USER', u.id, 'user.registered', 'User', u.id, { acceptedAgentTerms: LEGAL_VERSION, acceptedPrivacyPolicy: LEGAL_VERSION, locale: loc() });
+    sendMail(u, 'VERIFY');
+    return null;
+  },
+  async login(email, pw) {
+    const u = db.users.find((x) => x.email === email.trim().toLowerCase());
+    if (u && u.lockedUntil > Date.now()) return 'auth.rateLimited';
+    if (!u || (await sha256(pw)) !== u.pw) {
+      if (u) {
+        u.failed += 1;
+        if (u.failed >= 10) { u.failed = 0; u.lockedUntil = Date.now() + 15 * 60000; audit('SYSTEM', null, 'auth.account_locked', 'User', u.id); }
+        else audit('SYSTEM', null, 'auth.login_failed', 'User', u.id);
+        save();
+      }
+      return 'auth.invalidCredentials';
+    }
+    u.failed = 0; u.lockedUntil = 0; db.session = u.id; save();
+    audit('USER', u.id, 'auth.login', 'User', u.id, { method: 'password' });
+    return null;
+  },
+  forgot(email) { const u = db.users.find((x) => x.email === email.trim().toLowerCase()); if (u) sendMail(u, 'RESET'); },
+  consume(token, purpose) {
+    const r = db.tokens[token];
+    if (!r || r.used || r.purpose !== purpose || r.exp < Date.now()) return null;
+    r.used = true; save(); return db.users.find((u) => u.id === r.userId);
+  },
+  async reset(token, pw) {
+    if (!pw || pw.length < 10) return 'auth.passwordTooShort';
+    const u = this.consume(token, 'RESET'); if (!u) return 'common.errorGeneric';
+    u.pw = await sha256(pw); u.verified = true; u.failed = 0; u.lockedUntil = 0;
+    if (db.session === u.id) db.session = null; save();
+    audit('USER', u.id, 'auth.password_reset', 'User', u.id);
+    return null;
+  },
+  verify(token) { const u = this.consume(token, 'VERIFY'); if (!u) return 'common.errorGeneric'; u.verified = true; save(); audit('USER', u.id, 'user.email_verified', 'User', u.id); return null; },
+};
+
+// ───────────── customer app views ─────────────
+function feedbackBox() {
+  if (!ui.flash) return '';
+  const [kind, key] = ui.flash;
+  const msg = t(key); const text = msg === key ? t('common.errorGeneric') : msg;
+  return `<p class="alert ${kind === 'error' ? 'alert-error' : 'alert-success'}" role="${kind === 'error' ? 'alert' : 'status'}">${esc(text)}</p>`;
+}
+function field(id, label, input, hint) {
+  return `<div class="field"><label for="${id}">${esc(label)}</label>${input}${hint ? `<p class="hint" id="${id}-hint">${esc(hint)}</p>` : ''}</div>`;
+}
+const views = {
+  home() {
+    const u = me(); const holder = u?.travellers.find((x) => x.holder);
+    const today = new Date().toISOString().slice(0, 10);
+    return `<div class="stack-lg">
+      <section><h1>${esc(holder ? t('profile.greeting', { name: holder.first }) : t('home.title'))}</h1>${u ? '' : `<p class="lead">${esc(t('onboarding.tagline'))}</p>`}</section>
+      <section class="card" aria-labelledby="s-h"><h2 id="s-h">${esc(t('home.title'))}</h2>
+        <form class="stack" aria-describedby="soon" onsubmit="return false">
+          <div class="od-pair">${field('from', t('home.from'), '<input id="from" autocomplete="off" placeholder="Berlin Hbf">')}
+            <button type="button" class="icon-btn" aria-label="${esc(t('home.swap'))}" disabled>⇅</button>
+            ${field('to', t('home.to'), '<input id="to" autocomplete="off" placeholder="München Hbf">')}</div>
+          <div class="row">${field('date', t('home.date'), `<input id="date" type="date" value="${today}" min="${today}">`)}${field('time', t('home.time'), '<input id="time" type="time" value="08:00">')}${field('pax', t('home.passengers', { count: 1 }), '<input id="pax" type="number" min="1" max="9" value="1" inputmode="numeric">')}</div>
+          <button type="submit" class="button button-primary button-block" disabled>${esc(t('home.search'))}</button>
+          <p id="soon" class="hint">${esc(t('home.searchComingSoon'))}</p>
+        </form></section>
+      <section class="card"><h2>${esc(t('home.upcomingTitle'))}</h2><p class="muted">${esc(t('home.upcomingEmpty'))}</p><p class="muted small">${esc(TB.formatDate(new Date(), loc(), { dateStyle: 'full' }))}</p></section>
+      ${u ? '' : `<section class="card"><p>${esc(t('onboarding.agentNotice'))}</p><div class="row"><button class="button button-primary" data-go="register">${esc(t('auth.registerTitle'))}</button><button class="button" data-go="login">${esc(t('nav.signIn'))}</button></div></section>`}
+    </div>`;
+  },
+  login() {
+    return `<div class="narrow stack"><h1>${esc(t('auth.signInTitle'))}</h1>${feedbackBox()}
+      <div class="card"><form id="f-login" class="stack">
+        ${field('email', t('auth.email'), `<input id="email" type="email" autocomplete="email" required value="${esc(ui.keep.email || '')}">`)}
+        ${field('password', t('auth.password'), '<input id="password" type="password" autocomplete="current-password" required>')}
+        <button class="button button-primary button-block" type="submit">${esc(t('auth.submitSignIn'))}</button></form>
+        <p><button class="link-btn" data-go="forgot">${esc(t('auth.forgotPassword'))}</button></p>
+        <div class="divider"><span>${esc(t('auth.or'))}</span></div>
+        <div class="stack"><button class="button button-block" disabled>${esc(t('auth.continueWithApple'))}</button><button class="button button-block" disabled>${esc(t('auth.continueWithGoogle'))}</button></div></div>
+      <p>${esc(t('auth.noAccount'))} <button class="link-btn" data-go="register">${esc(t('auth.registerTitle'))}</button></p>
+      <p class="hint">Demo: anna@example.com · demo passphrase 2026</p></div>`;
+  },
+  register() {
+    const k = ui.keep;
+    return `<div class="narrow stack"><h1>${esc(t('auth.registerTitle'))}</h1>${feedbackBox()}
+      <div class="card"><form id="f-register" class="stack">
+        <div class="row">${field('firstName', t('auth.firstName'), `<input id="firstName" autocomplete="given-name" required maxlength="100" value="${esc(k.firstName || '')}">`)}${field('lastName', t('auth.lastName'), `<input id="lastName" autocomplete="family-name" required maxlength="100" value="${esc(k.lastName || '')}">`)}</div>
+        ${field('r-email', t('auth.email'), `<input id="r-email" type="email" autocomplete="email" required value="${esc(k.email || '')}">`)}
+        ${field('r-password', t('auth.password'), '<input id="r-password" type="password" autocomplete="new-password" aria-describedby="r-password-hint">', t('auth.passwordHint'))}
+        <div class="checkbox"><input id="accept" type="checkbox"><label for="accept">${esc(t('auth.acceptTerms'))} (<button type="button" class="link-btn" data-go="legal:agent-terms">${esc(t('legal.terms'))}</button>, <button type="button" class="link-btn" data-go="legal:privacy-policy">${esc(t('legal.privacy'))}</button>)</label></div>
+        <button class="button button-primary button-block" type="submit">${esc(t('auth.submitRegister'))}</button></form></div>
+      <p>${esc(t('auth.haveAccount'))} <button class="link-btn" data-go="login">${esc(t('nav.signIn'))}</button></p></div>`;
+  },
+  forgot() {
+    return `<div class="narrow stack"><h1>${esc(t('auth.resetTitle'))}</h1>${feedbackBox()}<div class="card"><form id="f-forgot" class="stack">${field('fg-email', t('auth.email'), '<input id="fg-email" type="email" required>')}<button class="button button-primary button-block" type="submit">${esc(t('auth.sendResetLink'))}</button></form></div></div>`;
+  },
+  reset() {
+    return `<div class="narrow stack"><h1>${esc(t('auth.resetTitle'))}</h1>${feedbackBox()}<div class="card"><form id="f-reset" class="stack">${field('np', t('auth.newPassword'), '<input id="np" type="password" autocomplete="new-password" aria-describedby="np-hint">', t('auth.passwordHint'))}<button class="button button-primary button-block" type="submit">${esc(t('common.save'))}</button></form></div></div>`;
+  },
+  verify() {
+    return `<div class="narrow stack"><h1>${esc(t('auth.email'))}</h1>${feedbackBox()}<div class="card"><button class="button button-primary button-block" id="do-verify">${esc(t('common.continue'))}</button></div></div>`;
+  },
+  profile() {
+    const u = me(); if (!u) return views.login();
+    const holder = u.travellers.find((x) => x.holder);
+    return `<div class="stack-lg"><h1>${esc(holder ? t('profile.greeting', { name: holder.first }) : t('profile.title'))}</h1>${feedbackBox()}
+      <section class="card"><h2>${esc(t('profile.personalData'))}</h2><dl class="kv"><dt>${esc(t('auth.email'))}</dt><dd><bdi>${esc(u.email)}</bdi>${u.verified ? '' : ` <span class="badge badge-notice">${esc(t('profile.emailNotVerified'))}</span> <button class="link-btn" id="resend">${esc(t('auth.sendResetLink'))}</button>`}</dd></dl></section>
+      <section class="card"><h2>${esc(t('profile.passengers'))}</h2>
+        <ul class="list">${u.travellers.map((p) => `<li class="list-item"><div><strong><bdi>${esc(p.first)} ${esc(p.last)}</bdi></strong>${p.dob ? `<span class="muted small"> · ${esc(t('profile.dateOfBirth'))}: ${esc(TB.formatDate(p.dob + 'T12:00:00Z', loc()))}</span>` : ''}</div>${p.holder ? '' : `<button class="button button-small button-quiet" data-del="${p.id}" aria-label="${esc(t('common.delete'))}: ${esc(p.first)} ${esc(p.last)}">${esc(t('common.delete'))}</button>`}</li>`).join('')}</ul>
+        <details><summary>${esc(t('profile.addPassenger'))}</summary><form id="f-trav" class="stack"><div class="row">${field('p-first', t('auth.firstName'), '<input id="p-first" required maxlength="100">')}${field('p-last', t('auth.lastName'), '<input id="p-last" required maxlength="100">')}${field('p-dob', t('profile.dateOfBirth'), `<input id="p-dob" type="date" max="${new Date().toISOString().slice(0, 10)}">`)}</div><button class="button button-primary" type="submit">${esc(t('common.save'))}</button></form></details></section>
+      <section class="card"><h2>${esc(t('common.language'))}</h2>${langPicker('p-lang')}</section>
+      <section class="card"><h2>${esc(t('theme.label'))}</h2>${themeChips()}</section>
+      <section class="card"><h2>${esc(t('profile.privacy'))}</h2><ul class="list">${['paymentMethods', 'companyInvoice', 'dataExport', 'deleteAccount'].map((k) => `<li class="list-item"><span>${esc(t('profile.' + k))}</span><span class="badge">${esc(t('common.comingSoon'))}</span></li>`).join('')}</ul></section>
+    </div>`;
+  },
+  bookings() {
+    return `<div class="stack"><h1>${esc(t('bookings.title'))}</h1><div class="card"><p class="muted">${esc(t('bookings.empty'))}</p><button class="button button-primary" data-go="home">${esc(t('home.search'))}</button></div></div>`;
+  },
+  legal(doc) {
+    const key = { impressum: 'legal.impressum', 'agent-terms': 'legal.terms', 'privacy-policy': 'legal.privacy', 'dispute-resolution-notice': 'legal.disputeResolution' }[doc];
+    const a = S.agentCompany;
+    const imp = doc === 'impressum' ? `<p>${esc(a.legalName)}<br>${esc(a.street)}, ${esc(a.postalCode)} ${esc(a.city)}<br>${esc(a.registerCourt)}, ${esc(a.registerNumber)}<br>USt-IdNr.: ${esc(a.vatId)}<br>Geschäftsführung: ${esc(a.managingDirectors.join(', '))}<br>E-Mail: ${esc(a.email)} · Tel.: ${esc(a.phone)}</p>` : '';
+    const terms = doc === 'agent-terms' ? `<p>${esc(t('legal.agentDisclosure', { company: a.legalName }))}</p>` : '';
+    return `<article class="narrow stack"><h1>${esc(t(key))}</h1><p class="muted small">${esc(t('legal.version', { version: LEGAL_VERSION, date: TB.formatDate('2026-09-01T00:00:00Z', loc()) }))}</p><blockquote>${esc(t('legal.placeholderBody'))}</blockquote>${imp}${terms}</article>`;
+  },
+};
+function langPicker(id) {
+  return `<div class="row" style="align-items:flex-end"><div class="field"><label for="${id}" class="vh">${esc(t('common.language'))}</label><select id="${id}" data-lang>${TB.SUPPORTED_LOCALES.map((l) => `<option value="${l}" lang="${l}" ${l === loc() ? 'selected' : ''}>${esc(TB.LOCALES[l].nativeName)}</option>`).join('')}</select></div></div>`;
+}
+function themeChips() {
+  return `<div class="chips" role="group" aria-label="${esc(t('theme.label'))}">${['system', 'light', 'dark'].map((v) => `<button type="button" class="chip" data-theme-set="${v}" aria-pressed="${db.theme === v}">${esc(t('theme.' + v))}</button>`).join('')}</div>`;
+}
+function renderApp() {
+  const u = me(); const l = loc(); const r = ui.route;
+  const body = r.startsWith('legal:') ? views.legal(r.slice(6)) : (views[r] || views.home)();
+  const cur = (name) => (r === name ? 'aria-current="page"' : '');
+  return `<div class="app" id="app" lang="${l}" dir="${TB.LOCALES[l].dir}">
+    <div class="site-header"><div class="header-inner">
+      <button class="brand" data-go="home"><span class="brand-mark" aria-hidden="true">⇄</span>${esc(BRAND)}</button>
+      <nav class="main-nav" aria-label="${esc(t('nav.mainNavigation'))}">
+        <button class="nav-link" data-go="home" ${cur('home')}>${esc(t('nav.home'))}</button>
+        <button class="nav-link" data-go="bookings" ${cur('bookings')}>${esc(t('nav.bookings'))}</button>
+        ${u ? `<button class="nav-link" data-go="profile" ${cur('profile')}>${esc(t('nav.profile'))}</button>` : `<button class="button button-small" data-go="login">${esc(t('nav.signIn'))}</button>`}
+      </nav>
+      <div class="lang">${langPicker('h-lang')}</div>
+    </div></div>
+    <main class="app-main">${body}</main>
+    <footer class="site-footer"><p style="margin:0;max-width:48rem">${esc(t('legal.agentDisclosure', { company: S.agentCompany.legalName }))}</p>
+      <nav class="footer-links" aria-label="${esc(t('legal.impressum'))}">${['impressum', 'agent-terms', 'privacy-policy', 'dispute-resolution-notice'].map((d) => `<button class="link-btn" data-go="legal:${d}">${esc(t({ impressum: 'legal.impressum', 'agent-terms': 'legal.terms', 'privacy-policy': 'legal.privacy', 'dispute-resolution-notice': 'legal.disputeResolution' }[d]))}</button>`).join('')}</nav>
+      <div class="footer-row"><div class="chips"><span>${esc(t('theme.label'))}</span>${themeChips()}</div>${u ? `<button class="button button-small button-quiet" id="logout">${esc(t('nav.signOut'))}</button>` : ''}</div>
+    </footer></div>`;
+}
+
+// ───────────── fee calculator ─────────────
+const MODE_LABEL = { HIGH_SPEED_RAIL: 'ICE / TGV / Railjet', LONG_DISTANCE_RAIL: 'IC / EC / FlixTrain', NIGHT_TRAIN: 'Night train', CAR_TRAIN: 'Car train', REGIONAL_RAIL: 'RE / RB (regional)', S_BAHN: 'S-Bahn', U_BAHN: 'U-Bahn', TRAM: 'Tram', STADTBAHN: 'Stadtbahn', BUS: 'City bus', COACH: 'Long-distance coach', FERRY: 'Ferry', FUNICULAR: 'Funicular', SUSPENSION_RAILWAY: 'Schwebebahn', RACK_RAILWAY: 'Rack railway', HERITAGE_RAIL: 'Heritage railway', OTHER: 'Other' };
+const CAT_LABEL = { LONG_DISTANCE_RAIL: 'Long-distance train · €1.00', INTERCITY_REGIONAL: 'Between cities · €0.50', LOCAL_AND_BUS: 'Bus & city transport · €0.10' };
+const PRESETS = [
+  { name: 'ICE Berlin → München', tickets: [{ op: 'db-fernverkehr', modes: ['HIGH_SPEED_RAIL'], fare: 79.9 }] },
+  { name: 'U-Bahn + ICE + U-Bahn (3 tickets, 3 operators)', tickets: [{ op: 'bvg', modes: ['U_BAHN'], fare: 3.8 }, { op: 'db-fernverkehr', modes: ['HIGH_SPEED_RAIL'], fare: 79.9 }, { op: 'mvg', modes: ['U_BAHN'], fare: 3.9 }] },
+  { name: '3 regional tickets, one operator', tickets: [{ op: 'db-regio-bayern', modes: ['REGIONAL_RAIL'], fare: 23.8 }, { op: 'db-regio-bayern', modes: ['REGIONAL_RAIL'], fare: 19.9 }, { op: 'db-regio-bayern', modes: ['REGIONAL_RAIL'], fare: 15.9 }] },
+  { name: 'RE + S-Bahn', tickets: [{ op: 'db-regio-nrw', modes: ['REGIONAL_RAIL'], fare: 17.4 }, { op: 'db-regio-nrw', modes: ['S_BAHN'], fare: 3.3 }] },
+  { name: 'FlixBus Berlin → Prag', tickets: [{ op: 'flixbus', modes: ['COACH'], fare: 24.99 }] },
+  { name: 'Through-ticket ICE + RE (one contract)', tickets: [{ op: 'db-fernverkehr', modes: ['HIGH_SPEED_RAIL', 'REGIONAL_RAIL'], fare: 64.9 }] },
+];
+function feeState() { ui.fee ??= { tickets: structuredClone(PRESETS[1].tickets), preset: 1 }; return ui.fee; }
+function renderFees() {
+  const f = feeState();
+  const quote = TB.quoteServiceFee(f.tickets.map((tk) => ({ modes: tk.modes.length ? tk.modes : ['OTHER'], operators: [tk.op], fare: TB.money(Math.round((+tk.fare || 0) * 100)) })), FEE_RULES);
+  const fareTotal = f.tickets.reduce((a, tk) => a + Math.round((+tk.fare || 0) * 100), 0);
+  const { net, vat } = TB.splitGross(quote.total, S.serviceFee.vatRateBp);
+  const opOptions = (sel) => OPS.map((o) => `<option value="${o.s}" ${o.s === sel ? 'selected' : ''}>${esc(o.n)}</option>`).join('');
+  return `<div class="tool stack-lg"><div><p class="eyebrow">Internal test tool</p><h1>Service fee calculator</h1><p class="muted" style="max-width:44rem">Build a booking from tickets and see the fee the customer pays. Uses the same calculation code as the API and the fee rules you decided.</p></div>
+    <div class="chips" role="group" aria-label="Examples">${PRESETS.map((p, i) => `<button class="chip" data-preset="${i}" aria-pressed="${f.preset === i}">${esc(p.name)}</button>`).join('')}</div>
+    <div class="grid-2"><section class="stack" aria-label="Tickets">
+      ${f.tickets.map((tk, i) => `<div class="ticket stack"><div class="ticket-head"><strong>Ticket ${i + 1}</strong><span class="badge">${esc(tk.modes.length ? CAT_LABEL[TB.feeCategoryFor(tk.modes)] : 'Pick a mode')}</span>${f.tickets.length > 1 ? `<button class="button button-small button-quiet" data-rm="${i}">Remove</button>` : ''}</div>
+        <div class="row">${field('op-' + i, 'Operator', `<select id="op-${i}" data-op="${i}">${opOptions(tk.op)}</select>`)}${field('fare-' + i, 'Fare (€)', `<input id="fare-${i}" data-fare="${i}" type="number" min="0" step="0.01" value="${tk.fare}" inputmode="decimal">`)}</div>
+        <div class="field"><span style="font-weight:600;font-size:.95rem">Transport on this ticket</span><div class="mode-chips">${Object.keys(MODE_LABEL).map((m) => `<button class="chip" data-mode="${i}:${m}" aria-pressed="${tk.modes.includes(m)}">${esc(MODE_LABEL[m])}</button>`).join('')}</div></div></div>`).join('')}
+      <button class="button" id="add-ticket">Add ticket</button></section>
+      <section class="stack" aria-label="Result">
+        <div class="receipt" aria-live="polite"><p class="eyebrow" style="margin:0 0 .5rem">Customer sees at checkout</p>
+          ${f.tickets.map((tk, i) => `<div class="receipt-line"><span>Ticket ${i + 1} · ${esc(OP_BY[tk.op]?.n || tk.op)}</span><span>${eur(Math.round((+tk.fare || 0) * 100))}</span></div>`).join('')}
+          <div class="receipt-line"><span>Servicegebühr ${esc(BRAND)}</span><span>${eur(quote.total.amountMinor)}</span></div>
+          <div class="receipt-line receipt-total"><span>Gesamtpreis</span><span>${eur(fareTotal + quote.total.amountMinor)}</span></div></div>
+        <div class="card"><h2>How the fee was calculated</h2><div class="table-wrap"><table><thead><tr><th>Ticket</th><th>Tier</th><th class="num">Fee</th></tr></thead><tbody>
+          ${quote.lines.map((l) => `<tr><td>${l.ticketIndex === null ? 'Booking' : 'Ticket ' + (l.ticketIndex + 1)}</td><td>${esc(l.category ? CAT_LABEL[l.category] : '')}</td><td class="num">${eur(l.amount.amountMinor)}</td></tr>`).join('')}
+          <tr><td colspan="2"><strong>Sum of ticket fees</strong></td><td class="num"><strong>${eur((quote.cappedFrom || quote.total).amountMinor)}</strong></td></tr>
+          ${quote.cappedFrom ? `<tr><td colspan="2">Capped at max. €1.00 per booking</td><td class="num"><strong>${eur(quote.total.amountMinor)}</strong></td></tr>` : ''}
+          </tbody></table></div>
+          <p class="small muted">Our invoice shows one line: “Servicegebühr ${eur(quote.total.amountMinor)}”, of which ${eur(net.amountMinor)} net + ${eur(vat.amountMinor)} VAT (19 %). ${quote.operatorCount} operator(s) in this booking.</p></div>
+        <div class="card"><h2>Active fee rules</h2><ul class="list">${FEE_RULES.map((r) => `<li class="list-item"><span>${esc(r.name)}</span><span class="num">${eur(r.amountMinor)}</span></li>`).join('')}</ul></div>
+      </section></div></div>`;
+}
+
+// ───────────── back-office ─────────────
+const ROLES = { SUPER_ADMIN: 'Super admin', SUPPORT: 'Support', OPS: 'Operations', CONTENT: 'Content' };
+const can = (...roles) => ui.admin.role === 'SUPER_ADMIN' || roles.includes(ui.admin.role);
+const opStatus = (o) => db.opOverrides[o.s]?.status || o.st;
+function renderAdmin() {
+  const a = ui.admin;
+  const head = `<div class="row" style="align-items:flex-end;justify-content:space-between"><div><p class="eyebrow">Back-office</p><h1 style="margin:0">${a.tab === 'ops' ? 'Operators' : 'Audit log'}</h1></div>
+    <div class="row" style="align-items:flex-end">${field('role', 'Signed in as (simulated role)', `<select id="role">${Object.entries(ROLES).map(([k, v]) => `<option value="${k}" ${k === a.role ? 'selected' : ''}>${v}</option>`).join('')}</select>`)}
+    <div class="chips" role="group" aria-label="Section"><button class="chip" data-atab="ops" aria-pressed="${a.tab === 'ops'}">Operators</button><button class="chip" data-atab="audit" aria-pressed="${a.tab === 'audit'}">Audit log</button></div></div></div>`;
+  return `<div class="tool stack-lg">${head}${a.tab === 'ops' ? adminOps() : adminAudit()}</div>`;
+}
+function adminOps() {
+  const a = ui.admin; const q = a.q.trim().toLowerCase();
+  let rows = OPS.filter((o) => (!q || o.n.toLowerCase().includes(q) || (o.g || '').toLowerCase().includes(q) || o.b.some((b) => b.toLowerCase() === q)) && (!a.seg || o.sg.includes(a.seg)) && (!a.region || o.r.some((r) => r.toLowerCase() === a.region.trim().toLowerCase())) && (!a.status || opStatus(o) === a.status));
+  rows = rows.sort((x, y) => x.n.localeCompare(y.n, 'de'));
+  const pages = Math.max(1, Math.ceil(rows.length / 25)); a.page = Math.min(a.page, pages);
+  const shown = rows.slice((a.page - 1) * 25, a.page * 25);
+  const segs = ['LONG_DISTANCE', 'CROSS_BORDER', 'REGIONAL', 'CITY_TRANSIT', 'NIGHT', 'LONG_DISTANCE_BUS', 'HERITAGE'];
+  const sel = a.sel && OP_BY[a.sel];
+  return `<p class="muted" style="margin:0">${OPS.length} operators imported from your master list. Legal names are unverified; sales-channel coverage is an assumption until contracts exist.</p>
+    <form class="filters" id="f-ops" role="search" onsubmit="return false">
+      ${field('aq', 'Search', `<input id="aq" value="${esc(a.q)}" placeholder="Name, group or brand (e.g. alex)">`)}
+      ${field('aseg', 'Segment', `<select id="aseg"><option value="">All</option>${segs.map((s) => `<option ${s === a.seg ? 'selected' : ''}>${s}</option>`).join('')}</select>`)}
+      ${field('areg', 'Region', `<input id="areg" value="${esc(a.region)}" placeholder="DE-BY, AT, Berlin…">`)}
+      ${field('ast', 'Status', `<select id="ast"><option value="">All</option>${['ACTIVE', 'INACTIVE', 'DISCONTINUED', 'NEEDS_REVIEW'].map((s) => `<option ${s === a.status ? 'selected' : ''}>${s}</option>`).join('')}</select>`)}
+    </form>
+    ${sel ? opDetail(sel) : ''}
+    <div class="table-wrap"><table><thead><tr><th>Operator</th><th>Country</th><th>Status</th><th>Segments</th><th>Regions</th><th>Sold via</th></tr></thead><tbody>
+      ${shown.map((o) => `<tr class="op-row" data-op-sel="${o.s}" tabindex="0"><td><button class="link-btn" style="min-height:0;padding:0" data-op-sel="${o.s}">${esc(o.n)}</button>${o.b.length ? `<div class="muted small">${esc(o.b.join(', '))}</div>` : ''}</td><td>${o.c}</td><td><span class="status status-${opStatus(o)}">${opStatus(o)}</span></td><td class="small">${esc(o.sg.join(', '))}</td><td class="small">${esc(o.r.join(', '))}</td><td class="small">${esc(o.ch.join(', ') || '—')}</td></tr>`).join('') || '<tr><td colspan="6">No operators match these filters.</td></tr>'}
+    </tbody></table></div>
+    <div class="pager"><span class="muted small">${rows.length} result(s)</span><div class="chips"><button class="button button-small" data-page="-1" ${a.page <= 1 ? 'disabled' : ''}>Previous</button><span class="small">Page ${a.page} of ${pages}</span><button class="button button-small" data-page="1" ${a.page >= pages ? 'disabled' : ''}>Next</button></div></div>`;
+}
+function opDetail(o) {
+  const ov = db.opOverrides[o.s] || {};
+  return `<section class="card" aria-label="${esc(o.n)}"><div class="row" style="justify-content:space-between;align-items:center"><h2 style="margin:0">${esc(o.n)}</h2><button class="button button-small button-quiet" id="op-close">Close</button></div>
+    <dl class="kv"><dt>Country / group</dt><dd>${o.c}${o.g ? ' · ' + esc(o.g) : ''}</dd><dt>Brands</dt><dd>${esc(o.b.join(', ') || '—')}</dd><dt>Transport modes</dt><dd>${esc(o.m.join(', '))}</dd><dt>Regions</dt><dd>${esc(o.r.join(', '))}</dd>${o.routes.length ? `<dt>Routes</dt><dd>${esc(o.routes.join(' · '))}</dd>` : ''}${o.ci.length ? `<dt>Cities (tariff)</dt><dd>${esc(o.ci.join(', '))}</dd>` : ''}<dt>Sold via</dt><dd>${esc(o.ch.join(', ') || 'No sales channel yet')}</dd>${o.notes.length ? `<dt>Notes from the sheet</dt><dd>${esc(o.notes.join(' · '))}</dd>` : ''}</dl>
+    <form id="f-op" class="row" style="align-items:flex-end">${field('op-status', 'Status', `<select id="op-status" ${can('OPS') ? '' : 'disabled'}>${['ACTIVE', 'INACTIVE', 'DISCONTINUED', 'NEEDS_REVIEW'].map((s) => `<option ${s === opStatus(o) ? 'selected' : ''}>${s}</option>`).join('')}</select>`)}${field('op-notes', 'Internal note', `<input id="op-notes" value="${esc(ov.notes || '')}" ${can('OPS') ? '' : 'disabled'}>`)}
+    ${can('OPS') ? '<button class="button button-primary" type="submit">Save</button>' : '<p class="hint">Requires the Operations role.</p>'}</form>
+    ${ov.savedAt ? `<p class="alert alert-success" role="status">Saved — recorded in the audit log.</p>` : ''}</section>`;
+}
+function adminAudit() {
+  if (!can('SUPPORT', 'OPS')) return '<p class="alert alert-error" role="alert">Your role (Content) cannot view the audit log.</p>';
+  const v = ui.admin.verify;
+  const rows = [...db.audit].reverse().slice(0, 100);
+  return `<p class="muted" style="margin:0">Every account and back-office action is written here. Each entry is fingerprinted together with the one before it, so any later change is detectable. In the real system the database refuses edits and deletions outright.</p>
+    <div class="row">${can() ? '<button class="button button-primary" id="verify">Verify chain</button><button class="button" id="tamper">Simulate tampering</button>' : '<p class="hint">Verifying the chain requires the Super admin role.</p>'}</div>
+    ${v ? `<p class="alert ${v.ok ? 'alert-success' : 'alert-error'}" role="status">${v.ok ? `Chain intact — ${v.checked} entries verified.` : `Chain broken at entry #${v.at}: ${esc(v.why)}.`}</p>` : ''}
+    <div class="table-wrap"><table><thead><tr><th class="num">#</th><th>Time</th><th>Actor</th><th>Action</th><th>Entity</th><th>Details</th><th>Fingerprint</th></tr></thead><tbody>
+    ${rows.map((e) => `<tr><td class="num">${e.id}</td><td class="small" style="white-space:nowrap">${esc(e.occurredAt.replace('T', ' ').slice(0, 19))}</td><td class="small">${esc(e.actorType)}</td><td class="mono">${esc(e.action)}</td><td class="small">${esc(e.entityType)}</td><td class="mono" style="max-width:18rem">${esc(JSON.stringify(e.data))}</td><td class="mono">${esc(e.hash.slice(0, 10))}…</td></tr>`).join('') || '<tr><td colspan="7">No entries yet. Sign in, register or change an operator to create some.</td></tr>'}
+    </tbody></table></div>`;
+}
+
+// ───────────── drawers: guide, inbox, feedback ─────────────
+const GUIDE = [
+  ['Accounts', [
+    ['reg', 'Register a new account (use any email). Check the Inbox for the confirmation email and open its link.'],
+    ['short', 'Try registering with a password under 10 characters, or without ticking the terms.'],
+    ['dup', 'Register again with an email that already exists (anna@example.com).'],
+    ['login', 'Sign out, then sign in again. Try a wrong password.'],
+    ['lock', 'Enter a wrong password 10 times: the account is locked for 15 minutes.'],
+    ['reset', 'Use “Passwort vergessen?”, open the reset email from the Inbox and set a new password.'],
+  ]],
+  ['Profile', [
+    ['trav', 'Add a traveller with a date of birth, then delete one.'],
+    ['lang', 'Switch to Arabic (العربية): the layout mirrors right-to-left. Try all 7 languages.'],
+    ['theme', 'Switch between light, dark and system appearance.'],
+    ['legal', 'Open Impressum, AGB and the other legal pages in the footer.'],
+  ]],
+  ['Service fee', [
+    ['fees', 'Open the Fee calculator and try the examples. Check the €1.00 cap and the tier of each transport type.'],
+  ]],
+  ['Back-office', [
+    ['ops', 'Filter operators (e.g. region DE-BY, segment REGIONAL, search “alex”). Open one and change its status.'],
+    ['roles', 'Switch the role to Content or Support and see what changes.'],
+    ['audit', 'Open the audit log, verify the chain, then simulate tampering and verify again.'],
+  ]],
+];
+function renderDrawer() {
+  const d = ui.drawer; const el = $('#drawer');
+  if (!d) { el.hidden = true; $('#layout').classList.remove('with-drawer'); return; }
+  el.hidden = false; $('#layout').classList.add('with-drawer');
+  const close = '<button class="d-close" data-drawer-close type="button">Close</button>';
+  if (d === 'guide') {
+    const done = store.get('dd-guide', {});
+    el.innerHTML = `<div class="d-head"><h2>Test guide</h2>${close}</div>
+      <p class="small muted" style="margin:0">This is a test build of phase 1. Accounts, emails and changes are simulated and stay in your browser. Journey search and booking come in phase 2.</p>
+      <div class="guide">${GUIDE.map(([h, items]) => `<h3>${h}</h3><ul>${items.map(([id, txt]) => `<li><label><input type="checkbox" data-guide="${id}" ${done[id] ? 'checked' : ''}><span>${esc(txt)}</span></label></li>`).join('')}</ul>`).join('')}</div>
+      <p class="small muted">Found something to improve? Use <strong>Feedback</strong> in the top bar. It records which screen you were on.</p>
+      <button class="button button-small" id="reset-data" type="button">Reset test data</button> <span id="reset-confirm"></span>`;
+  } else if (d === 'inbox') {
+    el.innerHTML = `<div class="d-head"><h2>Inbox (simulated)</h2>${close}</div>
+      <p class="small muted" style="margin:0 0 .75rem">Emails the app would send. Open a link to continue the flow.</p>
+      ${db.outbox.map((m) => `<article class="mail"><div class="fb-meta"><span>To ${esc(m.to)}</span><span>${new Date(m.at).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' })}</span></div><strong>${esc(m.subject)}</strong><pre>${esc(m.text)}</pre><button class="button button-small button-primary" data-mail="${m.id}" type="button">Open link</button></article>`).join('') || '<p class="muted">No emails yet. Register an account or request a password reset.</p>'}`;
+  } else if (d === 'feedback') {
+    el.innerHTML = feedbackPanel();
+  }
+}
+function screenName() {
+  if (ui.area === 'fees') return 'Fee calculator';
+  if (ui.area === 'admin') return 'Back-office · ' + (ui.admin.tab === 'ops' ? 'Operators' : 'Audit log');
+  const names = { home: 'Home', login: 'Sign in', register: 'Register', forgot: 'Forgot password', reset: 'Reset password', verify: 'Verify email', profile: 'Profile', bookings: 'Bookings' };
+  return 'App · ' + (ui.route.startsWith('legal:') ? 'Legal: ' + ui.route.slice(6) : names[ui.route] || ui.route) + ` (${loc()})`;
+}
+
+// Feedback: shared list via the `db` capability; falls back to this browser.
+const fb = { db: null, user: null, items: [], local: store.get('dd-feedback-local', []), mode: 'loading', names: {}, error: null, draft: '' };
+function feedbackPanel() {
+  const items = fb.mode === 'shared' ? fb.items : fb.local;
+  return `<div class="d-head"><h2>Feedback</h2><button class="d-close" data-drawer-close type="button">Close</button></div>
+    <form id="f-fb" class="stack">
+      <p class="small muted" style="margin:0">Screen: <strong>${esc(screenName())}</strong></p>
+      <div class="field"><label for="fb-kind">Type</label><select id="fb-kind"><option>Improvement</option><option>Bug</option><option>Wording / translation</option><option>Design</option><option>Question</option></select></div>
+      <div class="field"><label for="fb-text">What should change?</label><textarea id="fb-text" required maxlength="2000" placeholder="e.g. The language menu should show flags">${esc(fb.draft)}</textarea></div>
+      <button class="button button-primary" type="submit">Add feedback</button>
+      ${fb.error ? `<p class="alert alert-error" role="alert">${esc(fb.error)}</p>` : ''}
+      <p class="hint">${fb.mode === 'shared' ? 'Shared with everyone who opens this page, and with Claude for the phase 2 refinement.' : fb.mode === 'local' ? 'Saved in this browser only (shared list unavailable here). Use Copy all and paste it into the chat.' : 'Connecting to the shared list…'}</p>
+    </form>
+    <div class="row" style="justify-content:space-between;align-items:center;margin-top:1rem"><h3 class="eyebrow" style="margin:0">${items.length} item(s)</h3><button class="button button-small" id="fb-copy" type="button">Copy all</button></div>
+    <div id="fb-copy-area" hidden><textarea id="fb-copy-text" readonly style="min-height:8rem;margin-top:.5rem"></textarea></div>
+    <div>${items.map((x) => `<div class="fb"><div class="fb-meta"><span class="badge">${esc(x.kind)}</span><span>${esc(x.screen)}</span><span>${x.author ? esc(fb.names[x.author] || 'Someone') : 'You'}</span><span>${new Date(x.createdAt).toLocaleString('de-DE', { dateStyle: 'short', timeStyle: 'short' })}</span></div><p>${esc(x.text)}</p></div>`).join('') || '<p class="muted small">No feedback yet. Add the first note above.</p>'}</div>`;
+}
+async function initFeedback() {
+  try {
+    const [dbc, user] = await Promise.all([window.claude?.use?.('db'), window.claude?.use?.('user')]);
+    fb.user = user || null;
+    if (!dbc) { fb.mode = 'local'; updateCounts(); if (ui.drawer === 'feedback') renderDrawer(); return; }
+    fb.db = dbc; fb.mode = 'shared';
+    dbc.collection('feedback').orderBy('createdAt', 'desc').limit(500).onSnapshot(async (snap) => {
+      fb.items = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+      const ids = [...new Set(fb.items.map((x) => x.author).filter(Boolean))];
+      if (fb.user && ids.length) {
+        try { const ps = await fb.user.profiles(ids); for (const id of ids) fb.names[id] = ps?.[id]?.name || 'Someone'; } catch { /* names optional */ }
+      }
+      updateCounts();
+      if (ui.drawer === 'feedback') renderDrawer();
+    }, () => { fb.mode = 'local'; updateCounts(); if (ui.drawer === 'feedback') renderDrawer(); });
+  } catch { fb.mode = 'local'; updateCounts(); }
+}
+async function addFeedback(kind, text) {
+  const entry = { kind, text, screen: screenName(), locale: loc(), createdAt: Date.now(), status: 'open' };
+  if (fb.mode === 'shared' && fb.db) {
+    try {
+      const id = fb.user ? await fb.user.id() : null;
+      await fb.db.collection('feedback').add({ ...entry, author: id || null });
+      fb.error = null; fb.draft = ''; return;
+    } catch (e) {
+      fb.error = e?.code === 'permission_denied' || e?.code === 'not_granted' ? 'You can view this page but not add to the shared list. Your note was saved in this browser instead.' : 'The shared list did not accept the note. It was saved in this browser instead.';
+    }
+  }
+  fb.local.unshift({ ...entry, author: null }); store.set('dd-feedback-local', fb.local); fb.draft = '';
+  if (fb.mode !== 'shared') fb.error = null;
+}
+
+// ───────────── render & events ─────────────
+function updateCounts() {
+  $('#inbox-count').textContent = db.outbox.length;
+  $('#fb-count').textContent = fb.mode === 'shared' ? fb.items.length : fb.local.length;
+}
+function render() {
+  const stage = $('#stage');
+  stage.innerHTML = ui.area === 'fees' ? renderFees() : ui.area === 'admin' ? renderAdmin() : renderApp();
+  document.querySelectorAll('[data-area]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.area === ui.area)));
+  document.querySelectorAll('[data-drawer]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.drawer === ui.drawer)));
+  updateCounts();
+  if (ui.drawer === 'feedback') { const txt = $('#fb-text'); const draft = txt?.value; renderDrawer(); if (draft) $('#fb-text').value = draft; }
+}
+
+document.addEventListener('click', async (ev) => {
+  const el = ev.target.closest('button, [data-op-sel]'); if (!el) return;
+  const d = el.dataset;
+  if (d.area) { ui.area = d.area; render(); return; }
+  if (d.drawer) { ui.drawer = ui.drawer === d.drawer ? null : d.drawer; render(); renderDrawer(); return; }
+  if ('drawerClose' in d) { ui.drawer = null; render(); renderDrawer(); return; }
+  if (d.go) { go(d.go); return; }
+  if (d.themeSet) { setTheme(d.themeSet); const u = me(); if (u) { u.theme = d.themeSet.toUpperCase(); save(); } render(); return; }
+  if (d.del) { const u = me(); u.travellers = u.travellers.filter((x) => x.id !== d.del); save(); audit('USER', u.id, 'passenger.deleted', 'Passenger', d.del); go('profile'); return; }
+  if (d.mail) {
+    const m = db.outbox.find((x) => x.id === d.mail); ui.drawer = null; renderDrawer();
+    ui.pendingToken = m.token; go(m.purpose === 'VERIFY' ? 'verify' : 'reset'); return;
+  }
+  if (d.preset !== undefined) { ui.fee = { tickets: structuredClone(PRESETS[+d.preset].tickets), preset: +d.preset }; render(); return; }
+  if (d.mode) { const [i, m] = d.mode.split(':'); const tk = feeState().tickets[+i]; tk.modes = tk.modes.includes(m) ? tk.modes.filter((x) => x !== m) : [...tk.modes, m]; feeState().preset = null; render(); return; }
+  if (d.rm !== undefined) { feeState().tickets.splice(+d.rm, 1); feeState().preset = null; render(); return; }
+  if (d.atab) { ui.admin.tab = d.atab; ui.admin.verify = null; render(); return; }
+  if (d.page) { ui.admin.page += +d.page; render(); return; }
+  if (d.opSel) { ui.admin.sel = d.opSel; render(); $('#stage').scrollIntoView({ block: 'start' }); return; }
+  switch (el.id) {
+    case 'logout': { const u = me(); db.session = null; save(); audit('USER', u.id, 'auth.logout', 'User', u.id); go('home'); break; }
+    case 'resend': sendMail(me(), 'VERIFY'); go('profile', ['success', 'auth.verifyEmailSent']); break;
+    case 'do-verify': { const err = api.verify(ui.pendingToken || ''); go(err ? 'verify' : me() ? 'profile' : 'login', err ? ['error', err] : ['success', 'auth.emailVerified']); break; }
+    case 'add-ticket': feeState().tickets.push({ op: 'db-fernverkehr', modes: ['HIGH_SPEED_RAIL'], fare: 49.9 }); feeState().preset = null; render(); break;
+    case 'op-close': ui.admin.sel = null; render(); break;
+    case 'verify': ui.admin.verify = await verifyChain(); render(); break;
+    case 'tamper': if (db.audit.length) { const e = db.audit[Math.floor(db.audit.length / 2)]; e.data = { ...e.data, tampered: true }; save(); ui.admin.verify = null; render(); } break;
+    case 'reset-data': { const c = $('#reset-confirm'); c.innerHTML = '<button class="button button-small button-primary" id="reset-yes" type="button">Yes, reset</button>'; break; }
+    case 'reset-yes': { db = await freshState(); save(); store.set('dd-guide', {}); ui.route = 'home'; ui.flash = null; setTheme('system'); await seedAudit(); render(); renderDrawer(); break; }
+    case 'fb-copy': {
+      const items = fb.mode === 'shared' ? fb.items : fb.local;
+      const text = items.map((x) => `[${x.kind}] ${x.screen}: ${x.text}`).join('\n');
+      $('#fb-copy-area').hidden = false; const ta = $('#fb-copy-text'); ta.value = text;
+      try { await navigator.clipboard.writeText(text); el.textContent = 'Copied'; } catch { ta.select(); el.textContent = 'Select and copy'; }
+      break;
+    }
+  }
+});
+document.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' && ev.target.matches('tr[data-op-sel]')) { ui.admin.sel = ev.target.dataset.opSel; render(); } });
+document.addEventListener('change', (ev) => {
+  const el = ev.target;
+  if (el.matches('[data-lang]')) { db.locale = el.value; const u = me(); if (u) u.locale = el.value; save(); ui.flash = null; render(); return; }
+  if (el.matches('[data-guide]')) { const g = store.get('dd-guide', {}); g[el.dataset.guide] = el.checked; store.set('dd-guide', g); return; }
+  if (el.matches('[data-op]')) { feeState().tickets[+el.dataset.op].op = el.value; feeState().preset = null; render(); return; }
+  if (el.matches('[data-fare]')) { feeState().tickets[+el.dataset.fare].fare = el.value; feeState().preset = null; render(); return; }
+  if (el.id === 'role') { ui.admin.role = el.value; ui.admin.verify = null; render(); return; }
+  if (['aseg', 'ast'].includes(el.id)) { ui.admin[el.id === 'aseg' ? 'seg' : 'status'] = el.value; ui.admin.page = 1; render(); }
+});
+let filterTimer;
+document.addEventListener('input', (ev) => {
+  const el = ev.target;
+  if (el.id === 'fb-text') { fb.draft = el.value; return; }
+  if (el.id === 'aq' || el.id === 'areg') {
+    clearTimeout(filterTimer);
+    filterTimer = setTimeout(() => { ui.admin[el.id === 'aq' ? 'q' : 'region'] = el.value; ui.admin.page = 1; const pos = el.selectionStart; render(); const again = $('#' + el.id); again.focus(); again.setSelectionRange(pos, pos); }, 250);
+  }
+});
+document.addEventListener('submit', async (ev) => {
+  ev.preventDefault();
+  const f = ev.target; const v = (id) => $('#' + id, f)?.value ?? '';
+  switch (f.id) {
+    case 'f-login': { const err = await api.login(v('email'), v('password')); err ? go('login', ['error', err], { email: v('email') }) : go('home'); break; }
+    case 'f-register': {
+      const data = { firstName: v('firstName'), lastName: v('lastName'), email: v('r-email'), password: v('r-password'), accept: $('#accept').checked };
+      const err = await api.register(data); err ? go('register', ['error', err], data) : go('profile', ['success', 'auth.verifyEmailSent']); break;
+    }
+    case 'f-forgot': api.forgot(v('fg-email')); go('forgot', ['success', 'auth.resetRequested']); break;
+    case 'f-reset': { const err = await api.reset(ui.pendingToken || '', v('np')); err ? go('reset', ['error', err]) : go('login', ['success', 'auth.passwordChanged']); break; }
+    case 'f-trav': { const u = me(); const p = { id: uid(), first: v('p-first').trim(), last: v('p-last').trim(), holder: false, dob: v('p-dob') || null }; if (!p.first || !p.last) return; u.travellers.push(p); save(); audit('USER', u.id, 'passenger.created', 'Passenger', p.id); go('profile', ['success', 'profile.saved']); break; }
+    case 'f-op': {
+      const o = OP_BY[ui.admin.sel]; const before = opStatus(o);
+      db.opOverrides[o.s] = { status: v('op-status'), notes: v('op-notes'), savedAt: Date.now() }; save();
+      audit('ADMIN', ui.admin.role, 'admin.operator_updated', 'Organisation', o.s, { before: { status: before }, after: { status: v('op-status'), notes: v('op-notes') || null } });
+      render(); break;
+    }
+    case 'f-fb': { const text = v('fb-text').trim(); if (!text) return; await addFeedback(v('fb-kind'), text); updateCounts(); renderDrawer(); break; }
+  }
+});
+
+async function seedAudit() {
+  const u = db.users[0];
+  await audit('SYSTEM', null, 'seed.completed', 'System', 'seed', { operators: OPS.length });
+  await audit('USER', u.id, 'user.registered', 'User', u.id, { acceptedAgentTerms: LEGAL_VERSION, acceptedPrivacyPolicy: LEGAL_VERSION, locale: 'de' });
+  await audit('USER', u.id, 'auth.login', 'User', u.id, { method: 'password' });
+}
+
+async function start() {
+  if (!db) { db = await freshState(); save(); await seedAudit(); }
+  setTheme(db.theme || 'system');
+  render(); renderDrawer();
+  initFeedback();
+}
+start();
+})();
+</script>

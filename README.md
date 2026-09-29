@@ -136,6 +136,10 @@ The amounts and the cap are `ServiceFeeRule` rows (seeded, editable later in the
 
 Sales-channel attributes (merchant of record, hosted payment, through-ticket support, adapter key) and channel coverage are **assumptions** until you have contracts. They are labelled as such in the data and the back-office.
 
+## Test build for review
+
+`node tools/test-build/build.mjs` produces a single-page, clickable version of the phase 1 web app, the fee calculator and the back-office. It reuses the real translations, fee rules, validation and operator data; accounts and emails are simulated in the browser. It's shared as a private claude.ai page with a feedback list for refinement rounds.
+
 ## Local development without Docker
 
 Any PostgreSQL 16 and Redis 7 work. Point `DATABASE_URL`, `TEST_DATABASE_URL` and `REDIS_URL` at them.
