@@ -9,8 +9,9 @@ import { applyBasisPoints, money, sum, type CurrencyCode, type Money } from './m
  *   between cities (regional rail)  €0.50
  *   buses and city transport        €0.10
  * It is charged once per ticket (contract of carriage), not per passenger; a ticket
- * covering several modes uses its highest tier. If the booking involves more than one
- * operator, the booking's total fee is capped (€1.00). Amounts are gross (incl. VAT).
+ * covering several modes uses its highest tier. The total fee of any booking is capped
+ * (€1.00). On our invoice the fee is shown as a single line per booking.
+ * Amounts are gross (incl. VAT).
  * The amounts themselves live in ServiceFeeRule rows so they can change without code.
  */
 
@@ -71,11 +72,14 @@ export interface FeeLine {
 
 export interface FeeQuote {
   total: Money;
-  /** Per-ticket fees, plus a negative adjustment line when the multi-operator cap applies. */
+  /**
+   * Per-ticket breakdown for internal use (commission, analytics). Customer-facing
+   * documents show only `total` as one line per booking.
+   */
   lines: FeeLine[];
   /** Number of distinct operators in the booking. */
   operatorCount: number;
-  /** Set when the multi-operator cap reduced the total. */
+  /** Sum of the per-ticket fees before the booking cap; set only when the cap reduced it. */
   cappedFrom: Money | null;
 }
 
@@ -111,14 +115,8 @@ export function quoteServiceFee(tickets: FeeTicket[], rules: FeeRule[], currency
 
   const operatorCount = new Set(tickets.flatMap((t) => t.operators)).size;
   const uncapped = sum(lines.map((l) => l.amount), currency);
-  const cap = operatorCount > 1 ? pickRule(rules, ['MULTI_OPERATOR_BOOKING_CAP'], null) : undefined;
+  const cap = pickRule(rules, ['BOOKING_CAP'], null);
   if (cap && cap.amountMinor !== null && uncapped.amountMinor > cap.amountMinor) {
-    lines.push({
-      ticketIndex: null,
-      category: null,
-      ruleId: cap.id,
-      amount: money(cap.amountMinor - uncapped.amountMinor, currency),
-    });
     return { total: money(cap.amountMinor, currency), lines, operatorCount, cappedFrom: uncapped };
   }
   return { total: uncapped, lines, operatorCount, cappedFrom: null };

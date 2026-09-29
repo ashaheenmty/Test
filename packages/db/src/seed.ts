@@ -263,7 +263,7 @@ async function seedConfiguration() {
     { id: 'fee-long-distance', name: 'Long-distance trains: €1.00 per ticket', kind: 'FIXED_PER_TICKET' as const, category: 'LONG_DISTANCE_RAIL' as const, amountMinor: 100, active: true },
     { id: 'fee-intercity', name: 'Between cities (regional rail): €0.50 per ticket', kind: 'FIXED_PER_TICKET' as const, category: 'INTERCITY_REGIONAL' as const, amountMinor: 50, active: true },
     { id: 'fee-local-bus', name: 'Buses and city transport: €0.10 per ticket', kind: 'FIXED_PER_TICKET' as const, category: 'LOCAL_AND_BUS' as const, amountMinor: 10, active: true },
-    { id: 'fee-multi-operator-cap', name: 'More than one operator: max €1.00 per booking', kind: 'MULTI_OPERATOR_BOOKING_CAP' as const, category: null, amountMinor: 100, active: true },
+    { id: 'fee-booking-cap', name: 'Maximum €1.00 per booking', kind: 'BOOKING_CAP' as const, category: null, amountMinor: 100, active: true },
   ];
   for (const r of feeRules) {
     const { id, ...data } = r;
@@ -275,7 +275,7 @@ async function seedConfiguration() {
   }
   // Retire the phase-1 placeholder rules.
   await prisma.serviceFeeRule.updateMany({
-    where: { id: { in: ['fee-default-zero', 'fee-example-fixed'] } },
+    where: { id: { in: ['fee-default-zero', 'fee-example-fixed', 'fee-multi-operator-cap'] } },
     data: { active: false, validTo: new Date() },
   });
   await prisma.taxRule.upsert({

@@ -115,7 +115,7 @@ export const ServiceFeeKind = e(
   'FIXED_PER_TICKET',
   'FIXED_PER_LEG',
   'PERCENT',
-  'MULTI_OPERATOR_BOOKING_CAP',
+  'BOOKING_CAP',
 );
 export type ServiceFeeKind = (typeof ServiceFeeKind)[number];
 

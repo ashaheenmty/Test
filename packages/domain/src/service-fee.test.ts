@@ -16,7 +16,7 @@ const rule = (id: string, category: FeeRule['category'], amountMinor: number, ex
 
 // The fee schedule decided for the internal version.
 const RULES = [rule('ld', 'LONG_DISTANCE_RAIL', 100), rule('ic', 'INTERCITY_REGIONAL', 50), rule('local', 'LOCAL_AND_BUS', 10)];
-const CAP = rule('cap', null, 100, { kind: 'MULTI_OPERATOR_BOOKING_CAP' });
+const CAP = rule('cap', null, 100, { kind: 'BOOKING_CAP' });
 const fare = money(2990);
 
 describe('fee category', () => {
@@ -41,20 +41,20 @@ describe('service fee schedule', () => {
     expect(quoteServiceFee([{ operators: ['op'], modes: ['COACH'], fare }], RULES).total.amountMinor).toBe(10);
   });
 
-  it('charges once per ticket, so separate tickets from one operator add up', () => {
+  it('caps every booking at €1.00 — also when all tickets are from one operator', () => {
     const q = quoteServiceFee(
       [
         { operators: ['db-regio-bayern'], modes: ['REGIONAL_RAIL'], fare: money(2380) },
         { operators: ['db-regio-bayern'], modes: ['REGIONAL_RAIL'], fare: money(1990) },
-        { operators: ['db-regio-bayern'], modes: ['S_BAHN'], fare: money(390) },
+        { operators: ['db-regio-bayern'], modes: ['REGIONAL_RAIL'], fare: money(1590) },
       ],
       [...RULES, CAP],
     );
-    expect(q.total.amountMinor).toBe(110);
-    expect(q.cappedFrom).toBeNull();
+    expect(q.total.amountMinor).toBe(100);
+    expect(q.cappedFrom?.amountMinor).toBe(150);
   });
 
-  it('caps the booking at €1.00 when more than one operator is involved', () => {
+  it('caps a multi-operator booking at €1.00', () => {
     // U-Bahn (BVG) → ICE (DB) → U-Bahn (MVG) as three separate tickets: 0.10 + 1.00 + 0.10 → capped
     const q = quoteServiceFee(
       [
@@ -67,25 +67,18 @@ describe('service fee schedule', () => {
     expect(q.operatorCount).toBe(3);
     expect(q.total.amountMinor).toBe(100);
     expect(q.cappedFrom?.amountMinor).toBe(120);
-    expect(q.lines.at(-1)).toMatchObject({ ruleId: 'cap', amount: { amountMinor: -20 } });
-    expect(q.lines.reduce((a, l) => a + l.amount.amountMinor, 0)).toBe(100);
   });
 
-  it('applies the cap to a single ticket covering several operators', () => {
-    // e.g. one Deutschlandtarif ticket covering an RE (DB Regio) and an RB (agilis)
+  it('leaves bookings below the cap unchanged', () => {
     const q = quoteServiceFee(
-      [{ operators: ['db-regio-bayern', 'agilis'], modes: ['REGIONAL_RAIL'], fare: money(2990) }],
-      [...RULES, CAP],
-    );
-    expect(q.total.amountMinor).toBe(50); // below the cap, unchanged
-    const two = quoteServiceFee(
       [
-        { operators: ['db-fernverkehr', 'sncf-voyageurs'], modes: ['HIGH_SPEED_RAIL'], fare: money(9990) },
-        { operators: ['bvg'], modes: ['BUS'], fare: money(380) },
+        { operators: ['db-regio-bayern'], modes: ['REGIONAL_RAIL'], fare: money(2380) },
+        { operators: ['mvg'], modes: ['S_BAHN'], fare: money(390) },
       ],
       [...RULES, CAP],
     );
-    expect(two.total.amountMinor).toBe(100);
+    expect(q.total.amountMinor).toBe(60);
+    expect(q.cappedFrom).toBeNull();
   });
 
   it('does not cap bookings without a cap rule (rule is configurable)', () => {

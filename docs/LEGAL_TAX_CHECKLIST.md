@@ -22,6 +22,8 @@ via `SETTINGS_JSON` (and, from phase 7, in the back-office).
   VAT on our intermediation fee. 19 % assumed for a German agent service to consumers; cross-border legs may change place of supply (§ 3b / § 3a UStG).
 - [ ] `invoicing.numberFormat` = `"{series}-{year}-{seq:6}"`  
   Service-fee invoices need a unique sequential number (§ 14 Abs. 4 Nr. 4 UStG). Confirm series/format.
+- [ ] `invoicing.serviceFeeLines` = `"ONE_LINE_PER_BOOKING"`  
+  Decided by the business: the (capped) service fee is one invoice line per booking. Confirm this satisfies § 14 Abs. 4 UStG (description of the service).
 - [ ] `privacy.bookingRecordRetentionYears` = `10`  
   Retention for booking records (§ 147 AO / § 257 HGB: 6–10 years depending on document type; 8 years for Buchungsbelege since 2025 — confirm).
 - [ ] `privacy.invoiceRetentionYears` = `10`  
@@ -44,6 +46,6 @@ via `SETTINGS_JSON` (and, from phase 7, in the back-office).
 - [ ] Recording terms acceptance for Sign in with Apple/Google (the app shows terms before the provider sheet; the API logs the versions current at sign-up).
 - [ ] Whether registration may reveal that an email address already has an account (currently: yes, "email already registered").
 - [ ] Retention periods for `records` schema data after account deletion (bookings, invoices, audit log).
-- [ ] Service fee schedule (€1.00 / €0.50 / €0.10 per ticket, gross incl. 19 % VAT → net €0.84 / €0.42 / €0.08): confirm the VAT treatment, especially for cross-border tickets, and the fee refund policy. Bookings involving more than one operator are capped at €1.00 in total — confirm how the capped fee is shown on our service-fee invoice (per ticket with a discount line, or one line per booking).
+- [ ] Service fee schedule (€1.00 / €0.50 / €0.10 per ticket, max €1.00 per booking, gross incl. 19 % VAT → net €0.84 / €0.42 / €0.08): confirm the VAT treatment, especially for cross-border tickets, and the fee refund policy.
 - [ ] Gender-inclusive forms in German UI texts ("Reisende*r").
 - [ ] Assumed merchant-of-record / hosted-payment flags per sales channel (see operators.json → salesChannels).

@@ -234,24 +234,25 @@ describe('service fee', () => {
     const res = await t.http().get('/v1/pricing/service-fees').expect(200);
     expect(res.body.map((r: { kind: string; category: string; amountMinor: number }) => [r.kind, r.category, r.amountMinor])).toEqual([
       ['FIXED_PER_TICKET', 'LONG_DISTANCE_RAIL', 100],
-      ['MULTI_OPERATOR_BOOKING_CAP', null, 100],
+      ['BOOKING_CAP', null, 100],
       ['FIXED_PER_TICKET', 'INTERCITY_REGIONAL', 50],
       ['FIXED_PER_TICKET', 'LOCAL_AND_BUS', 10],
     ]);
   });
 
-  it('quotes per ticket and caps multi-operator bookings at €1.00', async () => {
+  it('quotes per ticket and caps every booking at €1.00', async () => {
     const single = await t
       .http()
       .post('/v1/pricing/service-fee/quote')
       .send({
         tickets: [
           { modes: ['REGIONAL_RAIL'], operators: ['db-regio-bayern'], fareMinor: 2380 },
-          { modes: ['S_BAHN'], operators: ['db-regio-bayern'], fareMinor: 390 },
+          { modes: ['REGIONAL_RAIL'], operators: ['db-regio-bayern'], fareMinor: 1990 },
+          { modes: ['REGIONAL_RAIL'], operators: ['db-regio-bayern'], fareMinor: 1590 },
         ],
       })
       .expect(200);
-    expect(single.body).toMatchObject({ total: { amountMinor: 60, currency: 'EUR' }, operatorCount: 1, cappedFrom: null });
+    expect(single.body).toMatchObject({ total: { amountMinor: 100, currency: 'EUR' }, operatorCount: 1, cappedFrom: { amountMinor: 150 } });
 
     const multi = await t
       .http()

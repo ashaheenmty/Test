@@ -41,6 +41,8 @@ export const settingsSchema = z.object({
   invoicing: z.object({
     serviceFeeSeries: z.string().regex(/^[A-Z]{2,6}$/),
     numberFormat: z.string(),
+    /** How our service fee appears on our invoice. Decided: one line per booking. */
+    serviceFeeLines: z.enum(['ONE_LINE_PER_BOOKING', 'ONE_LINE_PER_TICKET']),
   }),
   separateTickets: z.object({
     minConnectionBufferMinutes: z.object({
@@ -83,7 +85,7 @@ export const defaultSettings: Settings = {
     phone: '+49 30 0000000',
   },
   serviceFee: { vatRateBp: 1900, refundableOnOperatorCancellation: true },
-  invoicing: { serviceFeeSeries: 'SF', numberFormat: '{series}-{year}-{seq:6}' },
+  invoicing: { serviceFeeSeries: 'SF', numberFormat: '{series}-{year}-{seq:6}', serviceFeeLines: 'ONE_LINE_PER_BOOKING' },
   separateTickets: {
     minConnectionBufferMinutes: {
       default: 20,
@@ -117,6 +119,10 @@ export const settingsMeta: Record<string, SettingMeta> = {
   'invoicing.numberFormat': {
     review: 'tax',
     note: 'Service-fee invoices need a unique sequential number (§ 14 Abs. 4 Nr. 4 UStG). Confirm series/format.',
+  },
+  'invoicing.serviceFeeLines': {
+    review: 'tax',
+    note: 'Decided by the business: the (capped) service fee is one invoice line per booking. Confirm this satisfies § 14 Abs. 4 UStG (description of the service).',
   },
   'separateTickets.minConnectionBufferMinutes': {
     review: 'legal',
