@@ -1,6 +1,6 @@
 # Phase 1 proposal: folder structure & data model
 
-Status: **waiting for your OK.** The brief asks for approval before any code is written. Nothing below is built yet.
+Status: **approved and implemented** (phase 1). Kept for reference; see README.md for the current state.
 
 Sources: `docs/BRIEF.md` (your build prompt) and `data/operators/Germany_Transport_Providers.xlsx` (265 rows across 7 tabs).
 

@@ -7,7 +7,14 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "checklist": "tsx scripts/checklist.ts"
   },
-  "dependencies": { "zod": "3.25.76" }
+  "dependencies": {
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "tsx": "4.20.6"
+  }
 }

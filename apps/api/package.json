@@ -36,6 +36,7 @@
     "@types/nodemailer": "7.0.12",
     "@types/supertest": "6.0.3",
     "supertest": "7.1.4",
-    "unplugin-swc": "1.6.0"
+    "unplugin-swc": "1.6.0",
+    "typescript": "5.9.3"
   }
 }

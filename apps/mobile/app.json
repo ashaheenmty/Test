@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Umsteiger",
+    "slug": "umsteiger",
+    "scheme": "umsteiger",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.example.umsteiger"
+    },
+    "android": {
+      "package": "com.example.umsteiger",
+      "adaptiveIcon": {
+        "backgroundColor": "#0A5CA8",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      ["expo-localization", { "supportsRTL": true }],
+      "expo-secure-store"
+    ]
+  }
+}
