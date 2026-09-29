@@ -1,0 +1,120 @@
+{
+  "common": {
+    "appName": "{brand}",
+    "loading": "Chargement…",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "back": "Retour",
+    "continue": "Continuer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "comingSoon": "Bientôt disponible",
+    "errorGeneric": "Une erreur s’est produite. Veuillez réessayer.",
+    "language": "Langue",
+    "skipToContent": "Aller au contenu"
+  },
+  "theme": {
+    "label": "Apparence",
+    "system": "Comme le système",
+    "light": "Clair",
+    "dark": "Sombre"
+  },
+  "nav": {
+    "home": "Accueil",
+    "bookings": "Réservations",
+    "trips": "Voyages",
+    "notifications": "Notifications",
+    "profile": "Profil",
+    "signIn": "Se connecter",
+    "signOut": "Se déconnecter",
+    "mainNavigation": "Navigation principale"
+  },
+  "onboarding": {
+    "welcome": "Bienvenue sur {brand}",
+    "tagline": "Tous les billets de train, d’autocar et de transports locaux en Allemagne et en Europe – un seul compte.",
+    "chooseLanguage": "Choisissez votre langue",
+    "agentNotice": "Nous vendons des billets en tant qu’intermédiaire, au nom et pour le compte des transporteurs. Votre contrat de transport est toujours conclu avec le transporteur.",
+    "getStarted": "Commencer"
+  },
+  "home": {
+    "title": "Où allez-vous ?",
+    "from": "De",
+    "to": "À",
+    "swap": "Inverser départ et arrivée",
+    "date": "Date",
+    "time": "Heure",
+    "passengers": "{count, plural, one {# voyageur} other {# voyageurs}}",
+    "search": "Rechercher des trajets",
+    "useMyLocation": "Utiliser ma position actuelle",
+    "upcomingTitle": "Votre prochain voyage",
+    "upcomingEmpty": "Aucun voyage à venir. Recherchez un trajet pour commencer.",
+    "searchComingSoon": "La recherche de trajets sera activée en phase 2."
+  },
+  "auth": {
+    "signInTitle": "Se connecter",
+    "registerTitle": "Créer un compte",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "passwordHint": "Au moins 10 caractères. Une phrase de passe est plus sûre.",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "submitSignIn": "Se connecter",
+    "submitRegister": "Créer un compte",
+    "noAccount": "Pas encore de compte ?",
+    "haveAccount": "Déjà inscrit ?",
+    "acceptTerms": "J’accepte les conditions du service d’intermédiation et j’ai lu la politique de confidentialité.",
+    "forgotPassword": "Mot de passe oublié ?",
+    "continueWithApple": "Continuer avec Apple",
+    "continueWithGoogle": "Continuer avec Google",
+    "or": "ou",
+    "invalidCredentials": "Adresse e-mail ou mot de passe incorrect.",
+    "emailTaken": "Un compte existe déjà pour cette adresse e-mail.",
+    "passwordTooShort": "Le mot de passe doit comporter au moins 10 caractères.",
+    "rateLimited": "Trop de tentatives. Veuillez patienter un instant.",
+    "mustAcceptTerms": "Veuillez accepter les conditions et la politique de confidentialité.",
+    "verifyEmailSent": "Nous vous avons envoyé un e-mail pour confirmer votre adresse.",
+    "emailVerified": "Votre adresse e-mail est confirmée.",
+    "resetTitle": "Réinitialiser le mot de passe",
+    "resetRequested": "Si un compte existe, nous vous avons envoyé un lien de réinitialisation.",
+    "newPassword": "Nouveau mot de passe",
+    "sendResetLink": "Envoyer le lien",
+    "passwordChanged": "Votre mot de passe a été modifié. Veuillez vous reconnecter."
+  },
+  "profile": {
+    "title": "Profil",
+    "greeting": "Bonjour {name}",
+    "personalData": "Données personnelles",
+    "passengers": "Voyageurs enregistrés",
+    "addPassenger": "Ajouter un voyageur",
+    "noPassengers": "Aucun voyageur enregistré.",
+    "dateOfBirth": "Date de naissance",
+    "discountCards": "Cartes de réduction",
+    "paymentMethods": "Moyens de paiement",
+    "companyInvoice": "Facturation entreprise",
+    "privacy": "Confidentialité",
+    "dataExport": "Exporter mes données",
+    "deleteAccount": "Supprimer le compte",
+    "emailNotVerified": "Adresse e-mail non confirmée",
+    "saved": "Enregistré"
+  },
+  "bookings": {
+    "title": "Réservations",
+    "empty": "Vous n’avez encore aucune réservation."
+  },
+  "legal": {
+    "impressum": "Mentions légales",
+    "terms": "CGV (intermédiation)",
+    "privacy": "Confidentialité",
+    "disputeResolution": "Règlement des litiges de consommation",
+    "agentDisclosure": "{company} est un intermédiaire. Les billets sont vendus au nom et pour le compte des transporteurs ; leurs conditions de transport s’appliquent.",
+    "version": "Version {version}, en vigueur à partir du {date}",
+    "placeholderBody": "Texte provisoire – sera fourni par le conseil juridique."
+  },
+  "email": {
+    "verifySubject": "Veuillez confirmer votre adresse e-mail",
+    "verifyBody": "Bonjour {name},\n\nveuillez confirmer votre adresse e-mail via ce lien (valable {minutes} minutes) :\n{link}\n\nL’équipe {brand}",
+    "resetSubject": "Réinitialiser votre mot de passe",
+    "resetBody": "Bonjour {name},\n\nutilisez ce lien pour définir un nouveau mot de passe (valable {minutes} minutes) :\n{link}\n\nSi vous n’êtes pas à l’origine de cette demande, ignorez cet e-mail.\n\nL’équipe {brand}"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@tb/i18n",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tb/domain": "workspace:*",
+    "i18next": "25.10.10",
+    "i18next-icu": "2.4.4",
+    "intl-messageformat": "10.7.16"
+  },
+  "devDependencies": {
+    "@formatjs/icu-messageformat-parser": "2.11.4"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@tb/db",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "prisma generate && tsc -p tsconfig.build.json",
+    "typecheck": "prisma generate && tsc --noEmit",
+    "test": "vitest run --exclude 'src/**/*.int.test.ts'",
+    "test:integration": "vitest run src/audit.int.test.ts",
+    "prisma:generate": "prisma generate",
+    "migrate:dev": "prisma migrate dev",
+    "migrate:deploy": "prisma migrate deploy",
+    "reset": "prisma migrate reset --force",
+    "seed": "tsx src/seed.ts",
+    "operators:import": "tsx scripts/import-operators.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.3",
+    "@tb/domain": "workspace:*",
+    "@tb/config": "workspace:*",
+    "@tb/i18n": "workspace:*"
+  },
+  "devDependencies": {
+    "prisma": "6.19.3",
+    "exceljs": "4.4.0",
+    "tsx": "4.20.6",
+    "argon2": "0.45.1"
+  }
+}

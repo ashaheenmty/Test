@@ -1,0 +1,120 @@
+{
+  "common": {
+    "appName": "{brand}",
+    "loading": "Wird geladen …",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "back": "Zurück",
+    "continue": "Weiter",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "close": "Schließen",
+    "comingSoon": "Folgt in Kürze",
+    "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "language": "Sprache",
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "theme": {
+    "label": "Darstellung",
+    "system": "Wie System",
+    "light": "Hell",
+    "dark": "Dunkel"
+  },
+  "nav": {
+    "home": "Start",
+    "bookings": "Buchungen",
+    "trips": "Reisen",
+    "notifications": "Mitteilungen",
+    "profile": "Profil",
+    "signIn": "Anmelden",
+    "signOut": "Abmelden",
+    "mainNavigation": "Hauptnavigation"
+  },
+  "onboarding": {
+    "welcome": "Willkommen bei {brand}",
+    "tagline": "Alle Bahnen, Busse und Nahverkehrstickets in Deutschland und Europa – mit einem Konto.",
+    "chooseLanguage": "Sprache wählen",
+    "agentNotice": "Wir vermitteln Fahrkarten im Namen und für Rechnung der jeweiligen Verkehrsunternehmen. Dein Beförderungsvertrag besteht immer mit dem Verkehrsunternehmen.",
+    "getStarted": "Los geht’s"
+  },
+  "home": {
+    "title": "Wohin möchtest du?",
+    "from": "Von",
+    "to": "Nach",
+    "swap": "Start und Ziel tauschen",
+    "date": "Datum",
+    "time": "Uhrzeit",
+    "passengers": "{count, plural, one {# Reisende*r} other {# Reisende}}",
+    "search": "Verbindungen suchen",
+    "useMyLocation": "Aktuellen Standort verwenden",
+    "upcomingTitle": "Deine nächste Reise",
+    "upcomingEmpty": "Keine anstehenden Reisen. Suche eine Verbindung, um loszulegen.",
+    "searchComingSoon": "Die Verbindungssuche wird in Phase 2 freigeschaltet."
+  },
+  "auth": {
+    "signInTitle": "Anmelden",
+    "registerTitle": "Konto erstellen",
+    "email": "E-Mail-Adresse",
+    "password": "Passwort",
+    "passwordHint": "Mindestens 10 Zeichen. Eine Passphrase ist am sichersten.",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "submitSignIn": "Anmelden",
+    "submitRegister": "Konto erstellen",
+    "noAccount": "Noch kein Konto?",
+    "haveAccount": "Bereits registriert?",
+    "acceptTerms": "Ich akzeptiere die AGB für die Vermittlungsleistung und habe die Datenschutzerklärung gelesen.",
+    "forgotPassword": "Passwort vergessen?",
+    "continueWithApple": "Weiter mit Apple",
+    "continueWithGoogle": "Weiter mit Google",
+    "or": "oder",
+    "invalidCredentials": "E-Mail-Adresse oder Passwort ist falsch.",
+    "emailTaken": "Für diese E-Mail-Adresse gibt es bereits ein Konto.",
+    "passwordTooShort": "Das Passwort muss mindestens 10 Zeichen lang sein.",
+    "rateLimited": "Zu viele Versuche. Bitte warte einen Moment.",
+    "mustAcceptTerms": "Bitte bestätige die AGB und die Datenschutzerklärung.",
+    "verifyEmailSent": "Wir haben dir eine E-Mail zur Bestätigung deiner Adresse geschickt.",
+    "emailVerified": "Deine E-Mail-Adresse ist bestätigt.",
+    "resetTitle": "Passwort zurücksetzen",
+    "resetRequested": "Falls ein Konto existiert, haben wir dir einen Link zum Zurücksetzen geschickt.",
+    "newPassword": "Neues Passwort",
+    "sendResetLink": "Link senden",
+    "passwordChanged": "Dein Passwort wurde geändert. Bitte melde dich neu an."
+  },
+  "profile": {
+    "title": "Profil",
+    "greeting": "Hallo {name}",
+    "personalData": "Persönliche Daten",
+    "passengers": "Gespeicherte Reisende",
+    "addPassenger": "Reisende*n hinzufügen",
+    "noPassengers": "Noch keine gespeicherten Reisenden.",
+    "dateOfBirth": "Geburtsdatum",
+    "discountCards": "Ermäßigungskarten",
+    "paymentMethods": "Zahlungsarten",
+    "companyInvoice": "Firmenrechnung",
+    "privacy": "Datenschutz",
+    "dataExport": "Meine Daten exportieren",
+    "deleteAccount": "Konto löschen",
+    "emailNotVerified": "E-Mail-Adresse noch nicht bestätigt",
+    "saved": "Gespeichert"
+  },
+  "bookings": {
+    "title": "Buchungen",
+    "empty": "Du hast noch keine Buchungen."
+  },
+  "legal": {
+    "impressum": "Impressum",
+    "terms": "AGB (Vermittlung)",
+    "privacy": "Datenschutz",
+    "disputeResolution": "Verbraucherstreitbeilegung",
+    "agentDisclosure": "{company} ist Vermittler. Fahrkarten werden im Namen und für Rechnung der Verkehrsunternehmen verkauft; es gelten deren Beförderungsbedingungen.",
+    "version": "Version {version}, gültig ab {date}",
+    "placeholderBody": "Platzhaltertext – wird von der Rechtsberatung bereitgestellt."
+  },
+  "email": {
+    "verifySubject": "Bitte bestätige deine E-Mail-Adresse",
+    "verifyBody": "Hallo {name},\n\nbitte bestätige deine E-Mail-Adresse über diesen Link (gültig für {minutes} Minuten):\n{link}\n\nDein {brand}-Team",
+    "resetSubject": "Passwort zurücksetzen",
+    "resetBody": "Hallo {name},\n\nüber diesen Link kannst du ein neues Passwort festlegen (gültig für {minutes} Minuten):\n{link}\n\nFalls du das nicht angefordert hast, kannst du diese E-Mail ignorieren.\n\nDein {brand}-Team"
+  }
+}

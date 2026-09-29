@@ -1,0 +1,8178 @@
+{
+  "importedAt": "2026-09-29T20:55:11.437Z",
+  "sourceTitle": "Germany Transport Providers – Master List",
+  "operators": [
+    {
+      "slug": "abellio-rail-mitteldeutschland",
+      "name": "Abellio Rail Mitteldeutschland",
+      "country": "DE",
+      "groupName": "Abellio (NS)",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Went through insolvency; check current contracts",
+        "Check current contracts"
+      ],
+      "status": "NEEDS_REVIEW",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-ST",
+          "description": "Went through insolvency; check current contracts"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-TH",
+          "description": "Check current contracts"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 96
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 110
+        }
+      ],
+      "statusReason": "Sheet: went through insolvency; check current contracts."
+    },
+    {
+      "slug": "agilis",
+      "name": "agilis",
+      "country": "DE",
+      "groupName": "BeNEX / Hamburger Hochbahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB, RE"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Regensburg, Ingolstadt, Upper Franconia"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "Regensburg, Ingolstadt, Upper Franconia"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 11
+        }
+      ]
+    },
+    {
+      "slug": "akn-eisenbahn",
+      "name": "AKN Eisenbahn",
+      "country": "DE",
+      "groupName": "Hamburg & Schleswig-Holstein",
+      "brands": [],
+      "segments": [
+        "REGIONAL",
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "U_BAHN",
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [
+        "A-lines (regional rapid transit)",
+        "A-lines"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HH"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH"
+        },
+        {
+          "type": "CITY",
+          "code": "Hamburg"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 35
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 102
+        },
+        {
+          "sheet": "City Transit",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "slug": "albtal-verkehrs-gesellschaft",
+      "name": "Albtal-Verkehrs-Gesellschaft",
+      "country": "DE",
+      "groupName": "City of Karlsruhe",
+      "brands": [
+        "AVG"
+      ],
+      "segments": [
+        "REGIONAL",
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN",
+        "TRAM",
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [
+        "Stadtbahn / tram-train, S-Bahn RheinNeckar parts",
+        "Stadtbahn"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Karlsruhe model tram-trains, Heilbronn Stadtbahn",
+        "Wörth area"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW",
+          "description": "Karlsruhe model tram-trains, Heilbronn Stadtbahn"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP",
+          "description": "Wörth area"
+        },
+        {
+          "type": "CITY",
+          "code": "Karlsruhe"
+        },
+        {
+          "type": "CITY",
+          "code": "Heilbronn"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 5
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 79
+        },
+        {
+          "sheet": "City Transit",
+          "row": 23
+        },
+        {
+          "sheet": "City Transit",
+          "row": 49
+        }
+      ]
+    },
+    {
+      "slug": "arriva-danmark",
+      "name": "Arriva Danmark",
+      "country": "DK",
+      "groupName": "Denmark",
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "Regional cross-border",
+        "Cross-border regional"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "arriva.dk",
+      "notes": [
+        "Niebüll – Tønder"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "niebuell-t-nder",
+          "description": "Niebüll ↔ Tønder"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "DK"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH",
+          "description": "Niebüll – Tønder"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 23
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 106
+        }
+      ]
+    },
+    {
+      "slug": "arriva-personenvervoer-nederland",
+      "name": "Arriva Personenvervoer Nederland",
+      "country": "NL",
+      "groupName": "Netherlands",
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "Regional cross-border",
+        "Cross-border regional"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "arriva.nl",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "nrw-aachen-maastricht-liege-listed-as-nrw-operator-2026",
+          "description": "NRW (Aachen) ↔ Maastricht / Liège; listed as NRW operator 2026"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "NL"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 13
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 75
+        }
+      ]
+    },
+    {
+      "slug": "arverio-baden-wuerttemberg",
+      "name": "Arverio Baden-Württemberg",
+      "country": "DE",
+      "groupName": "ÖBB (formerly Go-Ahead)",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "LONG_DISTANCE_RAIL",
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "IRE, RE, MEX"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Stuttgart network: Remsbahn, Filstalbahn, Frankenbahn, Murrbahn"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW",
+          "description": "Stuttgart network: Remsbahn, Filstalbahn, Frankenbahn, Murrbahn"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 4
+        }
+      ]
+    },
+    {
+      "slug": "arverio-bayern",
+      "name": "Arverio Bayern",
+      "country": "DE",
+      "groupName": "ÖBB (formerly Go-Ahead)",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "E-Netz Allgäu, Augsburg networks"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "E-Netz Allgäu, Augsburg networks"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 12
+        }
+      ]
+    },
+    {
+      "slug": "aseag",
+      "name": "ASEAG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Aachen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 27
+        }
+      ]
+    },
+    {
+      "slug": "bayerische-regiobahn",
+      "name": "Bayerische Regiobahn",
+      "country": "DE",
+      "groupName": "Transdev",
+      "brands": [
+        "BRB"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB, RE"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Upper Bavaria, Chiemgau, Oberland, Ammersee"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "Upper Bavaria, Chiemgau, Oberland, Ammersee"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 10
+        }
+      ]
+    },
+    {
+      "slug": "bayerische-zugspitzbahn",
+      "name": "Bayerische Zugspitzbahn",
+      "country": "DE",
+      "groupName": "Municipality of Garmisch-Partenkirchen",
+      "brands": [],
+      "segments": [
+        "LONG_DISTANCE",
+        "REGIONAL"
+      ],
+      "modes": [
+        "RACK_RAILWAY"
+      ],
+      "serviceTypes": [
+        "Rack railway"
+      ],
+      "coverage": [
+        "Garmisch-Partenkirchen – Zugspitze"
+      ],
+      "ownSalesChannel": "zugspitze.de",
+      "notes": [
+        "Mountain railway; listed by Bavaria's rail authority as a contracted operator"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "COUNTRY",
+          "code": "DE",
+          "description": "Garmisch-Partenkirchen – Zugspitze"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Long-distance DE",
+          "row": 6
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 17
+        }
+      ]
+    },
+    {
+      "slug": "bentheimer-eisenbahn",
+      "name": "Bentheimer Eisenbahn",
+      "country": "DE",
+      "groupName": "County of Grafschaft Bentheim",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Bad Bentheim – Neuenhaus"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI",
+          "description": "Bad Bentheim – Neuenhaus"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 52
+        }
+      ]
+    },
+    {
+      "slug": "blablacar-bus",
+      "name": "BlaBlaCar Bus",
+      "country": "FR",
+      "groupName": "BlaBlaCar",
+      "brands": [],
+      "segments": [
+        "LONG_DISTANCE_BUS",
+        "CROSS_BORDER"
+      ],
+      "modes": [
+        "COACH"
+      ],
+      "serviceTypes": [],
+      "coverage": [
+        "Domestic + Europe"
+      ],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "COUNTRY",
+          "code": "DE",
+          "description": "Domestic + Europe"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Long-distance Bus",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "slug": "bodensee-oberschwaben-bahn",
+      "name": "Bodensee-Oberschwaben-Bahn",
+      "country": "DE",
+      "groupName": "Regional municipal utilities",
+      "brands": [
+        "BOB"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Friedrichshafen – Aulendorf"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW",
+          "description": "Friedrichshafen – Aulendorf"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 7
+        }
+      ]
+    },
+    {
+      "slug": "bogestra",
+      "name": "BOGESTRA",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Bochum / Gelsenkirchen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 17
+        }
+      ]
+    },
+    {
+      "slug": "bsag",
+      "name": "BSAG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Bremen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HB"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 12
+        }
+      ]
+    },
+    {
+      "slug": "bsvg",
+      "name": "BSVG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Braunschweig"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 28
+        }
+      ]
+    },
+    {
+      "slug": "bvg",
+      "name": "BVG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "U_BAHN",
+        "TRAM",
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Berlin"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BE"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 2
+        }
+      ]
+    },
+    {
+      "slug": "cantus",
+      "name": "cantus",
+      "country": "DE",
+      "groupName": "HLB + Netinera",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Kassel – Göttingen / Fulda / Eisenach",
+        "Göttingen – Kassel"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE",
+          "description": "Kassel – Göttingen / Fulda / Eisenach"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI",
+          "description": "Göttingen – Kassel"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 40
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 53
+        }
+      ]
+    },
+    {
+      "slug": "ceske-drahy",
+      "name": "České dráhy",
+      "country": "CZ",
+      "groupName": null,
+      "brands": [
+        "ČD"
+      ],
+      "segments": [
+        "CROSS_BORDER",
+        "LONG_DISTANCE"
+      ],
+      "modes": [
+        "HIGH_SPEED_RAIL",
+        "LONG_DISTANCE_RAIL"
+      ],
+      "serviceTypes": [
+        "Day – EuroCity / ComfortJet"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "cd.cz",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "hamburg-berlin-dresden-prague-brno-vienna-budapest-munich-pr",
+          "description": "Hamburg, Berlin, Dresden ↔ Prague, Brno, Vienna, Budapest; Munich ↔ Prague (with Länderbahn 'alex')"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "CZ"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 9
+        }
+      ]
+    },
+    {
+      "slug": "cfl",
+      "name": "CFL",
+      "country": "LU",
+      "groupName": "Luxembourg",
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "Regional + RE",
+        "RE/RB cross-border"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "cfl.lu",
+      "notes": [
+        "Trier / Koblenz – Luxembourg"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "trier-koblenz-luxembourg",
+          "description": "Trier, Koblenz ↔ Luxembourg"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "LU"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP",
+          "description": "Trier / Koblenz – Luxembourg"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 16
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 80
+        }
+      ]
+    },
+    {
+      "slug": "city-bahn-chemnitz",
+      "name": "City-Bahn Chemnitz",
+      "country": "DE",
+      "groupName": "Municipal",
+      "brands": [],
+      "segments": [
+        "REGIONAL",
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [
+        "Tram-train"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Chemnitz model"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN",
+          "description": "Chemnitz model"
+        },
+        {
+          "type": "CITY",
+          "code": "Chemnitz"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 91
+        },
+        {
+          "sheet": "City Transit",
+          "row": 30
+        }
+      ]
+    },
+    {
+      "slug": "cottbusverkehr",
+      "name": "Cottbusverkehr",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Cottbus"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BB"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 53
+        }
+      ]
+    },
+    {
+      "slug": "cvag",
+      "name": "CVAG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Chemnitz"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 30
+        }
+      ]
+    },
+    {
+      "slug": "das-stadtwerk-regensburg-mobilitaet",
+      "name": "das Stadtwerk Regensburg.Mobilität",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Regensburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 44
+        }
+      ]
+    },
+    {
+      "slug": "db-fernverkehr",
+      "name": "DB Fernverkehr",
+      "country": "DE",
+      "groupName": "Deutsche Bahn AG (state-owned)",
+      "brands": [
+        "Sylt Shuttle"
+      ],
+      "segments": [
+        "LONG_DISTANCE",
+        "CROSS_BORDER",
+        "REGIONAL"
+      ],
+      "modes": [
+        "HIGH_SPEED_RAIL",
+        "LONG_DISTANCE_RAIL",
+        "CAR_TRAIN"
+      ],
+      "serviceTypes": [
+        "ICE, ICE Sprinter, ICE-L, IC, IC2, EC, ECE",
+        "Car-carrier train"
+      ],
+      "coverage": [
+        "Nationwide + cross-border"
+      ],
+      "ownSalesChannel": "bahn.de / DB Navigator",
+      "notes": [
+        "~95% of German long-distance rail; also runs the Sylt car shuttle (Sylt Shuttle)",
+        "Niebüll – Westerland"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "COUNTRY",
+          "code": "DE",
+          "description": "Nationwide + cross-border"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH",
+          "description": "Niebüll – Westerland"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Long-distance DE",
+          "row": 2
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 103
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-baden-wuerttemberg",
+      "name": "DB Regio Baden-Württemberg",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "RE, RB, S-Bahn Stuttgart, S-Bahn Rhein-Neckar"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Took over SWEG Bahn Stuttgart (ex-Abellio) lines from Aug 2025"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW",
+          "description": "Took over SWEG Bahn Stuttgart (ex-Abellio) lines from Aug 2025"
+        },
+        {
+          "type": "CITY",
+          "code": "Stuttgart"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 2
+        },
+        {
+          "sheet": "City Transit",
+          "row": 7
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-bayern",
+      "name": "DB Regio Bayern",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "RE, RB, S-Bahn München, S-Bahn Nürnberg"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Largest operator (~81.5m train-km in 2026)"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "Largest operator (~81.5m train-km in 2026)"
+        },
+        {
+          "type": "CITY",
+          "code": "Munich"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 8
+        },
+        {
+          "sheet": "City Transit",
+          "row": 4
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-hessen",
+      "name": "DB Regio Hessen",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "RE, RB, S-Bahn Rhein-Main"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Includes former Start Taunus lines (merged Aug 2026)"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE",
+          "description": "Includes former Start Taunus lines (merged Aug 2026)"
+        },
+        {
+          "type": "CITY",
+          "code": "Frankfurt am Main"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 38
+        },
+        {
+          "sheet": "City Transit",
+          "row": 6
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-mitte",
+      "name": "DB Regio Mitte",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "RE, RB, S-Bahn Rhein-Neckar"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 76
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-niedersachsen-bremen",
+      "name": "DB Regio Niedersachsen/Bremen",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE (Expresskreuz Bremen)",
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Took over RE 2 Uelzen–Hannover–Göttingen from metronom (Jun 2026); includes former Start lines"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HB"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI",
+          "description": "Took over RE 2 Uelzen–Hannover–Göttingen from metronom (Jun 2026); includes former Start lines"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 28
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 44
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-nord",
+      "name": "DB Regio Nord",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Includes former Start Unterelbe lines (merged Aug 2026)"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HH",
+          "description": "Includes former Start Unterelbe lines (merged Aug 2026)"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 33
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-nordost",
+      "name": "DB Regio Nordost",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "RE, RB",
+        "RE, RB, S-Bahn Rostock"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Netz Nord-Süd (RE3/RE4/RE5) from Dec 2026"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BE",
+          "description": "Netz Nord-Süd (RE3/RE4/RE5) from Dec 2026"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BB"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-MV"
+        },
+        {
+          "type": "CITY",
+          "code": "Rostock"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 20
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 23
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 55
+        },
+        {
+          "sheet": "City Transit",
+          "row": 38
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-nrw",
+      "name": "DB Regio NRW",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "RE, RB, S-Bahn Rhein-Ruhr, S-Bahn Köln"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Largest operator"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW",
+          "description": "Largest operator"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 60
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-saar",
+      "name": "DB Regio Saar",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SL"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 82
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-schleswig-holstein",
+      "name": "DB Regio Schleswig-Holstein",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 99
+        }
+      ]
+    },
+    {
+      "slug": "db-regio-suedost",
+      "name": "DB Regio Südost",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "RE, RB, S-Bahn Dresden, S-Bahn Mitteldeutschland",
+        "RE, RB, S-Bahn Mitteldeutschland",
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Includes former Start Mitteldeutschland (Dieselnetz Sachsen-Anhalt II) from Aug 2026"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-ST",
+          "description": "Includes former Start Mitteldeutschland (Dieselnetz Sachsen-Anhalt II) from Aug 2026"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-TH"
+        },
+        {
+          "type": "CITY",
+          "code": "Leipzig"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 86
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 95
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 108
+        },
+        {
+          "sheet": "City Transit",
+          "row": 9
+        }
+      ]
+    },
+    {
+      "slug": "db-regionetz",
+      "name": "DB RegioNetz",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [
+        "Südostbayernbahn"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB, RE"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "~9.8m train-km"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "~9.8m train-km"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 9
+        }
+      ]
+    },
+    {
+      "slug": "die-laenderbahn",
+      "name": "Die Länderbahn",
+      "country": "DE",
+      "groupName": "Netinera",
+      "brands": [
+        "alex",
+        "trilex",
+        "oberpfalzbahn",
+        "waldbahn",
+        "vogtlandbahn"
+      ],
+      "segments": [
+        "CROSS_BORDER",
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "Regional cross-border",
+        "RE, RB, alex (Munich–Prague)",
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "laenderbahn.com",
+      "notes": [
+        "Eastern Bavaria",
+        "Eastern Saxony, Vogtland, to Czech Republic"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "munich-prague-alex-with-cd-dresden-zittau-liberec-trilex",
+          "description": "Munich ↔ Prague (alex, with ČD); Dresden/Zittau ↔ Liberec (trilex)"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "DE"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "Eastern Bavaria"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN",
+          "description": "Eastern Saxony, Vogtland, to Czech Republic"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 22
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 13
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 89
+        }
+      ]
+    },
+    {
+      "slug": "dsb",
+      "name": "DSB",
+      "country": "DK",
+      "groupName": "Denmark",
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "LONG_DISTANCE",
+        "REGIONAL"
+      ],
+      "modes": [
+        "LONG_DISTANCE_RAIL",
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "Day – InterCity / EC",
+        "Cross-border regional"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "dsb.dk",
+      "notes": [
+        "Flensburg – Padborg"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "hamburg-copenhagen-aarhus-jointly-with-db-flensburg-padborg",
+          "description": "Hamburg ↔ Copenhagen, Aarhus (jointly with DB); Flensburg ↔ Padborg"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "DK"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH",
+          "description": "Flensburg – Padborg"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 17
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 107
+        }
+      ]
+    },
+    {
+      "slug": "dsw21",
+      "name": "DSW21",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "STADTBAHN",
+        "BUS",
+        "OTHER"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Dortmund"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 10
+        }
+      ]
+    },
+    {
+      "slug": "dvb",
+      "name": "DVB",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS",
+        "FERRY",
+        "FUNICULAR"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Dresden"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 13
+        }
+      ]
+    },
+    {
+      "slug": "dvg",
+      "name": "DVG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Duisburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 16
+        }
+      ]
+    },
+    {
+      "slug": "dvg-dessau",
+      "name": "DVG Dessau",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Dessau-Roßlau"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-ST"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 59
+        }
+      ]
+    },
+    {
+      "slug": "erfurter-bahn",
+      "name": "Erfurter Bahn",
+      "country": "DE",
+      "groupName": "Municipal (Erfurt)",
+      "brands": [
+        "Süd-Thüringen-Bahn"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB",
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Lines into northern Bavaria"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "Lines into northern Bavaria"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-TH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 14
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 109
+        }
+      ]
+    },
+    {
+      "slug": "erixx",
+      "name": "erixx",
+      "country": "DE",
+      "groupName": "Netinera",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB, RE"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Heide, Lüneburg, Braunschweig area"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI",
+          "description": "Heide, Lüneburg, Braunschweig area"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 46
+        }
+      ]
+    },
+    {
+      "slug": "erixx-holstein",
+      "name": "erixx Holstein",
+      "country": "DE",
+      "groupName": "Netinera",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Kiel / Lübeck area"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH",
+          "description": "Kiel / Lübeck area"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 100
+        }
+      ]
+    },
+    {
+      "slug": "erzgebirgsbahn",
+      "name": "Erzgebirgsbahn",
+      "country": "DE",
+      "groupName": "DB RegioNetz",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Chemnitz / Ore Mountains"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN",
+          "description": "Chemnitz / Ore Mountains"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 87
+        }
+      ]
+    },
+    {
+      "slug": "eswe-verkehr",
+      "name": "ESWE Verkehr",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Wiesbaden"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 25
+        }
+      ]
+    },
+    {
+      "slug": "eurobahn",
+      "name": "eurobahn",
+      "country": "DE",
+      "groupName": "NWL (public, since 2025)",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Lines into Lower Saxony",
+        "3rd-largest in NRW"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI",
+          "description": "Lines into Lower Saxony"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW",
+          "description": "3rd-largest in NRW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 49
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 63
+        }
+      ]
+    },
+    {
+      "slug": "european-sleeper",
+      "name": "European Sleeper",
+      "country": "NL",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "NIGHT"
+      ],
+      "modes": [
+        "NIGHT_TRAIN"
+      ],
+      "serviceTypes": [
+        "Night trains"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "europeansleeper.eu",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "berlin-hamburg-amsterdam-brussels-paris-brussels-amsterdam-m",
+          "description": "Berlin, Hamburg ↔ Amsterdam, Brussels, Paris; Brussels/Amsterdam–Milan via Switzerland from Sep 2026"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "NL"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 20
+        }
+      ]
+    },
+    {
+      "slug": "eurostar",
+      "name": "Eurostar",
+      "country": "BE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "LONG_DISTANCE"
+      ],
+      "modes": [
+        "HIGH_SPEED_RAIL"
+      ],
+      "serviceTypes": [
+        "Day – high speed"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "eurostar.com",
+      "notes": [
+        "Formerly Thalys"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "cologne-duesseldorf-essen-dortmund-aachen-brussels-paris-ams",
+          "description": "Cologne, Düsseldorf, Essen, Dortmund, Aachen ↔ Brussels, Paris, Amsterdam"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "BE"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 2
+        }
+      ]
+    },
+    {
+      "slug": "evag",
+      "name": "EVAG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Erfurt"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-TH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 37
+        }
+      ]
+    },
+    {
+      "slug": "evb-eisenbahnen-und-verkehrsbetriebe-elbe-weser",
+      "name": "EVB Eisenbahnen und Verkehrsbetriebe Elbe-Weser",
+      "country": "DE",
+      "groupName": "Regional",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Bremerhaven – Cuxhaven / Buxtehude"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HB",
+          "description": "Bremerhaven – Cuxhaven / Buxtehude"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HH"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 30
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 37
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 51
+        }
+      ]
+    },
+    {
+      "slug": "flixbus",
+      "name": "FlixBus",
+      "country": "DE",
+      "groupName": "Flix SE",
+      "brands": [],
+      "segments": [
+        "LONG_DISTANCE_BUS",
+        "CROSS_BORDER"
+      ],
+      "modes": [
+        "COACH"
+      ],
+      "serviceTypes": [],
+      "coverage": [
+        "Domestic + Europe-wide"
+      ],
+      "ownSalesChannel": null,
+      "notes": [
+        "Market leader in German long-distance coach"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "COUNTRY",
+          "code": "DE",
+          "description": "Domestic + Europe-wide"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Long-distance Bus",
+          "row": 2
+        }
+      ]
+    },
+    {
+      "slug": "flixtrain",
+      "name": "FlixTrain",
+      "country": "DE",
+      "groupName": "Flix SE",
+      "brands": [],
+      "segments": [
+        "LONG_DISTANCE",
+        "CROSS_BORDER"
+      ],
+      "modes": [
+        "LONG_DISTANCE_RAIL"
+      ],
+      "serviceTypes": [
+        "FLX"
+      ],
+      "coverage": [
+        "Berlin, Hamburg, Cologne/NRW, Frankfurt, Stuttgart, southwest + some cross-border"
+      ],
+      "ownSalesChannel": "flixtrain.com / Flix app",
+      "notes": [
+        "Budget open-access operator; ICE-L based fleet on order for 2028"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "COUNTRY",
+          "code": "DE",
+          "description": "Berlin, Hamburg, Cologne/NRW, Frankfurt, Stuttgart, southwest + some cross-border"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Long-distance DE",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "slug": "goerlitzer-verkehrsbetriebe",
+      "name": "Görlitzer Verkehrsbetriebe",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Görlitz"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 56
+        }
+      ]
+    },
+    {
+      "slug": "goevb",
+      "name": "GöVB",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Göttingen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 66
+        }
+      ]
+    },
+    {
+      "slug": "govolta",
+      "name": "GoVolta",
+      "country": "NL",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "LONG_DISTANCE"
+      ],
+      "modes": [
+        "LONG_DISTANCE_RAIL"
+      ],
+      "serviceTypes": [
+        "Day – budget long distance"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "govolta.com",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "berlin-amsterdam-6x-week-since-jul-2026-hamburg-route-withdr",
+          "description": "Berlin ↔ Amsterdam (6x/week since Jul 2026; Hamburg route withdrawn); Amsterdam–Paris planned Dec 2026"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "NL"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 14
+        }
+      ],
+      "statusReason": "Sheet: Hamburg route withdrawn; Amsterdam–Paris only planned Dec 2026."
+    },
+    {
+      "slug": "gvb-gera",
+      "name": "GVB Gera",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Gera"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-TH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 51
+        }
+      ]
+    },
+    {
+      "slug": "hadag",
+      "name": "HADAG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "U_BAHN",
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Hamburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "slug": "hagener-strassenbahn",
+      "name": "Hagener Straßenbahn",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Hagen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 63
+        }
+      ]
+    },
+    {
+      "slug": "hamburger-hochbahn",
+      "name": "Hamburger Hochbahn",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "U_BAHN",
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Hamburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "slug": "hanseatische-eisenbahn",
+      "name": "Hanseatische Eisenbahn",
+      "country": "DE",
+      "groupName": "Private",
+      "brands": [
+        "HANS"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Prignitz (Putlitz area)"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BB",
+          "description": "Prignitz (Putlitz area)"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 26
+        }
+      ]
+    },
+    {
+      "slug": "harzer-schmalspurbahnen",
+      "name": "Harzer Schmalspurbahnen",
+      "country": "DE",
+      "groupName": "Regional",
+      "brands": [
+        "HSB"
+      ],
+      "segments": [
+        "HERITAGE"
+      ],
+      "modes": [
+        "HERITAGE_RAIL"
+      ],
+      "serviceTypes": [
+        "Narrow-gauge (Brocken)",
+        "Narrow-gauge"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Also serves Thuringia (Nordhausen)",
+        "Nordhausen"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-ST",
+          "description": "Also serves Thuringia (Nordhausen)"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-TH",
+          "description": "Nordhausen"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 98
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 112
+        }
+      ]
+    },
+    {
+      "slug": "havag",
+      "name": "HAVAG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Halle (Saale)"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-ST"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 31
+        }
+      ]
+    },
+    {
+      "slug": "heag-mobilo",
+      "name": "HEAG mobilo",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Darmstadt"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 46
+        }
+      ]
+    },
+    {
+      "slug": "hessische-landesbahn",
+      "name": "Hessische Landesbahn",
+      "country": "DE",
+      "groupName": "State of Hessen",
+      "brands": [
+        "HLB"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB",
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Small Bavarian share",
+        "Largest non-DB operator in Hessen",
+        "Siegen area"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "Small Bavarian share"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE",
+          "description": "Largest non-DB operator in Hessen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW",
+          "description": "Siegen area"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 15
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 39
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 72
+        }
+      ]
+    },
+    {
+      "slug": "hex",
+      "name": "HEX",
+      "country": "DE",
+      "groupName": "Transdev",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Harz – Magdeburg – Halle"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-ST",
+          "description": "Harz – Magdeburg – Halle"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 97
+        }
+      ]
+    },
+    {
+      "slug": "hvg",
+      "name": "HVG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Halberstadt"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-ST"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 60
+        }
+      ]
+    },
+    {
+      "slug": "invg",
+      "name": "INVG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Ingolstadt"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 45
+        }
+      ]
+    },
+    {
+      "slug": "jenaer-nahverkehr",
+      "name": "Jenaer Nahverkehr",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Jena"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-TH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 50
+        }
+      ]
+    },
+    {
+      "slug": "koleje-dolnoslaskie",
+      "name": "Koleje Dolnośląskie",
+      "country": "PL",
+      "groupName": "Poland",
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "Regional cross-border",
+        "Cross-border regional"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "kolejedolnoslaskie.eu",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "saxony-goerlitz-dresden-area-lower-silesia-wroclaw",
+          "description": "Saxony (Görlitz / Dresden area) ↔ Lower Silesia, Wrocław"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "PL"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 11
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 94
+        }
+      ]
+    },
+    {
+      "slug": "koveb",
+      "name": "koveb",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Koblenz"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 62
+        }
+      ]
+    },
+    {
+      "slug": "kurhessenbahn",
+      "name": "Kurhessenbahn",
+      "country": "DE",
+      "groupName": "DB RegioNetz",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Northern Hessen, into NRW"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE",
+          "description": "Northern Hessen, into NRW"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 41
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 61
+        }
+      ]
+    },
+    {
+      "slug": "kvb",
+      "name": "KVB",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Cologne"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 5
+        }
+      ]
+    },
+    {
+      "slug": "kvg-kassel",
+      "name": "KVG Kassel",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Kassel"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 39
+        }
+      ]
+    },
+    {
+      "slug": "kvg-kiel",
+      "name": "KVG Kiel",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Kiel"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 29
+        }
+      ]
+    },
+    {
+      "slug": "lvb",
+      "name": "LVB",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Leipzig"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 9
+        }
+      ]
+    },
+    {
+      "slug": "mainzer-mobilitaet",
+      "name": "Mainzer Mobilität",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Mainz"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 35
+        }
+      ]
+    },
+    {
+      "slug": "mecklenburgische-baederbahn-molli",
+      "name": "Mecklenburgische Bäderbahn Molli",
+      "country": "DE",
+      "groupName": "Private",
+      "brands": [],
+      "segments": [
+        "HERITAGE"
+      ],
+      "modes": [
+        "HERITAGE_RAIL"
+      ],
+      "serviceTypes": [
+        "Heritage narrow-gauge"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Bad Doberan – Kühlungsborn"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-MV",
+          "description": "Bad Doberan – Kühlungsborn"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 58
+        }
+      ]
+    },
+    {
+      "slug": "metronom",
+      "name": "metronom",
+      "country": "DE",
+      "groupName": "Netinera",
+      "brands": [
+        "enno"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Bremen – Hamburg",
+        "Hamburg – Bremen / Uelzen / Cuxhaven",
+        "Hansenetz, Braunschweig region"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HB",
+          "description": "Bremen – Hamburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HH",
+          "description": "Hamburg – Bremen / Uelzen / Cuxhaven"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI",
+          "description": "Hansenetz, Braunschweig region"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 29
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 34
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 45
+        }
+      ]
+    },
+    {
+      "slug": "mitteldeutsche-regiobahn",
+      "name": "Mitteldeutsche Regiobahn",
+      "country": "DE",
+      "groupName": "Transdev",
+      "brands": [
+        "MRB"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Leipzig – Chemnitz – Dresden"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN",
+          "description": "Leipzig – Chemnitz – Dresden"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 88
+        }
+      ]
+    },
+    {
+      "slug": "mobiel",
+      "name": "moBiel",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Bielefeld"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 19
+        }
+      ]
+    },
+    {
+      "slug": "mvb",
+      "name": "MVB",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Magdeburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-ST"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 32
+        }
+      ]
+    },
+    {
+      "slug": "mvg",
+      "name": "MVG",
+      "country": "DE",
+      "groupName": "Stadtwerke München",
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "U_BAHN",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Munich"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 4
+        }
+      ]
+    },
+    {
+      "slug": "nahverkehr-schwerin",
+      "name": "Nahverkehr Schwerin",
+      "country": "DE",
+      "groupName": "NVS",
+      "brands": [
+        "NVS"
+      ],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Schwerin"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-MV"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 52
+        }
+      ]
+    },
+    {
+      "slug": "national-express-rail",
+      "name": "National Express Rail",
+      "country": "DE",
+      "groupName": "Mobico (National Express)",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RRX (RE 1, 4, 5, 6, 11), RE 7, RB 48"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "2nd-largest in NRW"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW",
+          "description": "2nd-largest in NRW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 62
+        }
+      ]
+    },
+    {
+      "slug": "neg-niebuell",
+      "name": "neg Niebüll",
+      "country": "DE",
+      "groupName": "Regional",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Niebüll – Dagebüll"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH",
+          "description": "Niebüll – Dagebüll"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 105
+        }
+      ]
+    },
+    {
+      "slug": "new-mobil-und-aktiv",
+      "name": "NEW mobil und aktiv",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Mönchengladbach"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 26
+        }
+      ]
+    },
+    {
+      "slug": "niederbarnimer-eisenbahn",
+      "name": "Niederbarnimer Eisenbahn",
+      "country": "DE",
+      "groupName": "Netinera",
+      "brands": [
+        "NEB"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB (Heidekrautbahn etc.)",
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Also cross-border towards Poland"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BE"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BB",
+          "description": "Also cross-border towards Poland"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 22
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 25
+        }
+      ]
+    },
+    {
+      "slug": "nordbahn",
+      "name": "nordbahn",
+      "country": "DE",
+      "groupName": "Netinera / AKN",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Hamburg – Schleswig-Holstein"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HH",
+          "description": "Hamburg – Schleswig-Holstein"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 36
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 101
+        }
+      ]
+    },
+    {
+      "slug": "nordwestbahn",
+      "name": "NordWestBahn",
+      "country": "DE",
+      "groupName": "Transdev",
+      "brands": [
+        "Regio-S-Bahn Bremen/Niedersachsen"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "Regio-S-Bahn, RB",
+        "RB, RE, Regio-S-Bahn",
+        "RB, RE"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HB"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 27
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 47
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 65
+        }
+      ]
+    },
+    {
+      "slug": "ns-international",
+      "name": "NS International",
+      "country": "NL",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "LONG_DISTANCE"
+      ],
+      "modes": [
+        "LONG_DISTANCE_RAIL"
+      ],
+      "serviceTypes": [
+        "Day – long distance"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "nsinternational.com",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "frankfurt-cologne-duesseldorf-berlin-hanover-amsterdam-utrec",
+          "description": "Frankfurt, Cologne, Düsseldorf, Berlin, Hanover ↔ Amsterdam, Utrecht, Arnhem (jointly with DB)"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "NL"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 12
+        }
+      ]
+    },
+    {
+      "slug": "oberweissbacher-bergbahn",
+      "name": "Oberweißbacher Bergbahn",
+      "country": "DE",
+      "groupName": "DB RegioNetz",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "FUNICULAR"
+      ],
+      "serviceTypes": [
+        "Funicular + railway"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-TH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 111
+        }
+      ]
+    },
+    {
+      "slug": "odeg",
+      "name": "ODEG",
+      "country": "DE",
+      "groupName": "Netinera / BeNEX",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Berlin–Brandenburg lines",
+        "Eastern Saxony lines"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BE",
+          "description": "Berlin–Brandenburg lines"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BB"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-MV"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN",
+          "description": "Eastern Saxony lines"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 21
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 24
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 56
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 90
+        }
+      ]
+    },
+    {
+      "slug": "oebb",
+      "name": "ÖBB",
+      "country": "AT",
+      "groupName": "+ MÁV, HŽPP, etc.",
+      "brands": [
+        "Railjet",
+        "EuroCity",
+        "Nightjet",
+        "EuroNight"
+      ],
+      "segments": [
+        "CROSS_BORDER",
+        "LONG_DISTANCE",
+        "NIGHT",
+        "REGIONAL"
+      ],
+      "modes": [
+        "HIGH_SPEED_RAIL",
+        "LONG_DISTANCE_RAIL",
+        "NIGHT_TRAIN",
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "Day – long distance",
+        "Night trains",
+        "RE / S-Bahn cross-border"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "oebb.at",
+      "notes": [
+        "Salzburg, Kufstein, Lindau area"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "munich-frankfurt-stuttgart-nuremberg-vienna-salzburg-innsbru",
+          "description": "Munich, Frankfurt, Stuttgart, Nuremberg ↔ Vienna, Salzburg, Innsbruck, Verona, Bologna, Budapest"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "AT"
+        },
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "berlin-hamburg-munich-cologne-frankfurt-vienna-zuerich-rome-",
+          "description": "Berlin, Hamburg, Munich, Cologne, Frankfurt ↔ Vienna, Zürich, Rome, Venice, Budapest, Zagreb, Amsterdam, Brussels"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "Salzburg, Kufstein, Lindau area"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 5
+        },
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 6
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 18
+        }
+      ]
+    },
+    {
+      "slug": "padersprinter",
+      "name": "PaderSprinter",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Paderborn"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 68
+        }
+      ]
+    },
+    {
+      "slug": "pkp-intercity",
+      "name": "PKP Intercity",
+      "country": "PL",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "LONG_DISTANCE"
+      ],
+      "modes": [
+        "LONG_DISTANCE_RAIL"
+      ],
+      "serviceTypes": [
+        "Day – EuroCity"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "intercity.pl",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "berlin-frankfurt-oder-warsaw-poznan-gdansk-gdynia-krakow-prz",
+          "description": "Berlin, Frankfurt (Oder) ↔ Warsaw, Poznań, Gdańsk/Gdynia, Kraków, Przemyśl"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "PL"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 10
+        }
+      ]
+    },
+    {
+      "slug": "psb",
+      "name": "PSB",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Plauen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 58
+        }
+      ]
+    },
+    {
+      "slug": "rdc-autozug-sylt",
+      "name": "RDC Autozug Sylt",
+      "country": "DE",
+      "groupName": "RDC Deutschland",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "CAR_TRAIN"
+      ],
+      "serviceTypes": [
+        "Car-carrier train"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Niebüll – Westerland"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH",
+          "description": "Niebüll – Westerland"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 104
+        }
+      ]
+    },
+    {
+      "slug": "rdc-deutschland",
+      "name": "RDC Deutschland",
+      "country": "DE",
+      "groupName": "RDC Deutschland group",
+      "brands": [],
+      "segments": [
+        "NIGHT",
+        "CROSS_BORDER"
+      ],
+      "modes": [
+        "NIGHT_TRAIN",
+        "CAR_TRAIN"
+      ],
+      "serviceTypes": [
+        "Night trains, car-carrier trains",
+        "Night trains"
+      ],
+      "coverage": [
+        "Berlin/Hamburg–Stockholm (own operation from Sep 2026); Sylt car train (RDC Autozug Sylt)"
+      ],
+      "ownSalesChannel": "rdc-deutschland.de / nachtexpress.de",
+      "notes": [
+        "Also partner/operator behind several charter & night services"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "COUNTRY",
+          "code": "DE",
+          "description": "Berlin/Hamburg–Stockholm (own operation from Sep 2026); Sylt car train (RDC Autozug Sylt)"
+        },
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "basel-frankfurt-hamburg-copenhagen-malmoe-from-apr-2026-3x-w",
+          "description": "Basel – Frankfurt – Hamburg – Copenhagen/Malmö (from Apr 2026, ~3x/week)"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Long-distance DE",
+          "row": 4
+        },
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 21
+        }
+      ]
+    },
+    {
+      "slug": "regiobahn",
+      "name": "REGIOBAHN",
+      "country": "DE",
+      "groupName": "Municipal",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "S 28"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Düsseldorf – Mettmann – Wuppertal"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW",
+          "description": "Düsseldorf – Mettmann – Wuppertal"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 70
+        }
+      ]
+    },
+    {
+      "slug": "regiobus",
+      "name": "regiobus",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Hanover"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 14
+        }
+      ]
+    },
+    {
+      "slug": "regiojet",
+      "name": "RegioJet",
+      "country": "CZ",
+      "groupName": "Student Agency / RegioJet (CZ)",
+      "brands": [],
+      "segments": [
+        "LONG_DISTANCE_BUS",
+        "CROSS_BORDER"
+      ],
+      "modes": [
+        "COACH"
+      ],
+      "serviceTypes": [],
+      "coverage": [
+        "Berlin/Dresden ↔ Prague, Central Europe"
+      ],
+      "ownSalesChannel": null,
+      "notes": [
+        "RegioJet does not run trains in Germany"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "COUNTRY",
+          "code": "DE",
+          "description": "Berlin/Dresden ↔ Prague, Central Europe"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Long-distance Bus",
+          "row": 4
+        }
+      ]
+    },
+    {
+      "slug": "regiotram-kassel",
+      "name": "RegioTram Kassel",
+      "country": "DE",
+      "groupName": "Regional",
+      "brands": [],
+      "segments": [
+        "REGIONAL",
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [
+        "Tram-train"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE"
+        },
+        {
+          "type": "CITY",
+          "code": "Kassel"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 43
+        },
+        {
+          "sheet": "City Transit",
+          "row": 39
+        }
+      ]
+    },
+    {
+      "slug": "rhein-ruhr-bahn",
+      "name": "Rhein-Ruhr-Bahn",
+      "country": "DE",
+      "groupName": "Transdev",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 66
+        }
+      ]
+    },
+    {
+      "slug": "rheinbahn",
+      "name": "Rheinbahn",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "U_BAHN",
+        "TRAM",
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Düsseldorf"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 8
+        }
+      ]
+    },
+    {
+      "slug": "rnv",
+      "name": "rnv",
+      "country": "DE",
+      "groupName": "Rhein-Neckar-Verkehr",
+      "brands": [
+        "Rhein-Neckar-Verkehr"
+      ],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Mannheim / Heidelberg / Ludwigshafen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 22
+        }
+      ]
+    },
+    {
+      "slug": "rsag",
+      "name": "RSAG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Rostock"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-MV"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 38
+        }
+      ]
+    },
+    {
+      "slug": "ruegensche-baederbahn",
+      "name": "Rügensche BäderBahn",
+      "country": "DE",
+      "groupName": "Private",
+      "brands": [],
+      "segments": [
+        "HERITAGE"
+      ],
+      "modes": [
+        "HERITAGE_RAIL"
+      ],
+      "serviceTypes": [
+        "Heritage narrow-gauge"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Rügen island"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-MV",
+          "description": "Rügen island"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 59
+        }
+      ]
+    },
+    {
+      "slug": "ruhrbahn",
+      "name": "Ruhrbahn",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Essen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        },
+        {
+          "type": "CITY",
+          "code": "Mülheim an der Ruhr"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 11
+        },
+        {
+          "sheet": "City Transit",
+          "row": 65
+        }
+      ]
+    },
+    {
+      "slug": "rurtalbahn",
+      "name": "Rurtalbahn",
+      "country": "DE",
+      "groupName": "Private/municipal",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Düren area"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW",
+          "description": "Düren area"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 71
+        }
+      ]
+    },
+    {
+      "slug": "s-bahn-berlin-gmbh",
+      "name": "S-Bahn Berlin GmbH",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "S-Bahn"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "City rapid transit"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BE",
+          "description": "City rapid transit"
+        },
+        {
+          "type": "CITY",
+          "code": "Berlin"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 19
+        },
+        {
+          "sheet": "City Transit",
+          "row": 2
+        }
+      ]
+    },
+    {
+      "slug": "s-bahn-hamburg-gmbh",
+      "name": "S-Bahn Hamburg GmbH",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "S-Bahn"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HH"
+        },
+        {
+          "type": "CITY",
+          "code": "Hamburg"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 32
+        },
+        {
+          "sheet": "City Transit",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "slug": "s-bahn-hannover",
+      "name": "S-Bahn Hannover",
+      "country": "DE",
+      "groupName": "Transdev",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "S-Bahn",
+        "S-Bahn lines into NRW"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 48
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 67
+        }
+      ]
+    },
+    {
+      "slug": "saarbahn",
+      "name": "Saarbahn",
+      "country": "DE",
+      "groupName": "City of Saarbrücken",
+      "brands": [],
+      "segments": [
+        "REGIONAL",
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [
+        "Tram-train"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Saarbrücken – Sarreguemines (FR)"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SL",
+          "description": "Saarbrücken – Sarreguemines (FR)"
+        },
+        {
+          "type": "CITY",
+          "code": "Saarbrücken"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 84
+        },
+        {
+          "sheet": "City Transit",
+          "row": 41
+        }
+      ]
+    },
+    {
+      "slug": "saechsische-dampfeisenbahngesellschaft",
+      "name": "Sächsische Dampfeisenbahngesellschaft",
+      "country": "DE",
+      "groupName": "Private",
+      "brands": [
+        "SDG"
+      ],
+      "segments": [
+        "HERITAGE"
+      ],
+      "modes": [
+        "HERITAGE_RAIL"
+      ],
+      "serviceTypes": [
+        "Heritage narrow-gauge"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Fichtelbergbahn, Lößnitzgrundbahn, Weißeritztalbahn"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN",
+          "description": "Fichtelbergbahn, Lößnitzgrundbahn, Weißeritztalbahn"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 92
+        }
+      ]
+    },
+    {
+      "slug": "sbb",
+      "name": "SBB",
+      "country": "CH",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "REGIONAL"
+      ],
+      "modes": [
+        "LONG_DISTANCE_RAIL",
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "Day – long distance + regional"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "sbb.ch",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "basel-frankfurt-stuttgart-munich-hamburg-zuerich-basel-inter",
+          "description": "Basel, Frankfurt, Stuttgart, Munich, Hamburg ↔ Zürich, Basel, Interlaken, Chur"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "CH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 7
+        }
+      ]
+    },
+    {
+      "slug": "sbb-gmbh",
+      "name": "SBB GmbH",
+      "country": "CH",
+      "groupName": "SBB (Switzerland)",
+      "brands": [
+        "SBB Deutschland"
+      ],
+      "segments": [
+        "CROSS_BORDER",
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "Regional (in Germany)",
+        "S-Bahn Basel, Seehas"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "sbb-deutschland.de",
+      "notes": [
+        "Lörrach / Lake Constance"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "baden-wuerttemberg-seehas-wiesentalbahn-s-bahn-basel-lines",
+          "description": "Baden-Württemberg: Seehas, Wiesentalbahn, S-Bahn Basel lines"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "CH"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW",
+          "description": "Lörrach / Lake Constance"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 8
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 6
+        }
+      ]
+    },
+    {
+      "slug": "sfk",
+      "name": "SFK",
+      "country": "DE",
+      "groupName": "ferries",
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Kiel"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 29
+        }
+      ]
+    },
+    {
+      "slug": "sj",
+      "name": "SJ",
+      "country": "SE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "NIGHT"
+      ],
+      "modes": [
+        "NIGHT_TRAIN"
+      ],
+      "serviceTypes": [
+        "Night train"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "sj.se",
+      "notes": [],
+      "status": "INACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "berlin-hamburg-stockholm-sj-role-ends-aug-2026-rdc-deutschla",
+          "description": "Berlin/Hamburg ↔ Stockholm – SJ role ends Aug 2026, RDC Deutschland takes over"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "SE"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 18
+        }
+      ],
+      "statusReason": "Sheet: SJ role on Berlin/Hamburg–Stockholm ends Aug 2026; RDC Deutschland takes over."
+    },
+    {
+      "slug": "snaelltaget",
+      "name": "Snälltåget",
+      "country": "SE",
+      "groupName": "Transdev",
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "NIGHT"
+      ],
+      "modes": [
+        "NIGHT_TRAIN"
+      ],
+      "serviceTypes": [
+        "Night + seasonal"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "snalltaget.se",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "berlin-hamburg-malmoe-stockholm-seasonal-to-austrian-alps",
+          "description": "Berlin/Hamburg ↔ Malmö, Stockholm; seasonal to Austrian Alps"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "SE"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 19
+        }
+      ]
+    },
+    {
+      "slug": "sncb-nmbs",
+      "name": "SNCB / NMBS",
+      "country": "BE",
+      "groupName": "Belgium",
+      "brands": [],
+      "segments": [
+        "CROSS_BORDER",
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "Day + regional",
+        "Cross-border regional"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "belgiantrain.be",
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "frankfurt-cologne-aachen-brussels-liege-ice-jointly-with-db-",
+          "description": "Frankfurt, Cologne, Aachen ↔ Brussels, Liège (ICE jointly with DB); listed as NRW operator 2026"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "BE"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 15
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 74
+        }
+      ]
+    },
+    {
+      "slug": "sncf-voyageurs",
+      "name": "SNCF Voyageurs",
+      "country": "FR",
+      "groupName": "France",
+      "brands": [
+        "TGV INOUI",
+        "TER Grand Est"
+      ],
+      "segments": [
+        "CROSS_BORDER",
+        "LONG_DISTANCE",
+        "REGIONAL"
+      ],
+      "modes": [
+        "HIGH_SPEED_RAIL",
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "Day – high speed",
+        "Regional cross-border",
+        "Cross-border regional"
+      ],
+      "coverage": [],
+      "ownSalesChannel": "sncf-connect.com",
+      "notes": [
+        "Neustadt – Wissembourg",
+        "Saarbrücken – Metz / Strasbourg"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "frankfurt-stuttgart-munich-karlsruhe-mannheim-saarbruecken-p",
+          "description": "Frankfurt, Stuttgart, Munich, Karlsruhe, Mannheim, Saarbrücken ↔ Paris, Strasbourg, Marseille (jointly with DB)"
+        },
+        {
+          "type": "COUNTRY",
+          "code": "FR"
+        },
+        {
+          "type": "INTERNATIONAL_ROUTE",
+          "code": "saarland-rhineland-palatinate-metz-strasbourg-wissembourg",
+          "description": "Saarland & Rhineland-Palatinate ↔ Metz, Strasbourg, Wissembourg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP",
+          "description": "Neustadt – Wissembourg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SL",
+          "description": "Saarbrücken – Metz / Strasbourg"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 3
+        },
+        {
+          "sheet": "Cross-border & Intl",
+          "row": 4
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 81
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 85
+        }
+      ]
+    },
+    {
+      "slug": "soeg",
+      "name": "SOEG",
+      "country": "DE",
+      "groupName": "Regional",
+      "brands": [
+        "Zittauer Schmalspurbahn"
+      ],
+      "segments": [
+        "HERITAGE"
+      ],
+      "modes": [
+        "HERITAGE_RAIL"
+      ],
+      "serviceTypes": [
+        "Heritage narrow-gauge"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Zittau mountains"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN",
+          "description": "Zittau mountains"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 93
+        }
+      ]
+    },
+    {
+      "slug": "ssb",
+      "name": "SSB",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "STADTBAHN",
+        "BUS",
+        "RACK_RAILWAY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Stuttgart"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 7
+        }
+      ]
+    },
+    {
+      "slug": "stadtverkehr-luebeck",
+      "name": "Stadtverkehr Lübeck",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Lübeck"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 36
+        }
+      ]
+    },
+    {
+      "slug": "stadtwerke-bamberg",
+      "name": "Stadtwerke Bamberg",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Bamberg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 69
+        }
+      ]
+    },
+    {
+      "slug": "stadtwerke-bayreuth",
+      "name": "Stadtwerke Bayreuth",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Bayreuth"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 70
+        }
+      ]
+    },
+    {
+      "slug": "stadtwerke-heilbronn",
+      "name": "Stadtwerke Heilbronn",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Heilbronn"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 49
+        }
+      ]
+    },
+    {
+      "slug": "stadtwerke-konstanz",
+      "name": "Stadtwerke Konstanz",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Konstanz"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 71
+        }
+      ]
+    },
+    {
+      "slug": "stadtwerke-muenster",
+      "name": "Stadtwerke Münster",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Münster"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 21
+        }
+      ]
+    },
+    {
+      "slug": "stadtwerke-osnabrueck",
+      "name": "Stadtwerke Osnabrück",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Osnabrück"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 48
+        }
+      ]
+    },
+    {
+      "slug": "stoag",
+      "name": "STOAG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Oberhausen"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 64
+        }
+      ]
+    },
+    {
+      "slug": "svf",
+      "name": "SVF",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Frankfurt (Oder)"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BB"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 54
+        }
+      ]
+    },
+    {
+      "slug": "svz",
+      "name": "SVZ",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Zwickau"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SN"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 57
+        }
+      ]
+    },
+    {
+      "slug": "swa",
+      "name": "swa",
+      "country": "DE",
+      "groupName": "Stadtwerke Augsburg",
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Augsburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 24
+        }
+      ]
+    },
+    {
+      "slug": "swb-bus-und-bahn",
+      "name": "SWB Bus und Bahn",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Bonn"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 20
+        }
+      ]
+    },
+    {
+      "slug": "sweg-suedwestdeutsche-landesverkehrs-gmbh",
+      "name": "SWEG Südwestdeutsche Landesverkehrs-GmbH",
+      "country": "DE",
+      "groupName": "State of Baden-Württemberg",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB",
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Also runs buses; small Bavarian contract",
+        "Small Bavarian share"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW",
+          "description": "Also runs buses; small Bavarian contract"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY",
+          "description": "Small Bavarian share"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 3
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 16
+        }
+      ]
+    },
+    {
+      "slug": "swk-mobil",
+      "name": "SWK Mobil",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Krefeld"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 34
+        }
+      ]
+    },
+    {
+      "slug": "swt-stadtwerke-trier",
+      "name": "SWT Stadtwerke Trier",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Trier"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 61
+        }
+      ]
+    },
+    {
+      "slug": "swu-verkehr",
+      "name": "SWU Verkehr",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Ulm / Neu-Ulm"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 42
+        }
+      ]
+    },
+    {
+      "slug": "traffiq",
+      "name": "traffiQ",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "U_BAHN",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Frankfurt am Main"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 6
+        }
+      ]
+    },
+    {
+      "slug": "train4you",
+      "name": "Train4You",
+      "country": "DE",
+      "groupName": "Train4You GmbH",
+      "brands": [
+        "Urlaubs-Express"
+      ],
+      "segments": [
+        "NIGHT"
+      ],
+      "modes": [
+        "NIGHT_TRAIN"
+      ],
+      "serviceTypes": [
+        "Seasonal night / holiday trains"
+      ],
+      "coverage": [
+        "Germany → Austria, Italy, Croatia (seasonal)"
+      ],
+      "ownSalesChannel": "urlaubs-express.de",
+      "notes": [
+        "Charter-style holiday night trains"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "COUNTRY",
+          "code": "DE",
+          "description": "Germany → Austria, Italy, Croatia (seasonal)"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Long-distance DE",
+          "row": 5
+        }
+      ]
+    },
+    {
+      "slug": "trans-regio",
+      "name": "trans regio",
+      "country": "DE",
+      "groupName": "Transdev",
+      "brands": [
+        "MittelrheinBahn"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Cologne – Koblenz – Mainz"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP",
+          "description": "Cologne – Koblenz – Mainz"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 68
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 78
+        }
+      ]
+    },
+    {
+      "slug": "tri-train-rental",
+      "name": "TRI Train Rental",
+      "country": "DE",
+      "groupName": "Private",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "1 line"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 73
+        }
+      ]
+    },
+    {
+      "slug": "uestra",
+      "name": "ÜSTRA",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "STADTBAHN",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Hanover"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 14
+        }
+      ]
+    },
+    {
+      "slug": "usedomer-baederbahn",
+      "name": "Usedomer Bäderbahn",
+      "country": "DE",
+      "groupName": "Deutsche Bahn",
+      "brands": [
+        "UBB"
+      ],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Island of Usedom, to Świnoujście (PL)"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-MV",
+          "description": "Island of Usedom, to Świnoujście (PL)"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 57
+        }
+      ]
+    },
+    {
+      "slug": "vag-freiburg",
+      "name": "VAG Freiburg",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Freiburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 33
+        }
+      ]
+    },
+    {
+      "slug": "vag-nuernberg",
+      "name": "VAG Nürnberg",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "U_BAHN",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Nuremberg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 15
+        }
+      ]
+    },
+    {
+      "slug": "vbbr",
+      "name": "VBBr",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Brandenburg an der Havel"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BB"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 55
+        }
+      ]
+    },
+    {
+      "slug": "vbk",
+      "name": "VBK",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Karlsruhe"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 23
+        }
+      ]
+    },
+    {
+      "slug": "vgf",
+      "name": "VGF",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "U_BAHN",
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Frankfurt am Main"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 6
+        }
+      ]
+    },
+    {
+      "slug": "vhh",
+      "name": "VHH",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "U_BAHN",
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Hamburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HH"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 3
+        }
+      ]
+    },
+    {
+      "slug": "vias-rail",
+      "name": "VIAS Rail",
+      "country": "DE",
+      "groupName": "Private",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL",
+        "S_BAHN"
+      ],
+      "serviceTypes": [
+        "RB (Odenwaldbahn, RheingauLinie)",
+        "RE 19, RB 35, S 7; RE 3 & RE 41 from Dec 2026"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HE"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 42
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 64
+        }
+      ]
+    },
+    {
+      "slug": "vip-verkehrsbetrieb-potsdam",
+      "name": "ViP Verkehrsbetrieb Potsdam",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS",
+        "FERRY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Potsdam"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BB"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 40
+        }
+      ]
+    },
+    {
+      "slug": "vlexx",
+      "name": "vlexx",
+      "country": "DE",
+      "groupName": "Netinera",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Mainz – Saarbrücken, Nahe, Eifel"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-RP",
+          "description": "Mainz – Saarbrücken, Nahe, Eifel"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-SL"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 77
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 83
+        }
+      ]
+    },
+    {
+      "slug": "vwg",
+      "name": "VWG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Oldenburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 47
+        }
+      ]
+    },
+    {
+      "slug": "wedler-franz-logistik",
+      "name": "Wedler Franz Logistik",
+      "country": "DE",
+      "groupName": "Private",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE 9 (part of trips)",
+        "RE 9 (part)"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Osnabrück – Bremen – Bremerhaven"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-HB",
+          "description": "Osnabrück – Bremen – Bremerhaven"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 31
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 54
+        }
+      ]
+    },
+    {
+      "slug": "westfalenbahn",
+      "name": "WestfalenBahn",
+      "country": "DE",
+      "groupName": "Private",
+      "brands": [],
+      "segments": [
+        "REGIONAL"
+      ],
+      "modes": [
+        "REGIONAL_RAIL"
+      ],
+      "serviceTypes": [
+        "RE",
+        "RE, RB"
+      ],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [
+        "Rheine / Bielefeld – Braunschweig"
+      ],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI",
+          "description": "Rheine / Bielefeld – Braunschweig"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "Regional by State",
+          "row": 50
+        },
+        {
+          "sheet": "Regional by State",
+          "row": 69
+        }
+      ]
+    },
+    {
+      "slug": "wsw-mobil",
+      "name": "WSW mobil",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS",
+        "SUSPENSION_RAILWAY"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Wuppertal"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NW"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 18
+        }
+      ]
+    },
+    {
+      "slug": "wvg",
+      "name": "WVG",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Wolfsburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-NI"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 67
+        }
+      ]
+    },
+    {
+      "slug": "wvv",
+      "name": "WVV",
+      "country": "DE",
+      "groupName": null,
+      "brands": [],
+      "segments": [
+        "CITY_TRANSIT"
+      ],
+      "modes": [
+        "TRAM",
+        "BUS"
+      ],
+      "serviceTypes": [],
+      "coverage": [],
+      "ownSalesChannel": null,
+      "notes": [],
+      "status": "ACTIVE",
+      "regions": [
+        {
+          "type": "CITY",
+          "code": "Würzburg"
+        },
+        {
+          "type": "FEDERAL_STATE",
+          "code": "DE-BY"
+        }
+      ],
+      "sources": [
+        {
+          "sheet": "City Transit",
+          "row": 43
+        }
+      ]
+    }
+  ],
+  "tariffAssociations": [
+    {
+      "slug": "vbb",
+      "shortName": "VBB",
+      "fullName": "Verkehrsverbund Berlin-Brandenburg",
+      "area": "Berlin, Brandenburg",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 2
+      }
+    },
+    {
+      "slug": "hvv",
+      "shortName": "HVV",
+      "fullName": "Hamburger Verkehrsverbund",
+      "area": "Hamburg + parts of S-H & Lower Saxony",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 3
+      }
+    },
+    {
+      "slug": "nah-sh",
+      "shortName": "NAH.SH",
+      "fullName": "Nahverkehrsverbund Schleswig-Holstein",
+      "area": "Schleswig-Holstein",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 4
+      }
+    },
+    {
+      "slug": "vvw",
+      "shortName": "VVW",
+      "fullName": "Verkehrsverbund Warnow",
+      "area": "Rostock region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 5
+      }
+    },
+    {
+      "slug": "vbn",
+      "shortName": "VBN",
+      "fullName": "Verkehrsverbund Bremen/Niedersachsen",
+      "area": "Bremen, NW Lower Saxony",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 6
+      }
+    },
+    {
+      "slug": "gvh",
+      "shortName": "GVH",
+      "fullName": "Großraum-Verkehr Hannover",
+      "area": "Hanover region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 7
+      }
+    },
+    {
+      "slug": "vrb",
+      "shortName": "VRB",
+      "fullName": "Verkehrsverbund Region Braunschweig",
+      "area": "Braunschweig, Wolfsburg, Salzgitter",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 8
+      }
+    },
+    {
+      "slug": "vsn",
+      "shortName": "VSN",
+      "fullName": "Verkehrsverbund Süd-Niedersachsen",
+      "area": "Göttingen region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 9
+      }
+    },
+    {
+      "slug": "vos",
+      "shortName": "VOS",
+      "fullName": "Verkehrsgemeinschaft Osnabrück",
+      "area": "Osnabrück region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 10
+      }
+    },
+    {
+      "slug": "vrr",
+      "shortName": "VRR",
+      "fullName": "Verkehrsverbund Rhein-Ruhr",
+      "area": "Ruhr, Düsseldorf, Wuppertal, Niederrhein",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 11
+      }
+    },
+    {
+      "slug": "vrs",
+      "shortName": "VRS",
+      "fullName": "Verkehrsverbund Rhein-Sieg",
+      "area": "Cologne, Bonn",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 12
+      }
+    },
+    {
+      "slug": "avv-aachen",
+      "shortName": "AVV (Aachen)",
+      "fullName": "Aachener Verkehrsverbund",
+      "area": "Aachen region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 13
+      }
+    },
+    {
+      "slug": "westfalentarif",
+      "shortName": "Westfalentarif",
+      "fullName": "WestfalenTarif",
+      "area": "Münster, Bielefeld, Paderborn, Sauerland, Siegen",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 14
+      }
+    },
+    {
+      "slug": "rmv",
+      "shortName": "RMV",
+      "fullName": "Rhein-Main-Verkehrsverbund",
+      "area": "Frankfurt, Wiesbaden, Mainz, Darmstadt, most of Hessen",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 15
+      }
+    },
+    {
+      "slug": "nvv",
+      "shortName": "NVV",
+      "fullName": "Nordhessischer VerkehrsVerbund",
+      "area": "Kassel, northern Hessen",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 16
+      }
+    },
+    {
+      "slug": "vrn",
+      "shortName": "VRN",
+      "fullName": "Verkehrsverbund Rhein-Neckar",
+      "area": "Mannheim, Heidelberg, Ludwigshafen, Palatinate",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 17
+      }
+    },
+    {
+      "slug": "vrm",
+      "shortName": "VRM",
+      "fullName": "Verkehrsverbund Rhein-Mosel",
+      "area": "Koblenz region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 18
+      }
+    },
+    {
+      "slug": "vrt",
+      "shortName": "VRT",
+      "fullName": "Verkehrsverbund Region Trier",
+      "area": "Trier region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 19
+      }
+    },
+    {
+      "slug": "rnn",
+      "shortName": "RNN",
+      "fullName": "Rhein-Nahe-Nahverkehrsverbund",
+      "area": "Bad Kreuznach, Mainz outskirts",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 20
+      }
+    },
+    {
+      "slug": "saarvv",
+      "shortName": "saarVV",
+      "fullName": "Saarländischer Verkehrsverbund",
+      "area": "Saarland",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 21
+      }
+    },
+    {
+      "slug": "kvv",
+      "shortName": "KVV",
+      "fullName": "Karlsruher Verkehrsverbund",
+      "area": "Karlsruhe, Pforzheim/Enzkreis (merged 2026)",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 22
+      }
+    },
+    {
+      "slug": "vvs",
+      "shortName": "VVS",
+      "fullName": "Verkehrs- und Tarifverbund Stuttgart",
+      "area": "Stuttgart region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 23
+      }
+    },
+    {
+      "slug": "hnv",
+      "shortName": "HNV",
+      "fullName": "Heilbronner Verkehrsverbund",
+      "area": "Heilbronn",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 24
+      }
+    },
+    {
+      "slug": "ding",
+      "shortName": "DING",
+      "fullName": "Donau-Iller-Nahverkehrsverbund",
+      "area": "Ulm / Neu-Ulm",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 25
+      }
+    },
+    {
+      "slug": "rvf",
+      "shortName": "RVF",
+      "fullName": "Regio-Verkehrsverbund Freiburg",
+      "area": "Freiburg",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 26
+      }
+    },
+    {
+      "slug": "bodo",
+      "shortName": "bodo",
+      "fullName": "Bodensee-Oberschwaben Verkehrsverbund",
+      "area": "Lake Constance / Upper Swabia",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 27
+      }
+    },
+    {
+      "slug": "naldo",
+      "shortName": "naldo",
+      "fullName": "Verkehrsverbund Neckar-Alb-Donau",
+      "area": "Tübingen, Reutlingen",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 28
+      }
+    },
+    {
+      "slug": "vhb",
+      "shortName": "VHB",
+      "fullName": "Verkehrsverbund Hegau-Bodensee",
+      "area": "Konstanz, Singen",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 29
+      }
+    },
+    {
+      "slug": "mvv",
+      "shortName": "MVV",
+      "fullName": "Münchner Verkehrs- und Tarifverbund",
+      "area": "Munich region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 30
+      }
+    },
+    {
+      "slug": "vgn",
+      "shortName": "VGN",
+      "fullName": "Verkehrsverbund Großraum Nürnberg",
+      "area": "Nuremberg, Franconia",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 31
+      }
+    },
+    {
+      "slug": "avv-augsburg",
+      "shortName": "AVV (Augsburg)",
+      "fullName": "Augsburger Verkehrs- und Tarifverbund",
+      "area": "Augsburg region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 32
+      }
+    },
+    {
+      "slug": "rvv",
+      "shortName": "RVV",
+      "fullName": "Regensburger Verkehrsverbund",
+      "area": "Regensburg",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 33
+      }
+    },
+    {
+      "slug": "vvm",
+      "shortName": "VVM",
+      "fullName": "Verkehrsunternehmens-Verbund Mainfranken",
+      "area": "Würzburg",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 34
+      }
+    },
+    {
+      "slug": "vgi",
+      "shortName": "VGI",
+      "fullName": "Verkehrsverbund Großraum Ingolstadt",
+      "area": "Ingolstadt",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 35
+      }
+    },
+    {
+      "slug": "mdv",
+      "shortName": "MDV",
+      "fullName": "Mitteldeutscher Verkehrsverbund",
+      "area": "Leipzig, Halle",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 36
+      }
+    },
+    {
+      "slug": "vvo",
+      "shortName": "VVO",
+      "fullName": "Verkehrsverbund Oberelbe",
+      "area": "Dresden region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 37
+      }
+    },
+    {
+      "slug": "vms",
+      "shortName": "VMS",
+      "fullName": "Verkehrsverbund Mittelsachsen",
+      "area": "Chemnitz, Zwickau",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 38
+      }
+    },
+    {
+      "slug": "zvon",
+      "shortName": "ZVON",
+      "fullName": "Verkehrsverbund Oberlausitz-Niederschlesien",
+      "area": "Görlitz, Bautzen, Zittau",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 39
+      }
+    },
+    {
+      "slug": "vvv",
+      "shortName": "VVV",
+      "fullName": "Verkehrsverbund Vogtland",
+      "area": "Plauen, Vogtland",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 40
+      }
+    },
+    {
+      "slug": "vmt",
+      "shortName": "VMT",
+      "fullName": "Verkehrsverbund Mittelthüringen",
+      "area": "Erfurt, Jena, Weimar, Gera",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 41
+      }
+    },
+    {
+      "slug": "marego",
+      "shortName": "marego",
+      "fullName": "Magdeburger Regionalverkehrsverbund",
+      "area": "Magdeburg region",
+      "kind": "VERBUND",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 42
+      }
+    },
+    {
+      "slug": "deutschlandtarif-dtv",
+      "shortName": "Deutschlandtarif (DTV)",
+      "fullName": "Deutschlandtarifverbund",
+      "area": "Nationwide tariff for regional trains of all operators",
+      "kind": "NATIONAL_TARIFF",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 43
+      }
+    },
+    {
+      "slug": "deutschland-ticket",
+      "shortName": "Deutschland-Ticket",
+      "fullName": "Nationwide monthly pass (€63 since Jan 2026)",
+      "area": "All local/regional public transport, 2nd class",
+      "kind": "NATIONAL_PASS",
+      "source": {
+        "sheet": "Tariff Associations",
+        "row": 44
+      }
+    }
+  ],
+  "cityTransit": [
+    {
+      "city": "Berlin",
+      "state": "Berlin",
+      "modes": "U-Bahn, tram, bus, ferry, S-Bahn",
+      "operatorSlugs": [
+        "bvg",
+        "s-bahn-berlin-gmbh"
+      ],
+      "tariffShortName": "VBB",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 2
+      }
+    },
+    {
+      "city": "Hamburg",
+      "state": "Hamburg",
+      "modes": "U-Bahn, bus, S-Bahn, ferry",
+      "operatorSlugs": [
+        "hamburger-hochbahn",
+        "vhh",
+        "s-bahn-hamburg-gmbh",
+        "hadag",
+        "akn-eisenbahn"
+      ],
+      "tariffShortName": "HVV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 3
+      }
+    },
+    {
+      "city": "Munich",
+      "state": "Bavaria",
+      "modes": "U-Bahn, tram, bus, S-Bahn",
+      "operatorSlugs": [
+        "mvg",
+        "db-regio-bayern"
+      ],
+      "tariffShortName": "MVV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 4
+      }
+    },
+    {
+      "city": "Cologne",
+      "state": "NRW",
+      "modes": "Stadtbahn, bus",
+      "operatorSlugs": [
+        "kvb"
+      ],
+      "tariffShortName": "VRS",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 5
+      }
+    },
+    {
+      "city": "Frankfurt am Main",
+      "state": "Hessen",
+      "modes": "U-Bahn, tram, bus, S-Bahn",
+      "operatorSlugs": [
+        "vgf",
+        "traffiq",
+        "db-regio-hessen"
+      ],
+      "tariffShortName": "RMV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 6
+      }
+    },
+    {
+      "city": "Stuttgart",
+      "state": "Baden-Württemberg",
+      "modes": "Stadtbahn, bus, rack railway, S-Bahn",
+      "operatorSlugs": [
+        "ssb",
+        "db-regio-baden-wuerttemberg"
+      ],
+      "tariffShortName": "VVS",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 7
+      }
+    },
+    {
+      "city": "Düsseldorf",
+      "state": "NRW",
+      "modes": "U-Bahn/Stadtbahn, tram, bus",
+      "operatorSlugs": [
+        "rheinbahn"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 8
+      }
+    },
+    {
+      "city": "Leipzig",
+      "state": "Saxony",
+      "modes": "Tram, bus, S-Bahn",
+      "operatorSlugs": [
+        "lvb",
+        "db-regio-suedost"
+      ],
+      "tariffShortName": "MDV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 9
+      }
+    },
+    {
+      "city": "Dortmund",
+      "state": "NRW",
+      "modes": "Stadtbahn, bus, H-Bahn",
+      "operatorSlugs": [
+        "dsw21"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 10
+      }
+    },
+    {
+      "city": "Essen",
+      "state": "NRW",
+      "modes": "Stadtbahn, tram, bus",
+      "operatorSlugs": [
+        "ruhrbahn"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 11
+      }
+    },
+    {
+      "city": "Bremen",
+      "state": "Bremen",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "bsag"
+      ],
+      "tariffShortName": "VBN",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 12
+      }
+    },
+    {
+      "city": "Dresden",
+      "state": "Saxony",
+      "modes": "Tram, bus, ferries, funiculars",
+      "operatorSlugs": [
+        "dvb"
+      ],
+      "tariffShortName": "VVO",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 13
+      }
+    },
+    {
+      "city": "Hanover",
+      "state": "Lower Saxony",
+      "modes": "Stadtbahn, bus",
+      "operatorSlugs": [
+        "uestra",
+        "regiobus"
+      ],
+      "tariffShortName": "GVH",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 14
+      }
+    },
+    {
+      "city": "Nuremberg",
+      "state": "Bavaria",
+      "modes": "U-Bahn, tram, bus",
+      "operatorSlugs": [
+        "vag-nuernberg"
+      ],
+      "tariffShortName": "VGN",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 15
+      }
+    },
+    {
+      "city": "Duisburg",
+      "state": "NRW",
+      "modes": "Stadtbahn, tram, bus",
+      "operatorSlugs": [
+        "dvg"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 16
+      }
+    },
+    {
+      "city": "Bochum / Gelsenkirchen",
+      "state": "NRW",
+      "modes": "Stadtbahn, tram, bus",
+      "operatorSlugs": [
+        "bogestra"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 17
+      }
+    },
+    {
+      "city": "Wuppertal",
+      "state": "NRW",
+      "modes": "Schwebebahn (suspension railway), bus",
+      "operatorSlugs": [
+        "wsw-mobil"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 18
+      }
+    },
+    {
+      "city": "Bielefeld",
+      "state": "NRW",
+      "modes": "Stadtbahn, bus",
+      "operatorSlugs": [
+        "mobiel"
+      ],
+      "tariffShortName": "Westfalentarif",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 19
+      }
+    },
+    {
+      "city": "Bonn",
+      "state": "NRW",
+      "modes": "Stadtbahn, tram, bus",
+      "operatorSlugs": [
+        "swb-bus-und-bahn"
+      ],
+      "tariffShortName": "VRS",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 20
+      }
+    },
+    {
+      "city": "Münster",
+      "state": "NRW",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "stadtwerke-muenster"
+      ],
+      "tariffShortName": "Westfalentarif",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 21
+      }
+    },
+    {
+      "city": "Mannheim / Heidelberg / Ludwigshafen",
+      "state": "BW / RLP",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "rnv"
+      ],
+      "tariffShortName": "VRN",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 22
+      }
+    },
+    {
+      "city": "Karlsruhe",
+      "state": "Baden-Württemberg",
+      "modes": "Tram, tram-train, bus",
+      "operatorSlugs": [
+        "vbk",
+        "albtal-verkehrs-gesellschaft"
+      ],
+      "tariffShortName": "KVV",
+      "tariffNote": "absorbed VPE Pforzheim from Jan 2026",
+      "source": {
+        "sheet": "City Transit",
+        "row": 23
+      }
+    },
+    {
+      "city": "Augsburg",
+      "state": "Bavaria",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "swa"
+      ],
+      "tariffShortName": "AVV (Augsburg)",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 24
+      }
+    },
+    {
+      "city": "Wiesbaden",
+      "state": "Hessen",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "eswe-verkehr"
+      ],
+      "tariffShortName": "RMV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 25
+      }
+    },
+    {
+      "city": "Mönchengladbach",
+      "state": "NRW",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "new-mobil-und-aktiv"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 26
+      }
+    },
+    {
+      "city": "Aachen",
+      "state": "NRW",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "aseag"
+      ],
+      "tariffShortName": "AVV (Aachen)",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 27
+      }
+    },
+    {
+      "city": "Braunschweig",
+      "state": "Lower Saxony",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "bsvg"
+      ],
+      "tariffShortName": "VRB",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 28
+      }
+    },
+    {
+      "city": "Kiel",
+      "state": "Schleswig-Holstein",
+      "modes": "Bus, ferry",
+      "operatorSlugs": [
+        "kvg-kiel",
+        "sfk"
+      ],
+      "tariffShortName": "NAH.SH",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 29
+      }
+    },
+    {
+      "city": "Chemnitz",
+      "state": "Saxony",
+      "modes": "Tram, tram-train, bus",
+      "operatorSlugs": [
+        "cvag",
+        "city-bahn-chemnitz"
+      ],
+      "tariffShortName": "VMS",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 30
+      }
+    },
+    {
+      "city": "Halle (Saale)",
+      "state": "Saxony-Anhalt",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "havag"
+      ],
+      "tariffShortName": "MDV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 31
+      }
+    },
+    {
+      "city": "Magdeburg",
+      "state": "Saxony-Anhalt",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "mvb"
+      ],
+      "tariffShortName": "marego",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 32
+      }
+    },
+    {
+      "city": "Freiburg",
+      "state": "Baden-Württemberg",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "vag-freiburg"
+      ],
+      "tariffShortName": "RVF",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 33
+      }
+    },
+    {
+      "city": "Krefeld",
+      "state": "NRW",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "swk-mobil"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 34
+      }
+    },
+    {
+      "city": "Mainz",
+      "state": "Rhineland-Palatinate",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "mainzer-mobilitaet"
+      ],
+      "tariffShortName": "RMV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 35
+      }
+    },
+    {
+      "city": "Lübeck",
+      "state": "Schleswig-Holstein",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "stadtverkehr-luebeck"
+      ],
+      "tariffShortName": "NAH.SH",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 36
+      }
+    },
+    {
+      "city": "Erfurt",
+      "state": "Thuringia",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "evag"
+      ],
+      "tariffShortName": "VMT",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 37
+      }
+    },
+    {
+      "city": "Rostock",
+      "state": "Mecklenburg-Vorpommern",
+      "modes": "Tram, bus, S-Bahn",
+      "operatorSlugs": [
+        "rsag",
+        "db-regio-nordost"
+      ],
+      "tariffShortName": "VVW",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 38
+      }
+    },
+    {
+      "city": "Kassel",
+      "state": "Hessen",
+      "modes": "Tram, tram-train, bus",
+      "operatorSlugs": [
+        "kvg-kassel",
+        "regiotram-kassel"
+      ],
+      "tariffShortName": "NVV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 39
+      }
+    },
+    {
+      "city": "Potsdam",
+      "state": "Brandenburg",
+      "modes": "Tram, bus, ferry",
+      "operatorSlugs": [
+        "vip-verkehrsbetrieb-potsdam"
+      ],
+      "tariffShortName": "VBB",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 40
+      }
+    },
+    {
+      "city": "Saarbrücken",
+      "state": "Saarland",
+      "modes": "Tram-train, bus",
+      "operatorSlugs": [
+        "saarbahn"
+      ],
+      "tariffShortName": "saarVV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 41
+      }
+    },
+    {
+      "city": "Ulm / Neu-Ulm",
+      "state": "BW / Bavaria",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "swu-verkehr"
+      ],
+      "tariffShortName": "DING",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 42
+      }
+    },
+    {
+      "city": "Würzburg",
+      "state": "Bavaria",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "wvv"
+      ],
+      "tariffShortName": "VVM",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 43
+      }
+    },
+    {
+      "city": "Regensburg",
+      "state": "Bavaria",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "das-stadtwerk-regensburg-mobilitaet"
+      ],
+      "tariffShortName": "RVV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 44
+      }
+    },
+    {
+      "city": "Ingolstadt",
+      "state": "Bavaria",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "invg"
+      ],
+      "tariffShortName": "VGI",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 45
+      }
+    },
+    {
+      "city": "Darmstadt",
+      "state": "Hessen",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "heag-mobilo"
+      ],
+      "tariffShortName": "RMV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 46
+      }
+    },
+    {
+      "city": "Oldenburg",
+      "state": "Lower Saxony",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "vwg"
+      ],
+      "tariffShortName": "VBN",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 47
+      }
+    },
+    {
+      "city": "Osnabrück",
+      "state": "Lower Saxony",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "stadtwerke-osnabrueck"
+      ],
+      "tariffShortName": "VOS",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 48
+      }
+    },
+    {
+      "city": "Heilbronn",
+      "state": "Baden-Württemberg",
+      "modes": "Stadtbahn, bus",
+      "operatorSlugs": [
+        "stadtwerke-heilbronn",
+        "albtal-verkehrs-gesellschaft"
+      ],
+      "tariffShortName": "HNV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 49
+      }
+    },
+    {
+      "city": "Jena",
+      "state": "Thuringia",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "jenaer-nahverkehr"
+      ],
+      "tariffShortName": "VMT",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 50
+      }
+    },
+    {
+      "city": "Gera",
+      "state": "Thuringia",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "gvb-gera"
+      ],
+      "tariffShortName": "VMT",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 51
+      }
+    },
+    {
+      "city": "Schwerin",
+      "state": "Mecklenburg-Vorpommern",
+      "modes": "Tram, bus, ferry",
+      "operatorSlugs": [
+        "nahverkehr-schwerin"
+      ],
+      "tariffShortName": null,
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 52
+      }
+    },
+    {
+      "city": "Cottbus",
+      "state": "Brandenburg",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "cottbusverkehr"
+      ],
+      "tariffShortName": "VBB",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 53
+      }
+    },
+    {
+      "city": "Frankfurt (Oder)",
+      "state": "Brandenburg",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "svf"
+      ],
+      "tariffShortName": "VBB",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 54
+      }
+    },
+    {
+      "city": "Brandenburg an der Havel",
+      "state": "Brandenburg",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "vbbr"
+      ],
+      "tariffShortName": "VBB",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 55
+      }
+    },
+    {
+      "city": "Görlitz",
+      "state": "Saxony",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "goerlitzer-verkehrsbetriebe"
+      ],
+      "tariffShortName": "ZVON",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 56
+      }
+    },
+    {
+      "city": "Zwickau",
+      "state": "Saxony",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "svz"
+      ],
+      "tariffShortName": "VMS",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 57
+      }
+    },
+    {
+      "city": "Plauen",
+      "state": "Saxony",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "psb"
+      ],
+      "tariffShortName": "VVV",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 58
+      }
+    },
+    {
+      "city": "Dessau-Roßlau",
+      "state": "Saxony-Anhalt",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "dvg-dessau"
+      ],
+      "tariffShortName": "marego",
+      "tariffNote": "MDV edge",
+      "source": {
+        "sheet": "City Transit",
+        "row": 59
+      }
+    },
+    {
+      "city": "Halberstadt",
+      "state": "Saxony-Anhalt",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "hvg"
+      ],
+      "tariffShortName": "marego",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 60
+      }
+    },
+    {
+      "city": "Trier",
+      "state": "Rhineland-Palatinate",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "swt-stadtwerke-trier"
+      ],
+      "tariffShortName": "VRT",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 61
+      }
+    },
+    {
+      "city": "Koblenz",
+      "state": "Rhineland-Palatinate",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "koveb"
+      ],
+      "tariffShortName": "VRM",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 62
+      }
+    },
+    {
+      "city": "Hagen",
+      "state": "NRW",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "hagener-strassenbahn"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 63
+      }
+    },
+    {
+      "city": "Oberhausen",
+      "state": "NRW",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "stoag"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 64
+      }
+    },
+    {
+      "city": "Mülheim an der Ruhr",
+      "state": "NRW",
+      "modes": "Tram, bus",
+      "operatorSlugs": [
+        "ruhrbahn"
+      ],
+      "tariffShortName": "VRR",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 65
+      }
+    },
+    {
+      "city": "Göttingen",
+      "state": "Lower Saxony",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "goevb"
+      ],
+      "tariffShortName": "VSN",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 66
+      }
+    },
+    {
+      "city": "Wolfsburg",
+      "state": "Lower Saxony",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "wvg"
+      ],
+      "tariffShortName": "VRB",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 67
+      }
+    },
+    {
+      "city": "Paderborn",
+      "state": "NRW",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "padersprinter"
+      ],
+      "tariffShortName": "Westfalentarif",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 68
+      }
+    },
+    {
+      "city": "Bamberg",
+      "state": "Bavaria",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "stadtwerke-bamberg"
+      ],
+      "tariffShortName": "VGN",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 69
+      }
+    },
+    {
+      "city": "Bayreuth",
+      "state": "Bavaria",
+      "modes": "Bus",
+      "operatorSlugs": [
+        "stadtwerke-bayreuth"
+      ],
+      "tariffShortName": "VGN",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 70
+      }
+    },
+    {
+      "city": "Konstanz",
+      "state": "Baden-Württemberg",
+      "modes": "Bus, ferry",
+      "operatorSlugs": [
+        "stadtwerke-konstanz"
+      ],
+      "tariffShortName": "VHB",
+      "tariffNote": null,
+      "source": {
+        "sheet": "City Transit",
+        "row": 71
+      }
+    }
+  ],
+  "salesChannels": [
+    {
+      "code": "db-vertrieb",
+      "name": "DB Vertrieb (bahn.de / DB Navigator)",
+      "kind": "NATIONAL_RETAILER",
+      "coverage": "Sells DB long-distance, all regional trains via Deutschlandtarif, D-Ticket, many international trains",
+      "relevance": "Most important single integration; partner/reseller agreements required",
+      "status": "ACTIVE",
+      "merchantOfRecord": "AGENT_PLATFORM_SPLIT",
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": true,
+      "adapterKey": "mock-db-vertrieb",
+      "assumptions": [
+        "merchantOfRecord / hosted payment / through-ticket flags are assumptions until a contract exists"
+      ],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 2
+      }
+    },
+    {
+      "code": "deutschlandtarifverbund-dtv",
+      "name": "Deutschlandtarifverbund (DTV)",
+      "kind": "TARIFF_BODY",
+      "coverage": "One tariff for regional trains of every operator nationwide",
+      "relevance": "Lets one ticket cover regional trains regardless of operator",
+      "status": "ACTIVE",
+      "merchantOfRecord": null,
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": false,
+      "adapterKey": null,
+      "assumptions": [],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 3
+      }
+    },
+    {
+      "code": "mobilithek-national-access-point",
+      "name": "Mobilithek (National Access Point)",
+      "kind": "DATA_SOURCE",
+      "coverage": "National portal for timetable & mobility data",
+      "relevance": "Source for nationwide timetable feeds",
+      "status": "ACTIVE",
+      "merchantOfRecord": null,
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": false,
+      "adapterKey": null,
+      "assumptions": [],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 4
+      }
+    },
+    {
+      "code": "delfi",
+      "name": "DELFI",
+      "kind": "DATA_SOURCE",
+      "coverage": "Nationwide integrated timetable data across operators",
+      "relevance": "Feeds journey planners",
+      "status": "ACTIVE",
+      "merchantOfRecord": null,
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": false,
+      "adapterKey": null,
+      "assumptions": [],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 5
+      }
+    },
+    {
+      "code": "osdm-open-sales-distribution-model",
+      "name": "OSDM (Open Sales & Distribution Model)",
+      "kind": "OSDM",
+      "coverage": "Standard API model for rail ticket distribution across European railways",
+      "relevance": "Used by DB, ÖBB, SBB and others for international sales",
+      "status": "ACTIVE",
+      "merchantOfRecord": "AGENT_PLATFORM_SPLIT",
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": true,
+      "adapterKey": "mock-osdm",
+      "assumptions": [
+        "merchantOfRecord / hosted payment / through-ticket flags are assumptions until a contract exists"
+      ],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 6
+      }
+    },
+    {
+      "code": "flix-partner-affiliate-api",
+      "name": "Flix partner / affiliate API",
+      "kind": "OPERATOR_DIRECT",
+      "coverage": "FlixTrain + FlixBus",
+      "relevance": null,
+      "status": "ACTIVE",
+      "merchantOfRecord": "OPERATOR",
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": false,
+      "adapterKey": "mock-flix",
+      "assumptions": [
+        "merchantOfRecord / hosted payment / through-ticket flags are assumptions until a contract exists"
+      ],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 7
+      }
+    },
+    {
+      "code": "operator-direct-shops",
+      "name": "Operator direct shops",
+      "kind": "OPERATOR_DIRECT",
+      "coverage": "Eurostar, SNCF Connect, ÖBB/Nightjet, European Sleeper, Snälltåget, GoVolta, ČD, PKP IC",
+      "relevance": "Several night-train operators sell mainly on their own sites",
+      "status": "ACTIVE",
+      "merchantOfRecord": "OPERATOR",
+      "hostedPaymentRequired": true,
+      "throughTicketSupport": false,
+      "adapterKey": "mock-hosted-operator",
+      "assumptions": [
+        "merchantOfRecord / hosted payment / through-ticket flags are assumptions until a contract exists"
+      ],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 8
+      }
+    },
+    {
+      "code": "trainline-omio-rail-europe",
+      "name": "Trainline / Omio / Rail Europe",
+      "kind": "AGGREGATOR",
+      "coverage": "Multi-operator booking across Europe",
+      "relevance": "Existing competitors — and possible wholesale partners",
+      "status": "ACTIVE",
+      "merchantOfRecord": "DISTRIBUTOR",
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": false,
+      "adapterKey": "mock-wholesale",
+      "assumptions": [
+        "merchantOfRecord / hosted payment / through-ticket flags are assumptions until a contract exists"
+      ],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 9
+      }
+    },
+    {
+      "code": "mobilitybox-tracsis",
+      "name": "Mobilitybox (Tracsis)",
+      "kind": "OEPNV_API",
+      "coverage": "Standardised API for local public transport (ÖPNV) tickets",
+      "relevance": null,
+      "status": "ACTIVE",
+      "merchantOfRecord": "DISTRIBUTOR",
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": false,
+      "adapterKey": "mock-oepnv",
+      "assumptions": [
+        "merchantOfRecord / hosted payment / through-ticket flags are assumptions until a contract exists"
+      ],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 10
+      }
+    },
+    {
+      "code": "fairtiq",
+      "name": "FAIRTIQ",
+      "kind": "CHECK_IN_CHECK_OUT",
+      "coverage": "Distance-based local tickets in several Verbünde",
+      "relevance": null,
+      "status": "ACTIVE",
+      "merchantOfRecord": null,
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": false,
+      "adapterKey": null,
+      "assumptions": [],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 11
+      }
+    },
+    {
+      "code": "mobility-inside",
+      "name": "Mobility inside",
+      "kind": "OEPNV_API",
+      "coverage": "Discontinued — do not plan around it",
+      "relevance": "Apps shut down 31 Mar 2024",
+      "status": "DISCONTINUED",
+      "merchantOfRecord": null,
+      "hostedPaymentRequired": false,
+      "throughTicketSupport": false,
+      "adapterKey": null,
+      "assumptions": [],
+      "source": {
+        "sheet": "Booking & Data Access",
+        "row": 12
+      }
+    }
+  ],
+  "warnings": []
+}

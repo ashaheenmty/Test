@@ -1,0 +1,27 @@
+{
+  "name": "transport-booking",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:integration": "turbo run test:integration --concurrency=1",
+    "lint": "turbo run lint",
+    "db:generate": "pnpm --filter @tb/db prisma:generate",
+    "db:migrate": "pnpm --filter @tb/db migrate:deploy",
+    "db:migrate:dev": "pnpm --filter @tb/db migrate:dev",
+    "db:seed": "pnpm --filter @tb/db seed",
+    "db:reset": "pnpm --filter @tb/db reset",
+    "operators:import": "pnpm --filter @tb/db operators:import"
+  },
+  "devDependencies": {
+    "turbo": "2.11.5",
+    "typescript": "5.9.3",
+    "@types/node": "22.20.4",
+    "vitest": "3.2.7",
+    "tsx": "4.20.6"
+  }
+}

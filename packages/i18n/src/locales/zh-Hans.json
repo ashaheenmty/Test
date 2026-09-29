@@ -1,0 +1,120 @@
+{
+  "common": {
+    "appName": "{brand}",
+    "loading": "正在加载…",
+    "save": "保存",
+    "cancel": "取消",
+    "back": "返回",
+    "continue": "继续",
+    "delete": "删除",
+    "edit": "编辑",
+    "close": "关闭",
+    "comingSoon": "即将推出",
+    "errorGeneric": "出现问题，请重试。",
+    "language": "语言",
+    "skipToContent": "跳到主要内容"
+  },
+  "theme": {
+    "label": "外观",
+    "system": "跟随系统",
+    "light": "浅色",
+    "dark": "深色"
+  },
+  "nav": {
+    "home": "首页",
+    "bookings": "预订",
+    "trips": "行程",
+    "notifications": "通知",
+    "profile": "个人资料",
+    "signIn": "登录",
+    "signOut": "退出登录",
+    "mainNavigation": "主导航"
+  },
+  "onboarding": {
+    "welcome": "欢迎使用 {brand}",
+    "tagline": "德国和欧洲的所有火车、长途巴士和本地公共交通车票，一个账户全搞定。",
+    "chooseLanguage": "选择语言",
+    "agentNotice": "我们以代理人身份，以运输公司的名义并为其利益销售车票。您的运输合同始终与运输公司签订。",
+    "getStarted": "开始使用"
+  },
+  "home": {
+    "title": "您要去哪里？",
+    "from": "出发地",
+    "to": "目的地",
+    "swap": "交换出发地和目的地",
+    "date": "日期",
+    "time": "时间",
+    "passengers": "{count, plural, other {# 位乘客}}",
+    "search": "搜索行程",
+    "useMyLocation": "使用我的当前位置",
+    "upcomingTitle": "您的下一次行程",
+    "upcomingEmpty": "暂无即将到来的行程。搜索行程即可开始。",
+    "searchComingSoon": "行程搜索将在第 2 阶段启用。"
+  },
+  "auth": {
+    "signInTitle": "登录",
+    "registerTitle": "创建账户",
+    "email": "电子邮箱",
+    "password": "密码",
+    "passwordHint": "至少 10 个字符。使用密码短语最安全。",
+    "firstName": "名",
+    "lastName": "姓",
+    "submitSignIn": "登录",
+    "submitRegister": "创建账户",
+    "noAccount": "还没有账户？",
+    "haveAccount": "已经注册？",
+    "acceptTerms": "我接受中介服务条款，并已阅读隐私政策。",
+    "forgotPassword": "忘记密码？",
+    "continueWithApple": "通过 Apple 继续",
+    "continueWithGoogle": "通过 Google 继续",
+    "or": "或",
+    "invalidCredentials": "电子邮箱或密码不正确。",
+    "emailTaken": "该电子邮箱已注册账户。",
+    "passwordTooShort": "密码长度至少为 10 个字符。",
+    "rateLimited": "尝试次数过多，请稍候。",
+    "mustAcceptTerms": "请接受条款和隐私政策。",
+    "verifyEmailSent": "我们已向您发送确认邮箱地址的邮件。",
+    "emailVerified": "您的电子邮箱已确认。",
+    "resetTitle": "重置密码",
+    "resetRequested": "如果该账户存在，我们已向您发送重置链接。",
+    "newPassword": "新密码",
+    "sendResetLink": "发送链接",
+    "passwordChanged": "密码已更改，请重新登录。"
+  },
+  "profile": {
+    "title": "个人资料",
+    "greeting": "您好，{name}",
+    "personalData": "个人信息",
+    "passengers": "已保存的乘客",
+    "addPassenger": "添加乘客",
+    "noPassengers": "尚未保存乘客。",
+    "dateOfBirth": "出生日期",
+    "discountCards": "优惠卡",
+    "paymentMethods": "付款方式",
+    "companyInvoice": "公司发票信息",
+    "privacy": "隐私",
+    "dataExport": "导出我的数据",
+    "deleteAccount": "删除账户",
+    "emailNotVerified": "电子邮箱尚未确认",
+    "saved": "已保存"
+  },
+  "bookings": {
+    "title": "预订",
+    "empty": "您还没有任何预订。"
+  },
+  "legal": {
+    "impressum": "法律声明",
+    "terms": "条款（中介服务）",
+    "privacy": "隐私政策",
+    "disputeResolution": "消费者争议解决",
+    "agentDisclosure": "{company} 为代理人。车票以运输公司的名义并为其利益销售，适用其运输条件。",
+    "version": "版本 {version}，自 {date} 起生效",
+    "placeholderBody": "占位文本——将由法律顾问提供。"
+  },
+  "email": {
+    "verifySubject": "请确认您的电子邮箱",
+    "verifyBody": "{name}，您好：\n\n请通过以下链接确认您的电子邮箱（{minutes} 分钟内有效）：\n{link}\n\n{brand} 团队",
+    "resetSubject": "重置密码",
+    "resetBody": "{name}，您好：\n\n请通过以下链接设置新密码（{minutes} 分钟内有效）：\n{link}\n\n如果这不是您本人的操作，请忽略此邮件。\n\n{brand} 团队"
+  }
+}

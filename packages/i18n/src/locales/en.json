@@ -1,0 +1,120 @@
+{
+  "common": {
+    "appName": "{brand}",
+    "loading": "Loading…",
+    "save": "Save",
+    "cancel": "Cancel",
+    "back": "Back",
+    "continue": "Continue",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "comingSoon": "Coming soon",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "language": "Language",
+    "skipToContent": "Skip to content"
+  },
+  "theme": {
+    "label": "Appearance",
+    "system": "Match system",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "nav": {
+    "home": "Home",
+    "bookings": "Bookings",
+    "trips": "Trips",
+    "notifications": "Notifications",
+    "profile": "Profile",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "mainNavigation": "Main navigation"
+  },
+  "onboarding": {
+    "welcome": "Welcome to {brand}",
+    "tagline": "Every train, coach and local transport ticket in Germany and Europe – one account.",
+    "chooseLanguage": "Choose your language",
+    "agentNotice": "We sell tickets as an agent in the name and on behalf of the transport operators. Your contract of carriage is always with the operator.",
+    "getStarted": "Get started"
+  },
+  "home": {
+    "title": "Where to?",
+    "from": "From",
+    "to": "To",
+    "swap": "Swap origin and destination",
+    "date": "Date",
+    "time": "Time",
+    "passengers": "{count, plural, one {# traveller} other {# travellers}}",
+    "search": "Search journeys",
+    "useMyLocation": "Use my current location",
+    "upcomingTitle": "Your next trip",
+    "upcomingEmpty": "No upcoming trips. Search for a journey to get started.",
+    "searchComingSoon": "Journey search will be enabled in phase 2."
+  },
+  "auth": {
+    "signInTitle": "Sign in",
+    "registerTitle": "Create account",
+    "email": "Email address",
+    "password": "Password",
+    "passwordHint": "At least 10 characters. A passphrase is safest.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "submitSignIn": "Sign in",
+    "submitRegister": "Create account",
+    "noAccount": "No account yet?",
+    "haveAccount": "Already registered?",
+    "acceptTerms": "I accept the terms for the intermediation service and have read the privacy policy.",
+    "forgotPassword": "Forgot password?",
+    "continueWithApple": "Continue with Apple",
+    "continueWithGoogle": "Continue with Google",
+    "or": "or",
+    "invalidCredentials": "Email address or password is incorrect.",
+    "emailTaken": "An account with this email address already exists.",
+    "passwordTooShort": "The password must be at least 10 characters long.",
+    "rateLimited": "Too many attempts. Please wait a moment.",
+    "mustAcceptTerms": "Please accept the terms and the privacy policy.",
+    "verifyEmailSent": "We have sent you an email to confirm your address.",
+    "emailVerified": "Your email address is confirmed.",
+    "resetTitle": "Reset password",
+    "resetRequested": "If an account exists, we have sent you a reset link.",
+    "newPassword": "New password",
+    "sendResetLink": "Send link",
+    "passwordChanged": "Your password has been changed. Please sign in again."
+  },
+  "profile": {
+    "title": "Profile",
+    "greeting": "Hello {name}",
+    "personalData": "Personal details",
+    "passengers": "Saved travellers",
+    "addPassenger": "Add traveller",
+    "noPassengers": "No saved travellers yet.",
+    "dateOfBirth": "Date of birth",
+    "discountCards": "Discount cards",
+    "paymentMethods": "Payment methods",
+    "companyInvoice": "Company invoice details",
+    "privacy": "Privacy",
+    "dataExport": "Export my data",
+    "deleteAccount": "Delete account",
+    "emailNotVerified": "Email address not yet confirmed",
+    "saved": "Saved"
+  },
+  "bookings": {
+    "title": "Bookings",
+    "empty": "You don't have any bookings yet."
+  },
+  "legal": {
+    "impressum": "Legal notice",
+    "terms": "Terms (intermediation)",
+    "privacy": "Privacy policy",
+    "disputeResolution": "Consumer dispute resolution",
+    "agentDisclosure": "{company} is an agent. Tickets are sold in the name and on behalf of the transport operators; their conditions of carriage apply.",
+    "version": "Version {version}, effective from {date}",
+    "placeholderBody": "Placeholder text – to be provided by legal counsel."
+  },
+  "email": {
+    "verifySubject": "Please confirm your email address",
+    "verifyBody": "Hello {name},\n\nplease confirm your email address using this link (valid for {minutes} minutes):\n{link}\n\nYour {brand} team",
+    "resetSubject": "Reset your password",
+    "resetBody": "Hello {name},\n\nuse this link to set a new password (valid for {minutes} minutes):\n{link}\n\nIf you didn't request this, you can ignore this email.\n\nYour {brand} team"
+  }
+}

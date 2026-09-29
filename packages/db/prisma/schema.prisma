@@ -1,0 +1,1500 @@
+// Data model for the multi-operator transport booking agent.
+//
+// Two PostgreSQL schemas:
+//   app     – account, profile, reference data, configuration. Deletable on user request.
+//   records – bookings, payments, documents, audit. Legally retained (tax/commercial law),
+//             access-restricted, never cascade-deleted from a user account.
+//
+// Monetary values are integer minor units (cents) + ISO currency.
+// Percentages are basis points (1 % = 100 bp).
+// Enum values must match packages/domain/src/enums.ts (enforced by a test).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["app", "records"]
+}
+
+// ───────────────────────────── Enums ─────────────────────────────
+
+enum TransportMode {
+  HIGH_SPEED_RAIL
+  LONG_DISTANCE_RAIL
+  REGIONAL_RAIL
+  S_BAHN
+  U_BAHN
+  TRAM
+  STADTBAHN
+  BUS
+  COACH
+  FERRY
+  NIGHT_TRAIN
+  CAR_TRAIN
+  RACK_RAILWAY
+  FUNICULAR
+  HERITAGE_RAIL
+  SUSPENSION_RAILWAY
+  OTHER
+
+  @@schema("app")
+}
+
+enum OperatorSegment {
+  LONG_DISTANCE
+  CROSS_BORDER
+  REGIONAL
+  CITY_TRANSIT
+  NIGHT
+  LONG_DISTANCE_BUS
+  HERITAGE
+
+  @@schema("app")
+}
+
+enum OrganisationStatus {
+  ACTIVE
+  INACTIVE
+  DISCONTINUED
+  NEEDS_REVIEW
+
+  @@schema("app")
+}
+
+enum OrganisationRole {
+  OPERATOR
+  TARIFF_ASSOCIATION
+  SALES_CHANNEL
+  DISTRIBUTOR
+  PAYMENT_PROVIDER
+  AGENT
+
+  @@schema("app")
+}
+
+enum RegionType {
+  FEDERAL_STATE
+  CITY
+  COUNTRY
+  INTERNATIONAL_ROUTE
+
+  @@schema("app")
+}
+
+enum TariffKind {
+  VERBUND
+  NATIONAL_TARIFF
+  NATIONAL_PASS
+  OPERATOR_TARIFF
+
+  @@schema("app")
+}
+
+enum SalesChannelKind {
+  NATIONAL_RETAILER
+  OPERATOR_DIRECT
+  OSDM
+  WHOLESALE
+  OEPNV_API
+  CHECK_IN_CHECK_OUT
+  AGGREGATOR
+  TARIFF_BODY
+  DATA_SOURCE
+
+  @@schema("app")
+}
+
+enum MerchantOfRecord {
+  AGENT_PLATFORM_SPLIT
+  OPERATOR
+  DISTRIBUTOR
+
+  @@schema("app")
+}
+
+enum ContractStatus {
+  DRAFT
+  ACTIVE
+  ENDED
+
+  @@schema("app")
+}
+
+enum CommissionKind {
+  PERCENT
+  FIXED_PER_TICKET
+  FIXED_PER_LEG
+  TIERED
+
+  @@schema("app")
+}
+
+enum CommissionBasis {
+  FARE_GROSS
+  FARE_NET
+
+  @@schema("app")
+}
+
+enum LegalDocumentType {
+  CONDITIONS_OF_CARRIAGE
+  TARIFF_CONDITIONS
+  AGENT_TERMS
+  PRIVACY_POLICY
+  IMPRESSUM
+  DISPUTE_RESOLUTION_NOTICE
+
+  @@schema("app")
+}
+
+enum LegalDocumentOwner {
+  AGENT
+  OPERATOR
+  TARIFF_ASSOCIATION
+  DISTRIBUTOR
+
+  @@schema("app")
+}
+
+enum UserStatus {
+  ACTIVE
+  LOCKED
+  DELETED
+
+  @@schema("app")
+}
+
+enum ThemePreference {
+  SYSTEM
+  LIGHT
+  DARK
+
+  @@schema("app")
+}
+
+enum AuthProvider {
+  APPLE
+  GOOGLE
+
+  @@schema("app")
+}
+
+enum PrincipalType {
+  USER
+  ADMIN
+
+  @@schema("app")
+}
+
+enum EmailTokenPurpose {
+  VERIFY_EMAIL
+  RESET_PASSWORD
+  MAGIC_LINK
+
+  @@schema("app")
+}
+
+enum DiscountCardType {
+  BAHNCARD_25
+  BAHNCARD_50
+  BAHNCARD_100
+  BAHNCARD_BUSINESS_25
+  BAHNCARD_BUSINESS_50
+  DEUTSCHLAND_TICKET
+  OEBB_VORTEILSCARD
+  SBB_HALBTAX
+  OTHER
+
+  @@schema("app")
+}
+
+enum TravelClass {
+  FIRST
+  SECOND
+  NONE
+
+  @@schema("app")
+}
+
+enum Psp {
+  STRIPE
+  ADYEN
+  OPERATOR_HOSTED
+
+  @@schema("app")
+}
+
+enum ConsentPurpose {
+  ANALYTICS
+  MARKETING_EMAIL
+  MARKETING_PUSH
+  CRASH_REPORTS
+
+  @@schema("app")
+}
+
+enum DevicePlatform {
+  IOS
+  ANDROID
+  WEB
+
+  @@schema("app")
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  SUPPORT
+  FINANCE
+  CONTENT
+  OPS
+
+  @@schema("app")
+}
+
+enum ServiceFeeKind {
+  ZERO
+  FIXED_PER_BOOKING
+  FIXED_PER_LEG
+  PERCENT
+
+  @@schema("app")
+}
+
+enum ItineraryItemKind {
+  BOOKED_LEG
+  HOTEL_NOTE
+  NOTE
+  LINK
+
+  @@schema("app")
+}
+
+enum NotificationKind {
+  DELAY
+  CANCELLATION
+  PLATFORM_CHANGE
+  ROUTE_CHANGE
+  MISSED_CONNECTION
+  BOARDING_REMINDER
+  BOOKING_UPDATE
+  SYSTEM
+
+  @@schema("app")
+}
+
+enum NotificationChannel {
+  PUSH
+  EMAIL
+  IN_APP
+
+  @@schema("app")
+}
+
+enum SupportRoute {
+  AGENT
+  OPERATOR
+
+  @@schema("app")
+}
+
+enum SupportCategory {
+  ACCOUNT
+  APP
+  SERVICE_FEE
+  DELAY
+  COMPENSATION
+  REFUND
+  LOST_PROPERTY
+  ASSISTANCE
+  OTHER
+
+  @@schema("app")
+}
+
+enum SupportStatus {
+  OPEN
+  FORWARDED_TO_OPERATOR
+  WAITING_FOR_CUSTOMER
+  RESOLVED
+  CLOSED
+
+  @@schema("app")
+}
+
+enum BookingStatus {
+  DRAFT
+  RESERVED
+  PAYMENT_PENDING
+  CONFIRMED
+  PARTIALLY_FAILED
+  FAILED
+  CANCELLED
+  REFUNDED
+  COMPLETED
+
+  @@schema("records")
+}
+
+enum TicketContractKind {
+  THROUGH
+  SEPARATE
+
+  @@schema("records")
+}
+
+enum TicketContractStatus {
+  PENDING
+  RESERVED
+  CONFIRMED
+  FAILED
+  VOIDED
+  CANCELLED
+  REFUNDED
+
+  @@schema("records")
+}
+
+enum BarcodeFormat {
+  QR
+  AZTEC
+  PDF417
+  NONE
+
+  @@schema("records")
+}
+
+enum AcknowledgementKind {
+  AGENT_TERMS
+  PRIVACY_POLICY
+  CONDITIONS_OF_CARRIAGE
+  SEPARATE_TICKETS_NOTICE
+  TIGHT_CONNECTION_WARNING
+  DATA_TRANSFER_TO_OPERATOR
+
+  @@schema("records")
+}
+
+enum PaymentMode {
+  PLATFORM_SPLIT
+  OPERATOR_HOSTED
+
+  @@schema("records")
+}
+
+enum PaymentStatus {
+  REQUIRES_ACTION
+  AUTHORIZED
+  CAPTURED
+  FAILED
+  VOIDED
+  PARTIALLY_REFUNDED
+  REFUNDED
+
+  @@schema("records")
+}
+
+enum TransferKind {
+  FARE_TO_OPERATOR
+  FARE_TO_DISTRIBUTOR
+  SERVICE_FEE_TO_AGENT
+  COMMISSION_TO_AGENT
+
+  @@schema("records")
+}
+
+enum TransferStatus {
+  PENDING
+  PAID
+  REVERSED
+  FAILED
+
+  @@schema("records")
+}
+
+enum RefundKind {
+  OPERATOR_FARE
+  SERVICE_FEE
+
+  @@schema("records")
+}
+
+enum RefundStatus {
+  REQUESTED
+  APPROVED
+  REJECTED
+  PAID
+  FAILED
+
+  @@schema("records")
+}
+
+enum CommissionStatus {
+  EXPECTED
+  CONFIRMED
+  REVERSED
+  DISPUTED
+
+  @@schema("records")
+}
+
+enum SettlementStatus {
+  DRAFT
+  FINAL
+  SENT
+
+  @@schema("records")
+}
+
+enum OperatorDocumentKind {
+  TICKET
+  INVOICE
+  RECEIPT
+  CONDITIONS
+  OTHER
+
+  @@schema("records")
+}
+
+enum AuditActorType {
+  USER
+  ADMIN
+  SYSTEM
+  ADAPTER
+
+  @@schema("records")
+}
+
+// ───────────────────────── Reference data (app) ─────────────────────────
+
+/// Any legal party: operator, tariff association, distributor, PSP or ourselves.
+model Organisation {
+  id          String             @id @default(cuid())
+  slug        String             @unique
+  legalName   String
+  displayName String
+  country     String             @db.Char(2)
+  groupName   String?
+  vatId       String?
+  website     String?
+  roles       OrganisationRole[]
+  status      OrganisationStatus @default(ACTIVE)
+  notes       String?
+  /// Provenance: sheet + row numbers of the operator master list.
+  source      Json?
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  operator          Operator?
+  tariffAssociation TariffAssociation?
+  salesChannels     SalesChannel[]
+  contracts         Contract[]
+  legalDocuments    LegalDocumentVersion[]
+
+  @@index([status])
+  @@schema("app")
+}
+
+/// Carrier role: the party that actually runs the vehicle (party to the contract of carriage).
+model Operator {
+  id              String            @id @default(cuid())
+  organisationId  String            @unique
+  organisation    Organisation      @relation(fields: [organisationId], references: [id], onDelete: Cascade)
+  brands          String[]
+  modes           TransportMode[]
+  segments        OperatorSegment[]
+  serviceTypes    String?
+  coverage        String?
+  ownSalesChannel String?
+  supportUrl      String?
+  claimsUrl       String?
+  lostPropertyUrl String?
+
+  regions        OperatorRegion[]
+  cityAreas      CityTransitOperator[]
+  coverages      ChannelCoverage[]
+  legs           BookingLeg[]
+  supportCases   SupportCase[]
+
+  @@schema("app")
+}
+
+/// Where an operator runs. Regional contracts change at timetable changes, hence validity dates.
+model OperatorRegion {
+  id          String     @id @default(cuid())
+  operatorId  String
+  operator    Operator   @relation(fields: [operatorId], references: [id], onDelete: Cascade)
+  regionType  RegionType
+  /// ISO 3166-2 for states (e.g. DE-BY), city name for cities, ISO country for countries.
+  regionCode  String
+  description String?
+  validFrom   DateTime?  @db.Date
+  validTo     DateTime?  @db.Date
+
+  @@unique([operatorId, regionType, regionCode])
+  @@index([regionType, regionCode])
+  @@schema("app")
+}
+
+/// Verkehrsverbund, Deutschlandtarif or national pass: sets (and usually sells) the tariff.
+model TariffAssociation {
+  id             String       @id @default(cuid())
+  organisationId String       @unique
+  organisation   Organisation @relation(fields: [organisationId], references: [id], onDelete: Cascade)
+  shortName      String       @unique
+  fullName       String
+  area           String?
+  kind           TariffKind
+
+  cityAreas       CityTransitArea[]
+  coverages       ChannelCoverage[]
+  ticketContracts TicketContract[]
+
+  @@schema("app")
+}
+
+model CityTransitArea {
+  id                  String             @id @default(cuid())
+  city                String             @unique
+  state               String
+  modes               String
+  tariffAssociationId String?
+  tariffAssociation   TariffAssociation? @relation(fields: [tariffAssociationId], references: [id])
+  tariffNote          String?
+
+  operators CityTransitOperator[]
+
+  @@schema("app")
+}
+
+model CityTransitOperator {
+  cityAreaId String
+  operatorId String
+  cityArea   CityTransitArea @relation(fields: [cityAreaId], references: [id], onDelete: Cascade)
+  operator   Operator        @relation(fields: [operatorId], references: [id], onDelete: Cascade)
+
+  @@id([cityAreaId, operatorId])
+  @@schema("app")
+}
+
+/// A way to sell tickets (or source data). Maps to an adapter in packages/adapters.
+model SalesChannel {
+  id                    String             @id @default(cuid())
+  code                  String             @unique
+  name                  String
+  kind                  SalesChannelKind
+  organisationId        String?
+  organisation          Organisation?      @relation(fields: [organisationId], references: [id])
+  merchantOfRecord      MerchantOfRecord?
+  hostedPaymentRequired Boolean            @default(false)
+  throughTicketSupport  Boolean            @default(false)
+  languages             String[]
+  refundPolicy          Json?
+  /// Key of the code adapter implementing this channel (null = not integrated).
+  adapterKey            String?
+  coverageDescription   String?
+  relevance             String?
+  status                OrganisationStatus @default(ACTIVE)
+
+  coverages       ChannelCoverage[]
+  contracts       Contract[]
+  serviceFeeRules ServiceFeeRule[]
+  offers          OfferSnapshot[]
+  ticketContracts TicketContract[]
+
+  @@schema("app")
+}
+
+/// Which channel may sell which operator's services or which tariff.
+model ChannelCoverage {
+  id                  String             @id @default(cuid())
+  salesChannelId      String
+  salesChannel        SalesChannel       @relation(fields: [salesChannelId], references: [id], onDelete: Cascade)
+  operatorId          String?
+  operator            Operator?          @relation(fields: [operatorId], references: [id], onDelete: Cascade)
+  tariffAssociationId String?
+  tariffAssociation   TariffAssociation? @relation(fields: [tariffAssociationId], references: [id], onDelete: Cascade)
+  productScope        String?
+  validFrom           DateTime?          @db.Date
+  validTo             DateTime?          @db.Date
+
+  @@index([operatorId])
+  @@index([tariffAssociationId])
+  @@schema("app")
+}
+
+/// Agency / distribution agreement with an operator or distributor.
+model Contract {
+  id                String         @id @default(cuid())
+  reference         String         @unique
+  counterpartyOrgId String
+  counterparty      Organisation   @relation(fields: [counterpartyOrgId], references: [id])
+  salesChannelId    String?
+  salesChannel      SalesChannel?  @relation(fields: [salesChannelId], references: [id])
+  status            ContractStatus @default(DRAFT)
+  validFrom         DateTime       @db.Date
+  validTo           DateTime?      @db.Date
+  currency          String         @default("EUR") @db.Char(3)
+  notes             String?
+
+  rules       CommissionRule[]
+  commissions Commission[]
+  settlements Settlement[]
+
+  @@schema("app")
+}
+
+model CommissionRule {
+  id           String          @id @default(cuid())
+  contractId   String
+  contract     Contract        @relation(fields: [contractId], references: [id], onDelete: Cascade)
+  productScope String?
+  kind         CommissionKind
+  basis        CommissionBasis @default(FARE_GROSS)
+  percentBp    Int?
+  fixedMinor   Int?
+  tiers        Json?
+  priority     Int             @default(0)
+
+  commissions Commission[]
+
+  @@schema("app")
+}
+
+/// Versioned legal text: operators' conditions of carriage and our own legal pages.
+model LegalDocumentVersion {
+  id             String             @id @default(cuid())
+  ownerKind      LegalDocumentOwner
+  organisationId String?
+  organisation   Organisation?      @relation(fields: [organisationId], references: [id])
+  documentType   LegalDocumentType
+  locale         String
+  version        String
+  title          String
+  /// External link for operator documents; Markdown body for our own pages.
+  url            String?
+  body           String?
+  contentHash    String
+  effectiveFrom  DateTime
+  supersededAt   DateTime?
+  createdAt      DateTime           @default(now())
+
+  ticketContracts TicketContract[]
+  acknowledgements Acknowledgement[]
+  bookings        Booking[]
+
+  @@unique([organisationId, documentType, locale, version])
+  @@index([documentType, locale, effectiveFrom])
+  @@schema("app")
+}
+
+model Station {
+  id          String   @id @default(cuid())
+  uicCode     String?  @unique
+  ibnr        String?  @unique
+  gtfsStopIds String[]
+  name        String
+  /// Localised names keyed by locale.
+  names       Json?
+  countryCode String   @db.Char(2)
+  latitude    Float
+  longitude   Float
+  timezone    String   @default("Europe/Berlin")
+
+  savedFrom SavedRoute[] @relation("savedFrom")
+  savedTo   SavedRoute[] @relation("savedTo")
+  legsFrom  BookingLeg[] @relation("legFrom")
+  legsTo    BookingLeg[] @relation("legTo")
+
+  @@index([name])
+  @@schema("app")
+}
+
+// ─────────────────────────── Users & profile (app) ───────────────────────────
+
+model User {
+  id              String          @id @default(cuid())
+  email           String          @unique
+  emailVerifiedAt DateTime?
+  passwordHash    String?
+  locale          String          @default("de")
+  theme           ThemePreference @default(SYSTEM)
+  status          UserStatus      @default(ACTIVE)
+  failedLogins    Int             @default(0)
+  lockedUntil     DateTime?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  deletedAt       DateTime?
+
+  identities      AuthIdentity[]
+  refreshTokens   RefreshToken[]
+  emailTokens     EmailToken[]
+  passengers      Passenger[]
+  paymentMethods  PaymentMethodRef[]
+  companyProfiles CompanyInvoiceProfile[]
+  consents        Consent[]
+  devices         DeviceToken[]
+  savedRoutes     SavedRoute[]
+  itineraries     Itinerary[]
+  notifications   Notification[]
+  supportCases    SupportCase[]
+  bookings        Booking[]
+
+  @@schema("app")
+}
+
+model AuthIdentity {
+  id        String       @id @default(cuid())
+  userId    String
+  user      User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider  AuthProvider
+  subject   String
+  email     String?
+  createdAt DateTime     @default(now())
+
+  @@unique([provider, subject])
+  @@schema("app")
+}
+
+model AdminUser {
+  id           String      @id @default(cuid())
+  email        String      @unique
+  name         String
+  passwordHash String
+  roles        AdminRole[]
+  active       Boolean     @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime    @default(now())
+
+  refreshTokens RefreshToken[]
+
+  @@schema("app")
+}
+
+/// Rotating refresh tokens (only the SHA-256 hash is stored). Reuse of a rotated
+/// token revokes the whole family.
+model RefreshToken {
+  id            String        @id @default(cuid())
+  principalType PrincipalType
+  userId        String?
+  user          User?         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  adminUserId   String?
+  adminUser     AdminUser?    @relation(fields: [adminUserId], references: [id], onDelete: Cascade)
+  familyId      String
+  tokenHash     String        @unique
+  expiresAt     DateTime
+  revokedAt     DateTime?
+  replacedById  String?
+  userAgent     String?
+  createdAt     DateTime      @default(now())
+
+  @@index([familyId])
+  @@schema("app")
+}
+
+model EmailToken {
+  id        String            @id @default(cuid())
+  userId    String
+  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  purpose   EmailTokenPurpose
+  tokenHash String            @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime          @default(now())
+
+  @@schema("app")
+}
+
+model Passenger {
+  id              String   @id @default(cuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  firstName       String
+  lastName        String
+  /// AES-256-GCM encrypted ISO date (application-level field encryption).
+  dateOfBirthEnc  String?
+  email           String?
+  isAccountHolder Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  discountCards DiscountCard[]
+
+  @@index([userId])
+  @@schema("app")
+}
+
+model DiscountCard {
+  id          String           @id @default(cuid())
+  passengerId String
+  passenger   Passenger        @relation(fields: [passengerId], references: [id], onDelete: Cascade)
+  type        DiscountCardType
+  travelClass TravelClass?
+  /// Encrypted card number.
+  numberEnc   String?
+  validUntil  DateTime?        @db.Date
+
+  @@schema("app")
+}
+
+/// Reference to a PSP-stored payment method. Never card data.
+model PaymentMethodRef {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  psp           Psp
+  pspCustomerId String
+  pspMethodId   String
+  brand         String?
+  last4         String?  @db.Char(4)
+  expMonth      Int?
+  expYear       Int?
+  isDefault     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  @@unique([psp, pspMethodId])
+  @@schema("app")
+}
+
+model CompanyInvoiceProfile {
+  id          String  @id @default(cuid())
+  userId      String
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  companyName String
+  vatId       String?
+  street      String
+  postalCode  String
+  city        String
+  country     String  @db.Char(2)
+  isDefault   Boolean @default(false)
+
+  @@schema("app")
+}
+
+/// Consent log (append-only by convention: a withdrawal is a new row with granted=false).
+model Consent {
+  id          String         @id @default(cuid())
+  userId      String?
+  user        User?          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  anonymousId String?
+  purpose     ConsentPurpose
+  granted     Boolean
+  textVersion String
+  source      String
+  recordedAt  DateTime       @default(now())
+
+  @@index([userId, purpose, recordedAt])
+  @@schema("app")
+}
+
+model DeviceToken {
+  id         String         @id @default(cuid())
+  userId     String
+  user       User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  platform   DevicePlatform
+  token      String         @unique
+  locale     String
+  createdAt  DateTime       @default(now())
+  lastSeenAt DateTime       @default(now())
+
+  @@schema("app")
+}
+
+/// Frequent routes for the "smart" home screen.
+model SavedRoute {
+  id            String   @id @default(cuid())
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fromStationId String
+  fromStation   Station  @relation("savedFrom", fields: [fromStationId], references: [id])
+  toStationId   String
+  toStation     Station  @relation("savedTo", fields: [toStationId], references: [id])
+  useCount      Int      @default(1)
+  lastUsedAt    DateTime @default(now())
+
+  @@unique([userId, fromStationId, toStationId])
+  @@schema("app")
+}
+
+// ───────────────────────── Configuration (app) ─────────────────────────
+
+model ServiceFeeRule {
+  id             String         @id @default(cuid())
+  name           String
+  kind           ServiceFeeKind
+  amountMinor    Int?
+  percentBp      Int?
+  minMinor       Int?
+  maxMinor       Int?
+  currency       String         @default("EUR") @db.Char(3)
+  salesChannelId String?
+  salesChannel   SalesChannel?  @relation(fields: [salesChannelId], references: [id])
+  productScope   String?
+  priority       Int            @default(0)
+  validFrom      DateTime
+  validTo        DateTime?
+  active         Boolean        @default(true)
+
+  @@schema("app")
+}
+
+model TaxRule {
+  id          String    @id @default(cuid())
+  /// e.g. SERVICE_FEE
+  scope       String
+  countryCode String    @db.Char(2)
+  rateBp      Int
+  /// i18n key for the invoice text (e.g. reverse-charge note).
+  textKey     String?
+  validFrom   DateTime
+  validTo     DateTime?
+
+  @@index([scope, countryCode, validFrom])
+  @@schema("app")
+}
+
+model InvoiceTemplate {
+  id        String   @id @default(cuid())
+  key       String
+  locale    String
+  version   Int
+  body      String
+  active    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@unique([key, locale, version])
+  @@schema("app")
+}
+
+model TranslationOverride {
+  id          String   @id @default(cuid())
+  locale      String
+  key         String
+  value       String
+  updatedById String?
+  updatedAt   DateTime @updatedAt
+
+  @@unique([locale, key])
+  @@schema("app")
+}
+
+// ───────────────────────── Itinerary, realtime, help (app) ─────────────────────────
+
+model Itinerary {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  startsOn  DateTime? @db.Date
+  endsOn    DateTime? @db.Date
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  items  ItineraryItem[]
+  shares ItineraryShare[]
+
+  @@schema("app")
+}
+
+/// Hotels and other non-transport items are notes/links only (no booking → no package travel).
+model ItineraryItem {
+  id           String            @id @default(cuid())
+  itineraryId  String
+  itinerary    Itinerary         @relation(fields: [itineraryId], references: [id], onDelete: Cascade)
+  kind         ItineraryItemKind
+  bookingLegId String?
+  bookingLeg   BookingLeg?       @relation(fields: [bookingLegId], references: [id], onDelete: SetNull)
+  title        String
+  startsAt     DateTime?
+  endsAt       DateTime?
+  location     Json?
+  url          String?
+  notes        String?
+  sortOrder    Int               @default(0)
+
+  @@schema("app")
+}
+
+model ItineraryShare {
+  id          String    @id @default(cuid())
+  itineraryId String
+  itinerary   Itinerary @relation(fields: [itineraryId], references: [id], onDelete: Cascade)
+  tokenHash   String    @unique
+  createdAt   DateTime  @default(now())
+  expiresAt   DateTime?
+  revokedAt   DateTime?
+
+  @@schema("app")
+}
+
+model RealtimeWatch {
+  id             String     @id @default(cuid())
+  bookingLegId   String     @unique
+  bookingLeg     BookingLeg @relation(fields: [bookingLegId], references: [id], onDelete: Cascade)
+  source         String
+  externalTripId String?
+  lastStatus     Json?
+  lastCheckedAt  DateTime?
+  active         Boolean    @default(true)
+
+  @@index([active])
+  @@schema("app")
+}
+
+model Notification {
+  id        String              @id @default(cuid())
+  userId    String
+  user      User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  bookingId String?
+  booking   Booking?            @relation(fields: [bookingId], references: [id], onDelete: SetNull)
+  kind      NotificationKind
+  channel   NotificationChannel
+  titleKey  String
+  bodyKey   String
+  params    Json?
+  createdAt DateTime            @default(now())
+  sentAt    DateTime?
+  readAt    DateTime?
+
+  @@index([userId, createdAt])
+  @@schema("app")
+}
+
+model SupportCase {
+  id         String          @id @default(cuid())
+  userId     String?
+  user       User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
+  bookingId  String?
+  booking    Booking?        @relation(fields: [bookingId], references: [id], onDelete: SetNull)
+  route      SupportRoute
+  category   SupportCategory
+  operatorId String?
+  operator   Operator?       @relation(fields: [operatorId], references: [id])
+  status     SupportStatus   @default(OPEN)
+  message    String?
+  prefill    Json?
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  claims CompensationClaim[]
+
+  @@schema("app")
+}
+
+/// Prepared for the operator; the operator decides and pays.
+model CompensationClaim {
+  id               String      @id @default(cuid())
+  supportCaseId    String
+  supportCase      SupportCase @relation(fields: [supportCaseId], references: [id], onDelete: Cascade)
+  bookingLegId     String?
+  bookingLeg       BookingLeg? @relation(fields: [bookingLegId], references: [id], onDelete: SetNull)
+  delayMinutes     Int?
+  claimFormUrl     String?
+  preparedPayload  Json
+  submittedAt      DateTime?
+  operatorDecision String?
+
+  @@schema("app")
+}
+
+// ─────────────────────────── Bookings (records) ───────────────────────────
+
+/// Priced offer exactly as returned by the adapter; immutable.
+model OfferSnapshot {
+  id              String       @id @default(cuid())
+  salesChannelId  String
+  salesChannel    SalesChannel @relation(fields: [salesChannelId], references: [id])
+  externalOfferId String
+  payload         Json
+  payloadHash     String
+  priceMinor      Int
+  currency        String       @db.Char(3)
+  validUntil      DateTime?
+  createdAt       DateTime     @default(now())
+
+  ticketContracts TicketContract[]
+
+  @@schema("records")
+}
+
+model Booking {
+  id                 String                @id @default(cuid())
+  /// Short human-readable reference shown to the customer.
+  reference          String                @unique
+  userId             String?
+  user               User?                 @relation(fields: [userId], references: [id], onDelete: SetNull)
+  status             BookingStatus         @default(DRAFT)
+  locale             String
+  currency           String                @db.Char(3)
+  fareTotalMinor     Int
+  serviceFeeMinor    Int
+  totalMinor         Int
+  /// Name/email as used on documents; kept for tax retention after account deletion.
+  travellerSnapshot  Json
+  companySnapshot    Json?
+  agentTermsId       String?
+  agentTerms         LegalDocumentVersion? @relation(fields: [agentTermsId], references: [id])
+  idempotencyKey     String                @unique
+  clientIp           String?
+  userAgent          String?
+  createdAt          DateTime              @default(now())
+  updatedAt          DateTime              @updatedAt
+  confirmedAt        DateTime?
+  cancelledAt        DateTime?
+
+  contracts        TicketContract[]
+  legs             BookingLeg[]
+  passengers       BookingPassenger[]
+  acknowledgements Acknowledgement[]
+  payments         Payment[]
+  refunds          Refund[]
+  commissions      Commission[]
+  invoices         ServiceFeeInvoice[]
+  tripSummaries    TripSummary[]
+  notifications    Notification[]
+  supportCases     SupportCase[]
+  settlementLines  SettlementLine[]
+
+  @@index([userId, createdAt])
+  @@index([status])
+  @@schema("records")
+}
+
+/// One contract of carriage. A THROUGH contract may span several legs and carriers
+/// (e.g. Deutschlandtarif); SEPARATE contracts are independent (Reg. (EU) 2021/782).
+model TicketContract {
+  id                   String                @id @default(cuid())
+  bookingId            String
+  booking              Booking               @relation(fields: [bookingId], references: [id])
+  sequence             Int
+  kind                 TicketContractKind
+  status               TicketContractStatus  @default(PENDING)
+  salesChannelId       String
+  salesChannel         SalesChannel          @relation(fields: [salesChannelId], references: [id])
+  tariffAssociationId  String?
+  tariffAssociation    TariffAssociation?    @relation(fields: [tariffAssociationId], references: [id])
+  /// Organisation in whose name the ticket is sold (contract party).
+  issuerOrganisationId String
+  merchantOfRecord     MerchantOfRecord
+  offerSnapshotId      String
+  offerSnapshot        OfferSnapshot         @relation(fields: [offerSnapshotId], references: [id])
+  conditionsId         String?
+  conditions           LegalDocumentVersion? @relation(fields: [conditionsId], references: [id])
+  externalBookingRef   String?
+  fareMinor            Int
+  currency             String                @db.Char(3)
+  vatRateBp            Int?
+  idempotencyKey       String                @unique
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+
+  legs              BookingLeg[]
+  tickets           Ticket[]
+  acknowledgements  Acknowledgement[]
+  transfers         Transfer[]
+  refunds           Refund[]
+  commissions       Commission[]
+  operatorDocuments OperatorDocument[]
+
+  @@unique([bookingId, sequence])
+  @@schema("records")
+}
+
+model BookingLeg {
+  id                   String         @id @default(cuid())
+  bookingId            String
+  booking              Booking        @relation(fields: [bookingId], references: [id])
+  ticketContractId     String
+  ticketContract       TicketContract @relation(fields: [ticketContractId], references: [id])
+  sequence             Int
+  carrierOperatorId    String
+  carrierOperator      Operator       @relation(fields: [carrierOperatorId], references: [id])
+  mode                 TransportMode
+  serviceName          String
+  originStationId      String
+  originStation        Station        @relation("legFrom", fields: [originStationId], references: [id])
+  destinationStationId String
+  destinationStation   Station        @relation("legTo", fields: [destinationStationId], references: [id])
+  departureAt          DateTime
+  arrivalAt            DateTime
+  travelClass          TravelClass    @default(SECOND)
+  seat                 Json?
+  platformDeparture    String?
+  platformArrival      String?
+
+  itineraryItems ItineraryItem[]
+  realtimeWatch  RealtimeWatch?
+  claims         CompensationClaim[]
+
+  @@unique([bookingId, sequence])
+  @@schema("records")
+}
+
+model BookingPassenger {
+  id          String   @id @default(cuid())
+  bookingId   String
+  booking     Booking  @relation(fields: [bookingId], references: [id])
+  passengerId String?
+  sequence    Int
+  /// Name, age band and discount cards as sent to the operator.
+  snapshot    Json
+
+  tickets Ticket[]
+
+  @@unique([bookingId, sequence])
+  @@schema("records")
+}
+
+model Ticket {
+  id                 String            @id @default(cuid())
+  ticketContractId   String
+  ticketContract     TicketContract    @relation(fields: [ticketContractId], references: [id])
+  bookingPassengerId String?
+  bookingPassenger   BookingPassenger? @relation(fields: [bookingPassengerId], references: [id])
+  externalTicketId   String?
+  barcodeFormat      BarcodeFormat
+  barcodePayload     String?
+  validFrom          DateTime
+  validTo            DateTime
+  issuedAt           DateTime          @default(now())
+
+  @@schema("records")
+}
+
+/// Evidence of every acceptance / notice shown before payment.
+model Acknowledgement {
+  id               String                @id @default(cuid())
+  bookingId        String
+  booking          Booking               @relation(fields: [bookingId], references: [id])
+  ticketContractId String?
+  ticketContract   TicketContract?       @relation(fields: [ticketContractId], references: [id])
+  kind             AcknowledgementKind
+  legalDocumentId  String?
+  legalDocument    LegalDocumentVersion? @relation(fields: [legalDocumentId], references: [id])
+  textKey          String
+  textHash         String
+  locale           String
+  acceptedAt       DateTime              @default(now())
+  clientIp         String?
+  userAgent        String?
+
+  @@index([bookingId])
+  @@schema("records")
+}
+
+// ─────────────────────────── Money (records) ───────────────────────────
+
+model Payment {
+  id             String        @id @default(cuid())
+  bookingId      String
+  booking        Booking       @relation(fields: [bookingId], references: [id])
+  psp            Psp
+  mode           PaymentMode
+  pspPaymentId   String?       @unique
+  amountMinor    Int
+  currency       String        @db.Char(3)
+  status         PaymentStatus
+  idempotencyKey String        @unique
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  transfers Transfer[]
+  refunds   Refund[]
+
+  @@schema("records")
+}
+
+/// Routing of collected funds: fare to operator/distributor, fee to us.
+model Transfer {
+  id                   String          @id @default(cuid())
+  paymentId            String
+  payment              Payment         @relation(fields: [paymentId], references: [id])
+  ticketContractId     String?
+  ticketContract       TicketContract? @relation(fields: [ticketContractId], references: [id])
+  kind                 TransferKind
+  destinationOrgId     String
+  destinationAccountRef String
+  amountMinor          Int
+  currency             String          @db.Char(3)
+  pspTransferId        String?         @unique
+  status               TransferStatus  @default(PENDING)
+  createdAt            DateTime        @default(now())
+
+  @@schema("records")
+}
+
+model Refund {
+  id               String          @id @default(cuid())
+  bookingId        String
+  booking          Booking         @relation(fields: [bookingId], references: [id])
+  ticketContractId String?
+  ticketContract   TicketContract? @relation(fields: [ticketContractId], references: [id])
+  paymentId        String
+  payment          Payment         @relation(fields: [paymentId], references: [id])
+  kind             RefundKind
+  amountMinor      Int
+  currency         String          @db.Char(3)
+  reason           String
+  status           RefundStatus    @default(REQUESTED)
+  operatorRef      String?
+  pspRefundId      String?         @unique
+  idempotencyKey   String          @unique
+  createdAt        DateTime        @default(now())
+  completedAt      DateTime?
+
+  @@schema("records")
+}
+
+model Commission {
+  id               String           @id @default(cuid())
+  bookingId        String
+  booking          Booking          @relation(fields: [bookingId], references: [id])
+  ticketContractId String
+  ticketContract   TicketContract   @relation(fields: [ticketContractId], references: [id])
+  contractId       String
+  contract         Contract         @relation(fields: [contractId], references: [id])
+  ruleId           String
+  rule             CommissionRule   @relation(fields: [ruleId], references: [id])
+  basisMinor       Int
+  expectedMinor    Int
+  confirmedMinor   Int?
+  currency         String           @db.Char(3)
+  status           CommissionStatus @default(EXPECTED)
+  /// Settlement period, e.g. "2026-09".
+  period           String
+  createdAt        DateTime         @default(now())
+
+  settlementLines SettlementLine[]
+
+  @@index([contractId, period])
+  @@schema("records")
+}
+
+model Settlement {
+  id          String           @id @default(cuid())
+  contractId  String
+  contract    Contract         @relation(fields: [contractId], references: [id])
+  period      String
+  status      SettlementStatus @default(DRAFT)
+  totals      Json
+  generatedAt DateTime         @default(now())
+  finalisedAt DateTime?
+
+  lines SettlementLine[]
+
+  @@unique([contractId, period])
+  @@schema("records")
+}
+
+model SettlementLine {
+  id              String      @id @default(cuid())
+  settlementId    String
+  settlement      Settlement  @relation(fields: [settlementId], references: [id], onDelete: Cascade)
+  bookingId       String?
+  booking         Booking?    @relation(fields: [bookingId], references: [id])
+  commissionId    String?
+  commission      Commission? @relation(fields: [commissionId], references: [id])
+  lineType        String
+  amountMinor     Int
+  currency        String      @db.Char(3)
+  discrepancyNote String?
+
+  @@schema("records")
+}
+
+// ─────────────────────────── Documents (records) ───────────────────────────
+
+/// Operator's original ticket/invoice — the tax document for the fare. Never altered.
+model OperatorDocument {
+  id               String               @id @default(cuid())
+  ticketContractId String
+  ticketContract   TicketContract       @relation(fields: [ticketContractId], references: [id])
+  kind             OperatorDocumentKind
+  mimeType         String
+  storageKey       String               @unique
+  sha256           String
+  sizeBytes        Int
+  locale           String?
+  fetchedAt        DateTime             @default(now())
+
+  @@schema("records")
+}
+
+/// Gapless counter per invoice series and year (row-locked on issue).
+model InvoiceSequence {
+  series String
+  year   Int
+  next   Int    @default(1)
+
+  @@id([series, year])
+  @@schema("records")
+}
+
+/// Our invoice for the service fee only (German VAT on our intermediation service).
+model ServiceFeeInvoice {
+  id               String              @id @default(cuid())
+  bookingId        String
+  booking          Booking             @relation(fields: [bookingId], references: [id])
+  series           String
+  year             Int
+  sequence         Int
+  number           String              @unique
+  issuedAt         DateTime            @default(now())
+  recipient        Json
+  netMinor         Int
+  vatMinor         Int
+  grossMinor       Int
+  vatRateBp        Int
+  currency         String              @db.Char(3)
+  locale           String
+  templateVersion  Int
+  storageKey       String?
+  sha256           String?
+  /// Set on a cancellation invoice (Stornorechnung) referencing the original.
+  cancelsInvoiceId String?             @unique
+  cancelsInvoice   ServiceFeeInvoice?  @relation("Storno", fields: [cancelsInvoiceId], references: [id])
+  cancelledBy      ServiceFeeInvoice?  @relation("Storno")
+
+  @@unique([series, year, sequence])
+  @@schema("records")
+}
+
+/// Bundled confirmation PDF — explicitly not a tax invoice for the fare.
+model TripSummary {
+  id         String   @id @default(cuid())
+  bookingId  String
+  booking    Booking  @relation(fields: [bookingId], references: [id])
+  version    Int
+  locale     String
+  storageKey String   @unique
+  sha256     String
+  createdAt  DateTime @default(now())
+
+  @@unique([bookingId, version, locale])
+  @@schema("records")
+}
+
+// ─────────────────────────── Audit (records) ───────────────────────────
+
+/// Append-only, hash-chained audit log. UPDATE/DELETE are blocked by a DB trigger;
+/// hash = sha256(prevHash + canonicalJson(event)).
+model AuditEvent {
+  id         BigInt         @id @default(autoincrement())
+  occurredAt DateTime       @default(now())
+  actorType  AuditActorType
+  actorId    String?
+  action     String
+  entityType String
+  entityId   String
+  data       Json
+  ip         String?
+  userAgent  String?
+  prevHash   String
+  hash       String         @unique
+
+  @@index([entityType, entityId])
+  @@index([occurredAt])
+  @@schema("records")
+}
