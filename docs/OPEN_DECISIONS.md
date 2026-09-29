@@ -6,17 +6,13 @@ Items marked **before phase 2** block or shape the next phase. The legal/tax ite
 
 - **Brand:** "Durch Deutschland".
 - **German form of address:** formal "Sie".
-- **Service fee:** €1.00 long-distance trains, €0.50 between cities, €0.10 buses and city transport (see README → Service fee).
+- **Service fee:** €1.00 long-distance trains, €0.50 between cities, €0.10 buses and city transport, charged once per ticket (not per passenger or leg); a ticket covering several modes pays its highest tier; coaches count as buses; S-Bahn counts as city transport; amounts include 19 % VAT. If a booking involves more than one operator, the booking's fee is capped at €1.00 (see README → Service fee).
 - **Timetable data and Apple/Google login:** not needed yet. This is an internal development version, so phase 2 uses bundled sample station and timetable data behind the same adapter interfaces.
 
 ## Product & brand (still open)
 
 1. **Company legal details.** Legal form, address, commercial register, VAT ID and managing directors are still placeholders in the Impressum and invoices.
-2. **Service fee details I had to assume:**
-   - The fee is charged **per ticket**, not per passenger and not per leg. A journey sold as three separate tickets (U-Bahn + ICE + U-Bahn) costs €0.10 + €1.00 + €0.10 = €1.20.
-   - **Long-distance coaches** (FlixBus) count as "buses" at €0.10, not "between cities" at €0.50.
-   - **S-Bahn** counts as city transport (€0.10); regional trains (RE/RB) count as "between cities" (€0.50).
-   - The amounts include German VAT (19 %), so the net fee is €0.84 / €0.42 / €0.08.
+2. **Service fee — one remaining detail:** a booking with several tickets from the *same* operator is not capped (e.g. three DB Regio tickets at €0.50 = €1.50). Should the €1.00 cap apply to every booking instead?
 3. **Gender-inclusive forms** in German ("Reisende*r") — keep, or switch to neutral wording?
 4. **Arabic digits.** Dates and numbers use Latin digits, matching station displays. Switch to Arabic-Indic digits?
 5. **Back-office language.** It is English in phase 1. Is German needed?

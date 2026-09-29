@@ -1,0 +1,3 @@
+-- AlterEnum
+ALTER TYPE "app"."ServiceFeeKind" ADD VALUE 'MULTI_OPERATOR_BOOKING_CAP';
+

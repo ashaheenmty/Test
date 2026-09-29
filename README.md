@@ -118,7 +118,9 @@ Charged once per ticket (contract of carriage), gross incl. VAT, by the highest 
 | Between cities | Regional trains (RE/RB/IRE), rack and heritage railways | €0.50 |
 | Buses and city transport | Bus and long-distance coach, S-Bahn, U-Bahn, tram, Stadtbahn, ferry | €0.10 |
 
-The amounts are `ServiceFeeRule` rows (seeded, editable later in the back-office). The mode → tier mapping is in `packages/domain/src/service-fee.ts`. `GET /v1/pricing/service-fees` lists the schedule and `POST /v1/pricing/service-fee/quote` prices a set of tickets.
+**Multi-operator cap:** if a booking involves more than one operator (across its tickets, or several operators on one ticket), the booking's total fee is capped at **€1.00**. Example: U-Bahn (BVG) + ICE (DB) + U-Bahn (MVG) as three tickets = €0.10 + €1.00 + €0.10 = €1.20 → **€1.00**. A booking with a single operator is not capped.
+
+The amounts and the cap are `ServiceFeeRule` rows (seeded, editable later in the back-office). The mode → tier mapping is in `packages/domain/src/service-fee.ts`. `GET /v1/pricing/service-fees` lists the schedule and `POST /v1/pricing/service-fee/quote` prices a set of tickets.
 
 ## Operator master list
 

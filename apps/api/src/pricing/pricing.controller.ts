@@ -12,7 +12,7 @@ export class PricingService {
   async activeRules(now = new Date()): Promise<(FeeRule & { name: string; currency: string })[]> {
     const rows = await this.prisma.serviceFeeRule.findMany({
       where: { active: true, validFrom: { lte: now }, OR: [{ validTo: null }, { validTo: { gt: now } }] },
-      orderBy: [{ amountMinor: 'desc' }],
+      orderBy: [{ amountMinor: 'desc' }, { kind: 'asc' }],
     });
     return rows.map((r) => ({
       id: r.id,
@@ -39,6 +39,8 @@ const quoteSchema = z.object({
     .array(
       z.object({
         modes: z.array(z.enum(TransportMode)).min(1).max(20),
+        /** Carrier operator slugs of the legs on this ticket. */
+        operators: z.array(z.string().min(1).max(100)).min(1).max(20),
         fareMinor: z.number().int().min(0),
       }),
     )
@@ -68,7 +70,7 @@ export class PricingController {
   @HttpCode(HttpStatus.OK)
   quote(@Body(new ZodPipe(quoteSchema)) body: z.infer<typeof quoteSchema>) {
     return this.pricing.quote(
-      body.tickets.map((t) => ({ modes: t.modes, fare: { amountMinor: t.fareMinor, currency: 'EUR' as const } })),
+      body.tickets.map((t) => ({ modes: t.modes, operators: t.operators, fare: { amountMinor: t.fareMinor, currency: 'EUR' as const } })),
     );
   }
 }

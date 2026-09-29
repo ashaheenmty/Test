@@ -232,27 +232,42 @@ describe('reference data (imported operator master list)', () => {
 describe('service fee', () => {
   it('lists the active fee schedule', async () => {
     const res = await t.http().get('/v1/pricing/service-fees').expect(200);
-    expect(res.body.map((r: { category: string; amountMinor: number }) => [r.category, r.amountMinor])).toEqual([
-      ['LONG_DISTANCE_RAIL', 100],
-      ['INTERCITY_REGIONAL', 50],
-      ['LOCAL_AND_BUS', 10],
+    expect(res.body.map((r: { kind: string; category: string; amountMinor: number }) => [r.kind, r.category, r.amountMinor])).toEqual([
+      ['FIXED_PER_TICKET', 'LONG_DISTANCE_RAIL', 100],
+      ['MULTI_OPERATOR_BOOKING_CAP', null, 100],
+      ['FIXED_PER_TICKET', 'INTERCITY_REGIONAL', 50],
+      ['FIXED_PER_TICKET', 'LOCAL_AND_BUS', 10],
     ]);
   });
 
-  it('quotes a multi-ticket journey', async () => {
-    const res = await t
+  it('quotes per ticket and caps multi-operator bookings at €1.00', async () => {
+    const single = await t
       .http()
       .post('/v1/pricing/service-fee/quote')
       .send({
         tickets: [
-          { modes: ['U_BAHN'], fareMinor: 380 },
-          { modes: ['HIGH_SPEED_RAIL'], fareMinor: 7990 },
-          { modes: ['REGIONAL_RAIL', 'BUS'], fareMinor: 1250 },
+          { modes: ['REGIONAL_RAIL'], operators: ['db-regio-bayern'], fareMinor: 2380 },
+          { modes: ['S_BAHN'], operators: ['db-regio-bayern'], fareMinor: 390 },
         ],
       })
       .expect(200);
-    expect(res.body.total).toEqual({ amountMinor: 160, currency: 'EUR' });
-    await t.http().post('/v1/pricing/service-fee/quote').send({ tickets: [{ modes: ['ROCKET'], fareMinor: 1 }] }).expect(400);
+    expect(single.body).toMatchObject({ total: { amountMinor: 60, currency: 'EUR' }, operatorCount: 1, cappedFrom: null });
+
+    const multi = await t
+      .http()
+      .post('/v1/pricing/service-fee/quote')
+      .send({
+        tickets: [
+          { modes: ['U_BAHN'], operators: ['bvg'], fareMinor: 380 },
+          { modes: ['HIGH_SPEED_RAIL'], operators: ['db-fernverkehr'], fareMinor: 7990 },
+          { modes: ['U_BAHN'], operators: ['mvg'], fareMinor: 390 },
+        ],
+      })
+      .expect(200);
+    expect(multi.body).toMatchObject({ total: { amountMinor: 100 }, operatorCount: 3, cappedFrom: { amountMinor: 120 } });
+
+    await t.http().post('/v1/pricing/service-fee/quote').send({ tickets: [{ modes: ['ROCKET'], operators: ['x'], fareMinor: 1 }] }).expect(400);
+    await t.http().post('/v1/pricing/service-fee/quote').send({ tickets: [{ modes: ['BUS'], fareMinor: 1 }] }).expect(400);
   });
 });
 

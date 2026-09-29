@@ -260,6 +260,8 @@ enum ServiceFeeKind {
   FIXED_PER_TICKET
   FIXED_PER_LEG
   PERCENT
+  /// Caps the total fee of a booking whose tickets involve more than one operator.
+  MULTI_OPERATOR_BOOKING_CAP
 
   @@schema("app")
 }

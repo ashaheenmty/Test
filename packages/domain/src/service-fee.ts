@@ -9,7 +9,8 @@ import { applyBasisPoints, money, sum, type CurrencyCode, type Money } from './m
  *   between cities (regional rail)  €0.50
  *   buses and city transport        €0.10
  * It is charged once per ticket (contract of carriage), not per passenger; a ticket
- * covering several modes uses its highest tier. Amounts are gross (incl. VAT).
+ * covering several modes uses its highest tier. If the booking involves more than one
+ * operator, the booking's total fee is capped (€1.00). Amounts are gross (incl. VAT).
  * The amounts themselves live in ServiceFeeRule rows so they can change without code.
  */
 
@@ -56,6 +57,8 @@ export interface FeeRule {
 export interface FeeTicket {
   /** Modes of the legs this ticket (contract of carriage) covers. */
   modes: TransportMode[];
+  /** Carrier operators (ids or slugs) of the legs this ticket covers. */
+  operators: string[];
   fare: Money;
 }
 
@@ -68,7 +71,12 @@ export interface FeeLine {
 
 export interface FeeQuote {
   total: Money;
+  /** Per-ticket fees, plus a negative adjustment line when the multi-operator cap applies. */
   lines: FeeLine[];
+  /** Number of distinct operators in the booking. */
+  operatorCount: number;
+  /** Set when the multi-operator cap reduced the total. */
+  cappedFrom: Money | null;
 }
 
 function pickRule(rules: FeeRule[], kinds: ServiceFeeKind[], category: ServiceFeeCategory | null): FeeRule | undefined {
@@ -100,5 +108,18 @@ export function quoteServiceFee(tickets: FeeTicket[], rules: FeeRule[], currency
   });
   const perBooking = pickRule(rules, ['FIXED_PER_BOOKING'], null);
   if (perBooking) lines.push({ ticketIndex: null, category: null, ruleId: perBooking.id, amount: money(perBooking.amountMinor ?? 0, currency) });
-  return { total: sum(lines.map((l) => l.amount), currency), lines };
+
+  const operatorCount = new Set(tickets.flatMap((t) => t.operators)).size;
+  const uncapped = sum(lines.map((l) => l.amount), currency);
+  const cap = operatorCount > 1 ? pickRule(rules, ['MULTI_OPERATOR_BOOKING_CAP'], null) : undefined;
+  if (cap && cap.amountMinor !== null && uncapped.amountMinor > cap.amountMinor) {
+    lines.push({
+      ticketIndex: null,
+      category: null,
+      ruleId: cap.id,
+      amount: money(cap.amountMinor - uncapped.amountMinor, currency),
+    });
+    return { total: money(cap.amountMinor, currency), lines, operatorCount, cappedFrom: uncapped };
+  }
+  return { total: uncapped, lines, operatorCount, cappedFrom: null };
 }

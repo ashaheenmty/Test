@@ -109,7 +109,14 @@ export type DiscountCardType = (typeof DiscountCardType)[number];
 export const ConsentPurpose = e('ANALYTICS', 'MARKETING_EMAIL', 'MARKETING_PUSH', 'CRASH_REPORTS');
 export type ConsentPurpose = (typeof ConsentPurpose)[number];
 
-export const ServiceFeeKind = e('ZERO', 'FIXED_PER_BOOKING', 'FIXED_PER_TICKET', 'FIXED_PER_LEG', 'PERCENT');
+export const ServiceFeeKind = e(
+  'ZERO',
+  'FIXED_PER_BOOKING',
+  'FIXED_PER_TICKET',
+  'FIXED_PER_LEG',
+  'PERCENT',
+  'MULTI_OPERATOR_BOOKING_CAP',
+);
 export type ServiceFeeKind = (typeof ServiceFeeKind)[number];
 
 export const ServiceFeeCategory = e('LONG_DISTANCE_RAIL', 'INTERCITY_REGIONAL', 'LOCAL_AND_BUS');
